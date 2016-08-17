@@ -2,36 +2,38 @@
 <html>
   <head>
     <style>
-      a { font: 13px "Trebuchet MS", Arial, Helvetica, Sans-Serif;
+      a { font: 13px Arial;
       color: #933300;
       text-decoration: none; }
       
-      a:hover { font: 13px "Trebuchet MS", Arial, Helvetica, Sans-Serif;
+      a:hover { font: 13px Arial;
       color: #933300;
       text-decoration: underline; }
 
       body { background-color: white;
-      font: 12px "Trebuchet MS", Arial, Helvetica, Sans-Serif;
+      font: 12px Arial;
       margin: 50px 50px 50px 50px; }
 
-      h2 { font: bold 13px "Trebuchet MS", Arial, Helvetica, Sans-Serif;}
+      h2 { font: bold 13px Arial;}
 
-      h3 { font: bold 12px "Trebuchet MS", Arial, Helvetica, Sans-Serif;
+      h3 { font: bold 12px Arial;
       color: #003366;}
 
-      td {font: 13px "Trebuchet MS", Arial, Helvetica, Sans-Serif;}
+      td {font: 13px Arial;}
 
       ul {line-height:150%}
 
       p {line-height:150%}
     </style>
 
+    <?php $rootdir="http://zwdzwd.io/InfiniumAnnotation/current/"; ?>
+
     <title>InfiniumMethylation BeadChips Annotation</title>
   </head>
 
   <table>
     <tr>
-      <a href="#current">Current Release</a> | 
+      <a href="#current">Download</a> | 
       <a href="#usage">Usage</a> | 
       <a href="#reference">Reference</a> |
       <a href="#contact">Contact</a>
@@ -41,42 +43,45 @@
   <hr>
 
   <br />
-  <a name="current">Release 2016-07-11</a>
+ 
+  Release 2016-07-11 <br />
   <h2>GRanges R objects</h2>
   <p>require GenomicRanges package from Bioconductor</p>
   <ul>
-    <li>GRCh38/hg38 annotation with global masking 
-      (<a href="https://db.tt/plvtPI17">EPIC</a>, 
-      <a href="https://db.tt/AkeIOKce">HM450</a>,
-      <a href="https://db.tt/n0XfSltf">HM27</a>)
+    <li>GRCh38/hg38 annotation with global masking
+      (<a href="http://zwdzwd.io/InfiniumAnnotation/current/EPIC/EPIC.manifest.hg38.rda">EPIC</a>,
+      <a href="http://zwdzwd.io/InfiniumAnnotation/current/hm450/hm450.manifest.hg38.rda">HM450</a>,
+      <a href="http://zwdzwd.io/InfiniumAnnotation/current/hm27/hm27.manifest.hg38.rda">HM27</a>)
     </li>
 
     <li>GRCh37/hg19 annotation with global masking
-      (<a href="https://db.tt/XQVwo06j">EPIC</a>,
-      <a href="https://db.tt/1gPLEgh8">HM450</a>,
-      <a href="https://db.tt/SUtkuTDv">HM27</a>)
+      (<a href="http://zwdzwd.io/InfiniumAnnotation/current/EPIC/EPIC.manifest.hg19.rda">EPIC</a>,
+      <a href="http://zwdzwd.io/InfiniumAnnotation/current/hm450/hm450.manifest.hg19.rda">HM450</a>,
+      <a href="http://zwdzwd.io/InfiniumAnnotation/current/hm27/hm27.manifest.hg19.rda">HM27</a>)
     </li>
 
     <li>Population-specific masking GRCh38/hg38
-      (<a href="https://db.tt/1NN8HINB">EPIC</a>,
-      <a href="https://db.tt/N8eNcGIE">HM450</a>,
-      <a href="https://db.tt/6mW4CZKH">HM27</a>)
+      (<a href="http://zwdzwd.io/InfiniumAnnotation/current/EPIC/EPIC.manifest.pop.hg38.rda">EPIC</a>,
+      <a href="http://zwdzwd.io/InfiniumAnnotation/current/hm450/hm450.manifest.pop.hg38.rda">HM450</a>,
+      <a href="http://zwdzwd.io/InfiniumAnnotation/current/hm27/hm27.manifest.pop.hg38.rda">HM27</a>)
     </li>
 
     <li>Population-specific masking GRCh37/hg19
-      (<a href="https://db.tt/2y14jOwJ">EPIC</a>,
-      <a href="https://db.tt/ODk4FDns">HM450</a>,
-      <a href="https://db.tt/ZXUdtdma">HM27</a>)</li>
+      (<a href="http://zwdzwd.io/InfiniumAnnotation/current/EPIC/EPIC.manifest.pop.hg38.rda">EPIC</a>,
+      <a href="http://zwdzwd.io/InfiniumAnnotation/current/hm450/hm450.manifest.pop.hg38.rda">HM450</a>,
+      <a href="http://zwdzwd.io/InfiniumAnnotation/current/hm27/hm27.manifest.pop.hg38.rda">HM27</a>)
+    </li>
 
     <li>Population-specific SNP information GRCh38/hg38
-      (<a href="https://db.tt/ENowzSsx">EPIC</a>,
-      <a href="https://db.tt/nrsWixLC">HM450</a>,
-      <a href="https://db.tt/ZYk3WPzE">HM27</a>)</li>
+      (<a href="http://zwdzwd.io/InfiniumAnnotation/current/EPIC/hg38.commonsnp.rda">EPIC</a>,
+      <a href="http://zwdzwd.io/InfiniumAnnotation/current/hm450/hg38.commonsnp.rda">HM450</a>,
+      <a href="http://zwdzwd.io/InfiniumAnnotation/current/hm27/hg38.commonsnp.rda">HM27</a>)
+    </li>
 
     <li>Original manifest
-      (<a href="https://db.tt/H9yxN6gH">EPIC</a>,
-      <a href="https://db.tt/HeeV6ufr">HM450</a>,
-      <a href="https://db.tt/RZjX5v6R">HM27</a>)
+      (<a href="http://zwdzwd.io/InfiniumAnnotation/current/EPIC/EPIC.manifest.original.rda">EPIC</a>,
+      <a href="http://zwdzwd.io/InfiniumAnnotation/current/hm450/hm450.manifest.original.rda">HM450</a>,
+      <a href="http://zwdzwd.io/InfiniumAnnotation/current/hm27/hm27.manifest.original.rda">HM27</a>)
     </li>
 
   </ul>
@@ -85,47 +90,49 @@
 
   <ul>
     <li>GRCh38/hg38 annotation with global masking 
-      (<a href="https://db.tt/xmG7EuNW">EPIC</a>, 
-      <a href="https://db.tt/a1lVQFQA">HM450</a>,
-      <a href="https://db.tt/rdhRJCvg">HM27</a>)
+      (<a href="http://zwdzwd.io/InfiniumAnnotation/current/EPIC/EPIC.manifest.hg38.tsv">EPIC</a>, 
+      <a href="http://zwdzwd.io/InfiniumAnnotation/current/hm450/hm450.manifest.hg38.tsv">HM450</a>,
+      <a href="http://zwdzwd.io/InfiniumAnnotation/current/hm27/hm27.manifest.hg38.tsv">HM27</a>)
     </li>
   
     <li>GRCh37/hg19 annotation with global masking
-      (<a href="https://db.tt/gT3NfUpw">EPIC</a>, 
-      <a href="https://db.tt/BKO64mlj">HM450</a>,
-      <a href="https://db.tt/m30wOxPP">HM27</a>)
+      (<a href="http://zwdzwd.io/InfiniumAnnotation/current/EPIC/EPIC.manifest.tsv">EPIC</a>, 
+      <a href="http://zwdzwd.io/InfiniumAnnotation/current/hm450/hm450.manifest.tsv">HM450</a>,
+      <a href="http://zwdzwd.io/InfiniumAnnotation/current/hm27/hm27.manifest.tsv">HM27</a>)
     </li>
     
     <li>Population-specific masking GRCh38/hg38
-      (<a href="https://db.tt/VD0P7xlj">EPIC</a>, 
-      <a href="https://db.tt/LddweCVR">HM450</a>,
-      <a href="https://db.tt/pgv0tvb7">HM27</a>)
+      (<a href="http://zwdzwd.io/InfiniumAnnotation/current/EPIC/EPIC.manifest.pop.hg38.tsv">EPIC</a>,
+      <a href="http://zwdzwd.io/InfiniumAnnotation/current/hm450/hm450.manifest.pop.hg38.tsv">HM450</a>,
+      <a href="http://zwdzwd.io/InfiniumAnnotation/current/hm27/hm27.manifest.pop.hg38.tsv">HM27</a>)
     </li>
 
     <li>Population-specific masking GRCh37/hg19
-      (<a href="https://db.tt/sOJYWUlo">EPIC</a>, 
-      <a href="https://db.tt/QQsGQtV5">HM450</a>,
-      <a href="https://db.tt/DV9VYB7S">HM27</a>)
+      (<a href="http://zwdzwd.io/InfiniumAnnotation/current/EPIC/EPIC.manifest.pop.hg38.tsv">EPIC</a>,
+      <a href="http://zwdzwd.io/InfiniumAnnotation/current/hm450/hm450.manifest.pop.hg38.tsv">HM450</a>,
+      <a href="http://zwdzwd.io/InfiniumAnnotation/current/hm27/hm27.manifest.pop.hg38.tsv">HM27</a>)
     </li>
 
     <li>Population-specific SNP information GRCh38/hg38
-      (<a href="https://db.tt/ZCLdDeJe">EPIC</a>, 
-      <a href="https://db.tt/Jw6suUF9">HM450</a>,
-      <a href="https://db.tt/a596Ic8I">HM27</a>)
+      (<a href="http://zwdzwd.io/InfiniumAnnotation/current/EPIC/hg38.commonsnp.tsv">EPIC</a>,
+      <a href="http://zwdzwd.io/InfiniumAnnotation/current/hm450/hg38.commonsnp.tsv">HM450</a>,
+      <a href="http://zwdzwd.io/InfiniumAnnotation/current/hm27/hg38.commonsnp.tsv">HM27</a>)
     </li>
 
     <li>Original manifest
-      (<a href="https://db.tt/r4wHCWGf">EPIC</a>, 
-      <a href="https://db.tt/jLZUtuMe">HM450</a>,
-      <a href="https://db.tt/XzYwQyAa">HM27</a>)
+      (<a href="http://zwdzwd.io/InfiniumAnnotation/current/EPIC/EPIC.manifest.original.tsv">EPIC</a>,
+      <a href="http://zwdzwd.io/InfiniumAnnotation/current/hm450/hm450.manifest.original.tsv">HM450</a>,
+      <a href="http://zwdzwd.io/InfiniumAnnotation/current/hm27/hm27.manifest.original.tsv">HM27</a>)
     </li>
 
     <li>Bisulfite-Genomic copy number of 3'-subsequence of length 11-50
-      (<a href="https://db.tt/p4DSnR6R">EPIC</a>, 
-      <a href="https://db.tt/m3c8uB2J">HM450</a>,
-      <a href="https://db.tt/adSpWlLD">HM27</a>)
+      (<a href="http://zwdzwd.io/InfiniumAnnotation/current/EPIC/EPIC.3sub.copynumber.tsv">EPIC</a>, 
+      <a href="http://zwdzwd.io/InfiniumAnnotation/current/hm450/hm450.3sub.copynumber.tsv">HM450</a>,
+      <a href="http://zwdzwd.io/InfiniumAnnotation/current/hm27/hm27.3sub.copynumber.tsv">HM27</a>)
     </li>
   </ul>
+
+  See <a href="http://zwdzwd.io/InfiniumAnnotation/">here</a> for previous releases.<br /><br />
 
   <hr>
   <a name="usage">Usage</a>
