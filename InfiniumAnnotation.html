@@ -1,0 +1,210 @@
+
+<html>
+  <head>
+    <style>
+      a { font: 13px "Trebuchet MS", Arial, Helvetica, Sans-Serif;
+      color: #933300;
+      text-decoration: none; }
+      
+      a:hover { font: 13px "Trebuchet MS", Arial, Helvetica, Sans-Serif;
+      color: #933300;
+      text-decoration: underline; }
+
+      body { background-color: white;
+      font: 13px "Trebuchet MS", Arial, Helvetica, Sans-Serif;
+      margin: 50px 50px 50px 50px; }
+
+      h2 { font: bold 15px "Trebuchet MS", Arial, Helvetica, Sans-Serif;}
+
+      h3 { font: bold 12px "Trebuchet MS", Arial, Helvetica, Sans-Serif;
+      color: #003366;}
+
+      td {font: 13px "Trebuchet MS", Arial, Helvetica, Sans-Serif;}
+
+      ul {line-height:150%}
+
+      p {line-height:150%}
+    </style>
+
+    <title>InfiniumMethylation BeadChips Annotation</title>
+  </head>
+
+  <table>
+    <tr>
+      <a href="#current">Current Release</a> | 
+      <a href="#usage">Usage</a> | 
+      <a href="#reference">Reference</a> |
+      <a href="#contact">Contact</a>
+    </tr>
+  </table>
+
+  <hr>
+
+  <br />
+  <a name="current">Release 2016-07-11</a>
+  <h2>GRanges R objects</h2>
+  <p>require GenomicRanges package from Bioconductor</p>
+  <ul>
+    <li>GRCh38/hg38 annotation with global masking 
+      (<a href="https://db.tt/plvtPI17">EPIC</a>, 
+      <a href="https://db.tt/AkeIOKce">HM450</a>,
+      <a href="https://db.tt/n0XfSltf">HM27</a>)
+    </li>
+
+    <li>GRCh37/hg19 annotation with global masking
+      (<a href="https://db.tt/XQVwo06j">EPIC</a>,
+      <a href="https://db.tt/1gPLEgh8">HM450</a>,
+      <a href="https://db.tt/SUtkuTDv">HM27</a>)
+    </li>
+
+    <li>Population-specific masking GRCh38/hg38
+      (<a href="https://db.tt/1NN8HINB">EPIC</a>,
+      <a href="https://db.tt/N8eNcGIE">HM450</a>,
+      <a href="https://db.tt/6mW4CZKH">HM27</a>)
+    </li>
+
+    <li>Population-specific masking GRCh37/hg19
+      (<a href="https://db.tt/2y14jOwJ">EPIC</a>,
+      <a href="https://db.tt/ODk4FDns">HM450</a>,
+      <a href="https://db.tt/ZXUdtdma">HM27</a>)</li>
+
+    <li>Population-specific SNP information GRCh38/hg38
+      (<a href="https://db.tt/ENowzSsx">EPIC</a>,
+      <a href="https://db.tt/nrsWixLC">HM450</a>,
+      <a href="https://db.tt/ZYk3WPzE">HM27</a>)</li>
+
+    <li>Original manifest
+      (<a href="https://db.tt/H9yxN6gH">EPIC</a>,
+      <a href="https://db.tt/HeeV6ufr">HM450</a>,
+      <a href="https://db.tt/RZjX5v6R">HM27</a>)
+    </li>
+
+  </ul>
+  
+  <h2>tab-delimited format</h2>
+
+  <ul>
+    <li>GRCh38/hg38 annotation with global masking 
+      (<a href="https://db.tt/xmG7EuNW">EPIC</a>, 
+      <a href="https://db.tt/a1lVQFQA">HM450</a>,
+      <a href="https://db.tt/rdhRJCvg">HM27</a>)
+    </li>
+  
+    <li>GRCh37/hg19 annotation with global masking
+      (<a href="https://db.tt/gT3NfUpw">EPIC</a>, 
+      <a href="https://db.tt/BKO64mlj">HM450</a>,
+      <a href="https://db.tt/m30wOxPP">HM27</a>)
+    </li>
+    
+    <li>Population-specific masking GRCh38/hg38
+      (<a href="https://db.tt/VD0P7xlj">EPIC</a>, 
+      <a href="https://db.tt/LddweCVR">HM450</a>,
+      <a href="https://db.tt/pgv0tvb7">HM27</a>)
+    </li>
+
+    <li>Population-specific masking GRCh37/hg19
+      (<a href="https://db.tt/sOJYWUlo">EPIC</a>, 
+      <a href="https://db.tt/QQsGQtV5">HM450</a>,
+      <a href="https://db.tt/DV9VYB7S">HM27</a>)
+    </li>
+
+    <li>Population-specific SNP information GRCh38/hg38
+      (<a href="https://db.tt/ZCLdDeJe">EPIC</a>, 
+      <a href="https://db.tt/Jw6suUF9">HM450</a>,
+      <a href="https://db.tt/a596Ic8I">HM27</a>)
+    </li>
+
+    <li>Original manifest
+      (<a href="https://db.tt/r4wHCWGf">EPIC</a>, 
+      <a href="https://db.tt/jLZUtuMe">HM450</a>,
+      <a href="https://db.tt/XzYwQyAa">HM27</a>)
+    </li>
+
+    <li>Bisulfite-Genomic copy number of 3'-subsequence of length 11-50
+      (<a href="https://db.tt/p4DSnR6R">EPIC</a>, 
+      <a href="https://db.tt/m3c8uB2J">HM450</a>,
+      <a href="https://db.tt/adSpWlLD">HM27</a>)
+    </li>
+  </ul>
+
+  <a name="usage">Usage</a>
+
+  <p>
+    <b>seqnames</b>, <b>start</b> and <b>end</b> - the location of the target (1-based coordinates, 2 nucleotides for CpG probes, or 1 nucleotide for CpH and SNP probes). strand is left as "*" always. This corrects some CpH MAPINFO in the original manifest and coordinates for SNP probes.
+    <br />
+
+    <b>addressA</b> and <b>addressB</b> - addresses of probe A and B on the chip designated by the original manifest.
+    <br />
+
+    <b>channel</b> - "Both" for type II probes and "Grn"/"Red" for type I probes.
+    <br />
+
+    <b>designType</b> - either "I" or "II".
+    <br />
+
+    <b>nextBase</b> - the actual extension base (on the probe strand) after bisulfite conversion (either "A" or "C" or "T"). Unmapped probe has extension base labeled in the original manifest.
+    <br />
+
+    <b>nextBaseRef</b> - the extension base (on the hybridized DNA) before bisulfite conversion (can be "A", "C", "G" or "T"). Unmapped probe has "NA".
+    <br />
+
+    <b>probeType</b> - either "cg", "ch" or "rs".
+    <br />
+
+    <b>orientation</b> - either "up" or "down" specifying whether the probe is positioned upstream or downstream the target.
+    <br />
+
+    <b>probeCpGcnt</b> - the number of CpG in the probe.
+    <br />
+
+    <b>context35</b> - the number of CpG in the [-35bp, +35bp] window.
+    <br />
+
+    <b>probeStart</b> and <b>probeEnd</b> - the mapped start and end position of the probe, it is always 50bp long.
+    <br />
+
+    <b>ProbeSeqA</b> and <b>ProbeSeqB</b> - the probe sequence for allele A and B.
+    <br />
+
+    <b>chrmA</b>, <b>begA</b>, <b>flag.A</b>, <b>mapQ.A</b>, <b>cigarA</b> - the mapping info for probe A.
+    <br />
+
+    <b>chrmB</b>, <b>begB</b>, <b>flag.B</b>, <b>mapQ.B</b>, <b>cigarB</b> - the mapping info for probe B.
+    <br />
+
+    <b>posMatch</b> - whether the mapping matches the original manifest.
+    <br />
+
+    <b>MASK.mapping</b> indicates whether the probe is masked for mapping reason. This include requirement for high quality (>10 on 0-60 scale) consistent (with designed MAPINFO) mapping (for both in the case of type I) without INDELs.
+    <br />
+
+    <b>MASK.typeINextBaseSwitch</b> indicates whether the probe is subject to color-channel-switching SNPs (CCS SNPs)
+    <br />
+
+    <b>MASK.rmsk15</b> whether the 15bp 3'-subsequence of the probe overlap with repeat masker.
+    <br />
+
+    <b>MASK.sub25.copy</b>, <b>MASK.sub30.copy</b>, <b>MASK.sub35.copy</b> and <b>MASK.sub40.copy</b> - whether the 25bp, 30bp, 35bp and 40bp 3'-subsequence of the probe is non-unique.
+    <br />
+
+    <b>MASK.snp5.common</b> whether 5bp 3'-subsequence (including extension for typeII) overlap with any of the common SNPs from dbSNP (global MAF can be under 1%).
+    <br />
+
+    <b>MASK.snp5.GMAF1p</b> - whether 5bp 3'-subsequence (including extension for typeII) overlap with any of the SNPs with global MAF >1%.
+    <br />
+
+    <b>MASK.extBase</b> - probes masked for inconsistent extension base based on mapping.
+    <br />
+
+    <b>MASK.general</b> - recommended general purpose masking merged from "MASK.sub30.copy", "MASK.mapping", "MASK.extBase", "MASK.typeINextBaseSwitch" and "MASK.snp5.GMAF1p".
+    <br />
+  </p>
+
+  <a name="reference">Reference</a>
+  <p>
+    In submission
+  </p>
+
+  
+
+</html>
