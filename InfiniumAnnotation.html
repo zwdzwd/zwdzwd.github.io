@@ -11,10 +11,10 @@
       text-decoration: underline; }
 
       body { background-color: white;
-      font: 13px "Trebuchet MS", Arial, Helvetica, Sans-Serif;
+      font: 12px "Trebuchet MS", Arial, Helvetica, Sans-Serif;
       margin: 50px 50px 50px 50px; }
 
-      h2 { font: bold 15px "Trebuchet MS", Arial, Helvetica, Sans-Serif;}
+      h2 { font: bold 13px "Trebuchet MS", Arial, Helvetica, Sans-Serif;}
 
       h3 { font: bold 12px "Trebuchet MS", Arial, Helvetica, Sans-Serif;
       color: #003366;}
@@ -143,10 +143,10 @@
     <b>designType</b> - either "I" or "II".
     <br />
 
-    <b>nextBase</b> - the actual extension base (on the probe strand) after bisulfite conversion (either "A" or "C" or "T"). Unmapped probe has extension base labeled in the original manifest.
+    <b>nextBase</b> - the actual extension base (on the probe strand) after bisulfite conversion ("A" or "C" or "T"). Unmapped probe has extension base labeled in the original manifest.
     <br />
 
-    <b>nextBaseRef</b> - the extension base (on the hybridized DNA) before bisulfite conversion (can be "A", "C", "G" or "T"). Unmapped probe has "NA".
+    <b>nextBaseRef</b> - the extension base (on the hybridized DNA) before bisulfite conversion ("A", "C", "G" or "T"). Unmapped probe has "NA".
     <br />
 
     <b>probeType</b> - either "cg", "ch" or "rs".
@@ -176,6 +176,10 @@
     <b>posMatch</b> - whether the mapping matches the original manifest.
     <br />
 
+  </p>
+  <hr style="border-top: dotted 1px;">
+  <p>
+    
     <b>MASK.mapping</b> indicates whether the probe is masked for mapping reason. This include requirement for high quality (>10 on 0-60 scale) consistent (with designed MAPINFO) mapping (for both in the case of type I) without INDELs.
     <br />
 
@@ -211,7 +215,7 @@
   <a name="contact">Contact</a>
   
   <p>
-    Questions regarding this annotation are addressed to <a href="mailto:zhouwanding@gmail.com">Wanding Zhou<a>.
+    Questions regarding this annotation can be addressed to <a href="mailto:zhouwanding@gmail.com">Wanding Zhou<a>.
   </p>
 
 </html>
