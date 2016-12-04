@@ -17,11 +17,11 @@ name: zwdzwd
 title: Mundane Exercise6
 email: zhouwanding@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
-  There isn't really much here.
+  You won't find useful things here.
   
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://zwdzwd.github.io/blog" # the base hostname & protocol for your site, e.g. http://example.com
-permalink: /:year/:month/:day/:title
+permalink: /blog/:year/:month/:day/:title
 
 # twitter_username: jekyllrb
 github_username:  zwdzwd
