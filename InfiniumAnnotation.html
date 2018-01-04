@@ -45,9 +45,12 @@
   <a class="header" name="download">Download</a>
   
   <br /><br />
+
+  Release Jan-4-2018 Updated strand information. <br />
   
-  Release Nov-23-2017 Updates: changed to RDS from RData following R's recommendation. <br />
+  Release Nov-23-2017 Updates: <br />
   <ul>
+    <li>Changed to RDS from RData following R's recommendation.</li>
     <li>Update to missing value representation.</li>
     <li>Update to table headers.</li>
     <li>Added gene annotation in short forms.</li>
@@ -182,6 +185,8 @@
   <p>
     <b>seqnames</b>, <b>start</b> and <b>end</b> - the location of the target (1-based coordinates, 2 nucleotides for CpG probes, or 1 nucleotide for CpH and SNP probes). strand is left as "*" always. Some erroneous CpH probe coordinates mapping information in the manufacturer's manifest have been corrected. SNP probe coordinates are provided. <br />
 
+    <b>strand</b> This is consistent with "orientation" column for strand information of the actual probe. '+' is for all the up-probes positioned in smaller coordinates and '-' for all the down-probes positioned in greater coordinates with respect to the target CpGs.<br />
+
     <b>addressA</b> and <b>addressB</b> - addresses of probe A and B on the chip designated by the original manifest. <br />
 
     <b>channel</b> - "Both" for type II probes and "Grn"/"Red" for type I probes. <br />
@@ -194,8 +199,8 @@
 
     <b>probeType</b> - either "cg", "ch" or "rs". <br />
 
-    <b>orientation</b> - either "up" or "down" specifying whether the probe is positioned upstream or downstream the target. <br />
-    <b style="color:DodgerBlue;">Note that by design, probes positioned upstream (with a smaller coordinates) are always on the Watson strand and probes positioned downstream (with a bigger coordinates) are always on the Crick strand.</b><br />
+    <b>orientation</b> - either "up" or "down" specifying whether the probe is positioned upstream (in smaller coordinates) or downstream (in greater coordinates) the target. <br />
+    <b style="color:DodgerBlue;">Note that by design, probes positioned upstream (in smaller coordinates) are always on the Watson strand and probes positioned downstream (in greater coordinates) are always on the Crick strand.</b><br />
 
     <b>probeCpGcnt</b> - the number of CpG in the probe. <br />
 
