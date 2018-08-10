@@ -223,15 +223,15 @@
 
     <b>ProbeSeq_A</b> and <b>ProbeSeq_B</b> - the probe sequence for allele A and B.<br />
 
-    <b>chrm_A</b>, <b>beg_A</b>, <b>flag_A</b>, <b>mapQ_A</b>, <b>cigar_A</b> - the mapping info for probe A excluding alt-chromsomes. mapQ=mapping quality score, 0-60, with 60 being the best.<br />
+    <b>chrm_A</b>, <b>beg_A</b>, <b>flag_A</b>, <b>mapQ_A</b>, <b>cigar_A</b>, <b>NM_A</b> - the mapping info for probe A excluding decoy chromsomes. mapQ=mapping quality score, 0-60, with 60 being the best.<br />
 
-    <b>chrm_B</b>, <b>beg_B</b>, <b>flag_B</b>, <b>mapQ_B</b>, <b>cigar_B</b> - the mapping info for probe B excluding alt-chromosomes, like above.<br />
+    <b>chrm_B</b>, <b>beg_B</b>, <b>flag_B</b>, <b>mapQ_B</b>, <b>cigar_B</b>, <b>NM_B</b> - the mapping info for probe B excluding decoy chromosomes, like above.<br />
 
-    <b>wContig_chrm_A</b>, <b>wContig_beg_A</b>, <b>wContig_mapQ_A</b>, <b>wContig_cigar_A</b> - the mapping info for probe A including alt-chromosomes.<br />
+    <b>wDecoy_chrm_A</b>, <b>wDecoy_beg_A</b>, <b>wDecoy_mapQ_A</b>, <b>wDecoy_cigar_A</b>, <b>wDecoy_NM_A</b> - the mapping info for probe A including decoy chromosomes.<br />
 
-    <b>wContig_chrm_B</b>, <b>wContig_beg_B</b>, <b>wContig_mapQ_B</b>, <b>wContig_cigar_B</b> - the mapping info for probe B including alt-chromosomes.<br />
+    <b>wDecoy_chrm_B</b>, <b>wDecoy_beg_B</b>, <b>wDecoy_mapQ_B</b>, <b>wDecoy_cigar_B</b>, <b>wDecoy_NM_B</b> - the mapping info for probe B including decoy chromosomes.<br />
 
-    <b>posMatch</b> - whether the mapping matches the original manifest. <br />
+    <b>posMatch</b> - whether the mapping matches the original manifest, it only applies to hg19 and will be NA under hg38. <br />
 
   </p>
   <hr style="border-top: dotted 1px;">
