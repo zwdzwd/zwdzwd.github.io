@@ -49,10 +49,10 @@
   Release Sep-9-2018 Updates: <br />
   <ul>
     <li>See <a href="http://rpubs.com/zhouwanding/417953">Updates Summary</a> for more details.</li>
-    <li>Added gene_HGNC column for gene symbols corrected</li>
+    <li>Added gene_HGNC column for gene symbols corrected for HGNC compatibility</li>
     <li>Updated SNP masking with dbSNP build 151</li>
     <li>All maskings were redone on hg19. Previously hg19 manifest file was "borrowing" hg38 maskings.</li>
-    <li>CCS probes have shrunk in numbers based on AF filtering.</li>
+    <li>CCS probes have shrunk in numbers based on AF filtering (>1%).</li>
   </ul>
 
   Release Aug-8-2018 Updates: <br />
@@ -233,9 +233,9 @@
 
     <b>ProbeSeq_A</b> and <b>ProbeSeq_B</b> - the probe sequence for allele A and B.<br />
 
-    <b>gene</b> - ";"-separated list of gene annotations (unique and alphabetically sorted). Gene models follows GENCODE version 22 (hg38)
+    <b>gene</b> - ";"-separated list of gene annotations (unique and alphabetically sorted). Gene models follows GENCODE version 22 (hg38). <br />
 
-    <b>gene_HGNC</b> - ";"-separated list of gene annotations (unique and alphabetically sorted). Genes are checked using HGNChelper for compatibility with HGNC. Gene models follows GENCODE version 22 (hg38)
+    <b>gene_HGNC</b> - ";"-separated list of gene annotations (unique and alphabetically sorted). Genes are checked using HGNChelper for compatibility with HGNC. Gene models follows GENCODE version 22 (hg38). <br />
 
     <b>chrm_A</b>, <b>beg_A</b>, <b>flag_A</b>, <b>mapQ_A</b>, <b>cigar_A</b>, <b>NM_A</b> - the mapping info for probe A excluding decoy chromsomes. mapQ=mapping quality score, 0-60, with 60 being the best.<br />
 
