@@ -46,10 +46,19 @@
   
   <br /><br />
 
+  Release Sep-9-2018 Updates: <br />
+  <ul>
+    <li>See <a href="http://rpubs.com/zhouwanding/417953">Updates Summary</a> for more details.</li>
+    <li>Added gene_HGNC column for gene symbols corrected</li>
+    <li>Updated SNP masking with dbSNP build 151</li>
+    <li>All maskings were redone on hg19. Previously hg19 manifest file was "borrowing" hg38 maskings.</li>
+    <li>CCS probes have shrunk in numbers based on AF filtering.</li>
+  </ul>
+
   Release Aug-8-2018 Updates: <br />
   <ul>
     <li>See <a href="http://rpubs.com/zhouwanding/InfiniumMethylation20180808">Updates Summary</a> for more details.</li>
-    <li>Fix to MASK_mapping </li>
+    <li>Fix to MASK_mapping, some mapping with NM>0 are now masked as well </li>
     <li>Addition of NM columns and gene annotation to the manifest file.</li>
     <li>Previously, masking of mapping issues were merged from hg19 and hg38. Now masking on hg19 and hg38 was re-built entirely independently. There is some small decrease in the number of masking due to this change and a small increase due to the added NM-based masking (included in MASK_mapping).</li>
   </ul>
@@ -224,6 +233,10 @@
 
     <b>ProbeSeq_A</b> and <b>ProbeSeq_B</b> - the probe sequence for allele A and B.<br />
 
+    <b>gene</b> - ";"-separated list of gene annotations (unique and alphabetically sorted). Gene models follows GENCODE version 22 (hg38)
+
+    <b>gene_HGNC</b> - ";"-separated list of gene annotations (unique and alphabetically sorted). Genes are checked using HGNChelper for compatibility with HGNC. Gene models follows GENCODE version 22 (hg38)
+
     <b>chrm_A</b>, <b>beg_A</b>, <b>flag_A</b>, <b>mapQ_A</b>, <b>cigar_A</b>, <b>NM_A</b> - the mapping info for probe A excluding decoy chromsomes. mapQ=mapping quality score, 0-60, with 60 being the best.<br />
 
     <b>chrm_B</b>, <b>beg_B</b>, <b>flag_B</b>, <b>mapQ_B</b>, <b>cigar_B</b>, <b>NM_B</b> - the mapping info for probe B excluding decoy chromosomes, like above.<br />
@@ -237,7 +250,7 @@
   </p>
   <hr style="border-top: dotted 1px;">
   <p>
-    <b>MASK.mapping</b> - whether the probe is masked for mapping reason. Probes retained should have high quality (>10 on 0-60 scale) consistent (with designed MAPINFO) mapping (for both in the case of type I) without INDELs.
+    <b>MASK.mapping</b> - whether the probe is masked for mapping reason. Probes retained should have high quality (>=40 on 0-60 scale) consistent (with designed MAPINFO) mapping (for both in the case of type I) without INDELs.
     <br />
 
     <b>MASK.typeINextBaseSwitch</b> - whether the probe has a SNP in the extension base that causes a color channel switch from the official annotation (described as color-channel-switching, or CCS SNP in the reference). These probes should be processed differently than designed (by summing up both color channels instead of just the annotated color channel).
@@ -256,7 +269,7 @@
     <b>MASK.snp5.GMAF1p</b> - whether 5bp 3'-subsequence (including extension for typeII) overlap with any of the SNPs with global MAF >1%.
     <br />
 
-    <b>MASK.extBase</b> - probes masked for inconsistent extension base based on mapping.
+    <b>MASK.extBase</b> - probes masked for extension base inconsistent with specified color channel (type-I) or CpG (type-II) based on mapping.
     <br />
 
     <b>MASK.general</b> - recommended general purpose masking merged from "MASK.sub30.copy", "MASK.mapping", "MASK.extBase", "MASK.typeINextBaseSwitch" and "MASK.snp5.GMAF1p".
@@ -266,7 +279,6 @@
   <hr>
   <a class="header" name="citation">Citation</a>
   <p>
-    For more details, please refer to: <br />
     Zhou W, Laird PW and Shen H, <a href="https://academic.oup.com/nar/article/45/4/e22/2290930">Comprehensive characterization, annotation and innovative use of Infinium DNA Methylation BeadChip probes</a>, <b>Nucleic Acids Research</b> 2017
   </p>
 
