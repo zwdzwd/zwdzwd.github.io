@@ -33,7 +33,8 @@
 
   <table>
     <tr>
-      <a href="#current">Download</a> | 
+      <a href="#current">Release Notes</a> | 
+      <a href="#download">Lastest Release Download</a> | 
       <a href="#usage">Usage</a> | 
       <a href="#citation">Citation</a> |
       <a href="#contact">Contact</a> |
@@ -42,32 +43,31 @@
   </table>
 
   <hr>
-  <a class="header" name="download">Download</a>
+  <a class="header" name="release">Release Notes</a>
   
   <br /><br />
-
-  Release Sep-9-2018 Updates: <br />
+  <b>Release Sep-9-2018 (latest)</b>  Updates: <br />
   <ul>
-    <li>See <a href="http://rpubs.com/zhouwanding/417953">Updates Summary</a> for more details.</li>
     <li>Added gene_HGNC column for gene symbols corrected for HGNC compatibility</li>
     <li>Updated SNP masking with dbSNP build 151</li>
     <li>All maskings were redone on hg19. Previously hg19 manifest file was "borrowing" hg38 maskings.</li>
     <li>CCS probes have shrunk in numbers based on AF filtering (>1%).</li>
+    <li>See <a href="http://rpubs.com/zhouwanding/417953">Updates Summary</a> for more details.</li>
   </ul>
 
-  Release Aug-8-2018 Updates: <br />
+  <b>Release Aug-8-2018</b> Updates: <br />
   <ul>
-    <li>See <a href="http://rpubs.com/zhouwanding/InfiniumMethylation20180808">Updates Summary</a> for more details.</li>
     <li>Fix to MASK_mapping, some mapping with NM>0 are now masked as well </li>
     <li>Addition of NM columns and gene annotation to the manifest file.</li>
     <li>Previously, masking of mapping issues were merged from hg19 and hg38. Now masking on hg19 and hg38 was re-built entirely independently. There is some small decrease in the number of masking due to this change and a small increase due to the added NM-based masking (included in MASK_mapping).</li>
+    <li>See <a href="http://rpubs.com/zhouwanding/InfiniumMethylation20180808">Updates Summary</a> for more details.</li>
   </ul>
 
-  <p>Release Mar-4-2018 Fix to hg19 decoy mapping inconsistency. </p>
+  <p><b>Release Mar-4-2018</b> Fix to hg19 decoy mapping inconsistency. </p>
 
-  <p>Release Jan-4-2018 Updated strand information. </p>
+  <p><b>Release Jan-4-2018</b> Updated strand information. </p>
   
-  Release Nov-23-2017 Updates: <br />
+  <b>Release Nov-23-2017</b> Updates: <br />
   <ul>
     <li>Changed to RDS from RData following R's recommendation.</li>
     <li>Update to missing value representation.</li>
@@ -77,22 +77,25 @@
     <li>Made consistent naming of columns with underscores.</li>
   </ul>
 
-  Release Mar-13-2017 Updates: fix to relative position in SNP masking of type-I probes. <br />
+  <b>Release Mar-13-2017</b> Updates: fix to relative position in SNP masking of type-I probes. <br />
   
+  <hr>
+  <a class="header" name="download">Download</a>
+
   <br />
-  <b>See <a href="http://zwdzwd.io/InfiniumAnnotation/">here</a> for previous releases.</b>
-  <p><u>Note: some old gz files appear double compressed when downloaded with filefox. Please apply decompression twice.</u></p>
+  <p><b>See <a href="http://zwdzwd.io/InfiniumAnnotation/">here</a> for previous releases.</b><br />
+  <u>Note: some old gz files appear double compressed when downloaded with filefox. Please apply decompression twice.</u></p>
 
   <h2>RDS Files</h2>
-  <p>require the <i>GenomicRanges</i> package from Bioconductor</p>
+  <p><u>require the <i>GenomicRanges</i> package from Bioconductor</u></p>
   <ul>
-    <li>GRCh38/hg38 annotation with suggested overall masking
+    <li>Comprehensive <span style="font-weight:bold;color:DodgerBlue">hg38</span> annotation with suggested overall masking (<b>MASK_general</b> column) <br />
       (<a href="http://zwdzwd.io/InfiniumAnnotation/current/EPIC/EPIC.hg38.manifest.rds">EPIC</a>,
       <a href="http://zwdzwd.io/InfiniumAnnotation/current/hm450/hm450.hg38.manifest.rds">HM450</a>,
       <a href="http://zwdzwd.io/InfiniumAnnotation/current/hm27/hm27.hg38.manifest.rds">HM27</a>)
     </li>
 
-    <li>GRCh37/hg19 annotation with suggested overall masking
+    <li>Comprehensive <span style="font-weight:bold;color:DodgerBlue">hg19</span> annotation with suggested overall masking (<b>MASK_general</b> column) <br />
       (<a href="http://zwdzwd.io/InfiniumAnnotation/current/EPIC/EPIC.hg19.manifest.rds">EPIC</a>,
       <a href="http://zwdzwd.io/InfiniumAnnotation/current/hm450/hm450.hg19.manifest.rds">HM450</a>,
       <a href="http://zwdzwd.io/InfiniumAnnotation/current/hm27/hm27.hg19.manifest.rds">HM27</a>)
@@ -109,13 +112,13 @@
   
   <h2>Plain Text Files (tab-delimited)</h2>
   <ul>
-    <li>GRCh38/hg38 annotation with suggested overall masking
+    <li>Comprehensive <span style="font-weight:bold;color:DodgerBlue">hg38</span> annotation with suggested overall masking (<b>MASK_general</b> column) <br>
       (<a href="http://zwdzwd.io/InfiniumAnnotation/current/EPIC/EPIC.hg38.manifest.tsv.gz">EPIC</a>, 
       <a href="http://zwdzwd.io/InfiniumAnnotation/current/hm450/hm450.hg38.manifest.tsv.gz">HM450</a>,
       <a href="http://zwdzwd.io/InfiniumAnnotation/current/hm27/hm27.hg38.manifest.tsv.gz">HM27</a>)
     </li>
   
-    <li>GRCh37/hg19 annotation with suggested overall masking
+    <li>Comprehensive <span style="font-weight:bold;color:DodgerBlue">hg19</span> annotation with suggested overall masking (<b>MASK_general</b> column) <br>
       (<a href="http://zwdzwd.io/InfiniumAnnotation/current/EPIC/EPIC.hg19.manifest.tsv.gz">EPIC</a>, 
       <a href="http://zwdzwd.io/InfiniumAnnotation/current/hm450/hm450.hg19.manifest.tsv.gz">HM450</a>,
       <a href="http://zwdzwd.io/InfiniumAnnotation/current/hm27/hm27.hg19.manifest.tsv.gz">HM27</a>)
