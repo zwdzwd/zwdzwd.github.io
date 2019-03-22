@@ -1,6 +1,5 @@
 * zwdzwd.github.io
 ** Study Notes
-- [[https://github.com/zwdzwd/zwdzwd.github.io][My Github Home]]
 - [[https://github.com/zwdzwd/emacs_study_notes][Emacs]]
 
 
