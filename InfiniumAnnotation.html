@@ -41,48 +41,6 @@
       <a href="#crossspecies">Cross-species</a>
     </tr>
   </table>
-
-  <hr>
-  <a class="header" name="release">Release Notes</a>
-
-  <br /><br />
-  <b>Update Jul-4-2020</b>  Updates: <br />
-  <ul>
-    <li>More detailed annotation to SNP and channel-switching probes</li>
-  </ul>
-  
-  <b>Release Sep-9-2018 (latest)</b>  Updates: <br />
-  <ul>
-    <li>Added gene_HGNC column for gene symbols corrected for HGNC compatibility</li>
-    <li>Updated SNP masking with dbSNP build 151</li>
-    <li>All maskings were redone on hg19. Previously hg19 manifest file was "borrowing" hg38 maskings.</li>
-    <li>CCS probes have shrunk in numbers based on AF filtering (>1%).</li>
-    <li>See <a href="http://rpubs.com/zhouwanding/417953">Updates Summary</a> for more details.</li>
-  </ul>
-
-  <b>Release Aug-8-2018</b> Updates: <br />
-  <ul>
-    <li>Fix to MASK_mapping, some mapping with NM>0 are now masked as well </li>
-    <li>Addition of NM columns and gene annotation to the manifest file.</li>
-    <li>Previously, masking of mapping issues were merged from hg19 and hg38. Now masking on hg19 and hg38 was re-built entirely independently. There is some small decrease in the number of masking due to this change and a small increase due to the added NM-based masking (included in MASK_mapping).</li>
-    <li>See <a href="http://rpubs.com/zhouwanding/InfiniumMethylation20180808">Updates Summary</a> for more details.</li>
-  </ul>
-
-  <p><b>Release Mar-4-2018</b> Fix to hg19 decoy mapping inconsistency. </p>
-
-  <p><b>Release Jan-4-2018</b> Updated strand information. </p>
-  
-  <b>Release Nov-23-2017</b> Updates: <br />
-  <ul>
-    <li>Changed to RDS from RData following R's recommendation.</li>
-    <li>Update to missing value representation.</li>
-    <li>Update to table headers.</li>
-    <li>Added gene annotation in short forms.</li>
-    <li>Added mapping to genome both including and excluding alt-chromosomes.</li>
-    <li>Made consistent naming of columns with underscores.</li>
-  </ul>
-
-  <b>Release Mar-13-2017</b> Updates: fix to relative position in SNP masking of type-I probes. <br />
   
   <hr>
   <a class="header" name="download">Latest Release Download</a>
@@ -91,8 +49,7 @@
   <!-- <p><b>See <a href="https://zwdzwd.s3.amazonaws.com/InfiniumAnnotation/">here</a> for previous releases.</b><br /> -->
   <u>Note: some old gz files appear double compressed when downloaded with filefox. Please apply decompression twice.</u></p>
 
-  <h2>RDS Files</h2>
-  <p><u>require the <i>GenomicRanges</i> package from Bioconductor</u></p>
+  <h2>RDS Files (require the <i>GenomicRanges</i> package from Bioconductor)</h2>
   <ul>
     <li>Basic <span style="font-weight:bold;color:DodgerBlue">hg38</span> annotation with suggested overall masking (<b>MASK_general</b> column) <br />
       (<a href="https://zwdzwd.s3.amazonaws.com/InfiniumAnnotation/20180909/EPIC/EPIC.hg38.manifest.rds">EPIC</a>,
@@ -329,20 +286,7 @@
   </p>
 
   <hr>
-  <a class="header" name="citation">Citation</a>
-  <p>
-    Zhou W, Laird PW and Shen H, <a href="https://academic.oup.com/nar/article/45/4/e22/2290930">Comprehensive characterization, annotation and innovative use of Infinium DNA Methylation BeadChip probes</a>, <b>Nucleic Acids Research</b> 2017
-  </p>
-
-  <hr>
-  <a class="header" name="contact">Contact</a>
-  <p>
-    Questions regarding this annotation can be addressed to <a href="mailto:wanding.zhou@pennmedicine.upenn.edu">wanding.zhou@pennmedicine.upenn.edu<a>.
-  </p>
-
-
-  <hr>
-  <a class="header" name="crossspecies">Cross-species mapping</a>
+  <a class="header" name="crossspecies">Cross-species Mapping</a>
   <!-- For Patient-derived Xenograft models in mice. -->
   
   <ul>
@@ -359,7 +303,61 @@
     </li>
   </ul>
 
+  <hr>
+  <a class="header" name="release">Release Notes</a>
+
+  <br /><br />
+  <b>Update Jul-4-2020</b>  Updates: <br />
+  <ul>
+    <li>More detailed annotation to SNP and channel-switching probes</li>
+  </ul>
+  
+  <b>Release Sep-9-2018 (latest)</b>  Updates: <br />
+  <ul>
+    <li>Added gene_HGNC column for gene symbols corrected for HGNC compatibility</li>
+    <li>Updated SNP masking with dbSNP build 151</li>
+    <li>All maskings were redone on hg19. Previously hg19 manifest file was "borrowing" hg38 maskings.</li>
+    <li>CCS probes have shrunk in numbers based on AF filtering (>1%).</li>
+    <li>See <a href="http://rpubs.com/zhouwanding/417953">Updates Summary</a> for more details.</li>
+  </ul>
+
+  <b>Release Aug-8-2018</b> Updates: <br />
+  <ul>
+    <li>Fix to MASK_mapping, some mapping with NM>0 are now masked as well </li>
+    <li>Addition of NM columns and gene annotation to the manifest file.</li>
+    <li>Previously, masking of mapping issues were merged from hg19 and hg38. Now masking on hg19 and hg38 was re-built entirely independently. There is some small decrease in the number of masking due to this change and a small increase due to the added NM-based masking (included in MASK_mapping).</li>
+    <li>See <a href="http://rpubs.com/zhouwanding/InfiniumMethylation20180808">Updates Summary</a> for more details.</li>
+  </ul>
+
+  <p><b>Release Mar-4-2018</b> Fix to hg19 decoy mapping inconsistency. </p>
+
+  <p><b>Release Jan-4-2018</b> Updated strand information. </p>
+  
+  <b>Release Nov-23-2017</b> Updates: <br />
+  <ul>
+    <li>Changed to RDS from RData following R's recommendation.</li>
+    <li>Update to missing value representation.</li>
+    <li>Update to table headers.</li>
+    <li>Added gene annotation in short forms.</li>
+    <li>Added mapping to genome both including and excluding alt-chromosomes.</li>
+    <li>Made consistent naming of columns with underscores.</li>
+  </ul>
+
+  <b>Release Mar-13-2017</b> Updates: fix to relative position in SNP masking of type-I probes. <br />
+  
   <!-- More cross-species mapping can be found at -->
   <!-- <a href="https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-017-1870-y">Needhamsen et al. 2017 BMC Bioinformatics</a> <br /> -->
 
+  <hr>
+  <a class="header" name="citation">Citation</a>
+  <p>
+    Zhou W, Laird PW and Shen H, <a href="https://academic.oup.com/nar/article/45/4/e22/2290930">Comprehensive characterization, annotation and innovative use of Infinium DNA Methylation BeadChip probes</a>, <b>Nucleic Acids Research</b> 2017
+  </p>
+
+  <hr>
+  <a class="header" name="contact">Contact</a>
+  <p>
+    Questions regarding this annotation can be addressed to <a href="mailto:wanding.zhou@pennmedicine.upenn.edu">wanding.zhou@pennmedicine.upenn.edu<a>.
+  </p>
+  
 </html>
