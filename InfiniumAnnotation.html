@@ -56,22 +56,29 @@
 
   <h2>Plain Text Files (tab-delimited)</h2>
   <ul>
-    <li>Basic <span style="font-weight:bold;color:DodgerBlue">hg38</span> annotation with suggested overall masking (<b>MASK_general</b> column) <br>
+    (see <b>MASK_general</b> column for the recommended masking) <br>
+    <li>Basic <span style="font-weight:bold;color:DodgerBlue">hg38</span> annotation with suggested overall masking
       (<a href="https://zwdzwd.s3.amazonaws.com/InfiniumAnnotation/20180909/EPIC/EPIC.hg38.manifest.tsv.gz">EPIC</a>, 
       <a href="https://zwdzwd.s3.amazonaws.com/InfiniumAnnotation/20180909/HM450/HM450.hg38.manifest.tsv.gz">HM450</a>,
       <a href="https://zwdzwd.s3.amazonaws.com/InfiniumAnnotation/20180909/HM27/HM27.hg38.manifest.tsv.gz">HM27</a>)
     </li>
   
-    <li>Basic <span style="font-weight:bold;color:DodgerBlue">hg19</span> annotation with suggested overall masking (<b>MASK_general</b> column) <br>
+    <li>Basic <span style="font-weight:bold;color:DodgerBlue">hg19</span> annotation with suggested overall masking
       (<a href="https://zwdzwd.s3.amazonaws.com/InfiniumAnnotation/20180909/EPIC/EPIC.hg19.manifest.tsv.gz">EPIC</a>, 
       <a href="https://zwdzwd.s3.amazonaws.com/InfiniumAnnotation/20180909/HM450/HM450.hg19.manifest.tsv.gz">HM450</a>,
       <a href="https://zwdzwd.s3.amazonaws.com/InfiniumAnnotation/20180909/HM27/HM27.hg19.manifest.tsv.gz">HM27</a>)
     </li>
 
     <li>Detailed gene, promoter, CpG island (including transcript ID and distance to TSS) <br>
-    - <smaller>gene annotation based on GENCODE v37</smaller> (<a href="https://zwdzwd.s3.amazonaws.com/InfiniumAnnotation/20180909/EPIC/EPIC.hg38.manifest.gencode.v37.tsv.gz">EPIC</a>)<br>
-    - <smaller>gene annotation based on GENCODE v22, CpG island definition based on UCSC genome browser</smaller>
-     (<a href="https://zwdzwd.s3.amazonaws.com/InfiniumAnnotation/20180909/EPIC/EPIC.hg38.manifest.gencode.v22.tsv.gz">EPIC</a>,
+      (probes not listed are either <b>unmapped</b> or <b>not associated with any gene</b>) <br>
+      - <smaller>gene annotation based on GENCODE v37</smaller> (
+      <a href="https://zwdzwd.s3.amazonaws.com/InfiniumAnnotation/20210414/EPIC/EPIC.hg38.manifest.gencode.v37.tsv.gz">EPIC</a>,
+      <a href="https://zwdzwd.s3.amazonaws.com/InfiniumAnnotation/20210414/HM450/HM450.hg38.manifest.gencode.v37.tsv.gz">HM450</a>)<br>
+      - <smaller>association with CpG island (definition based on UCSC genome browser)</smaller>
+      <a href="https://zwdzwd.s3.amazonaws.com/InfiniumAnnotation/20210414/EPIC/EPIC.hg38.manifest.CpGIsland.tsv.gz">EPIC</a>,
+      <a href="https://zwdzwd.s3.amazonaws.com/InfiniumAnnotation/20210414/HM450/HM450.hg38.manifest.CpGIsland.tsv.gz">HM450</a>)<br>
+      - <smaller>gene annotation based on GENCODE v22 (<u>legacy</u> version)</smaller>
+      (<a href="https://zwdzwd.s3.amazonaws.com/InfiniumAnnotation/20180909/EPIC/EPIC.hg38.manifest.gencode.v22.tsv.gz">EPIC</a>,
       <a href="https://zwdzwd.s3.amazonaws.com/InfiniumAnnotation/20180909/HM450/HM450.hg38.manifest.gencode.v22.tsv.gz">HM450</a>,
       <a href="https://zwdzwd.s3.amazonaws.com/InfiniumAnnotation/20180909/HM27/HM27.hg38.manifest.gencode.v22.tsv.gz">HM27</a>) <br>
     </li>
