@@ -55,29 +55,22 @@
   <u>Note: some old gz files appear double compressed when downloaded with filefox. Please apply decompression twice.</u></p>
 
   <h2>Plain Text Files (tab-delimited)</h2>
+
+  <h3>GRCh38 / hg38</h3>
   <ul>
-    (see <b>MASK_general</b> column for the recommended masking) <br>
     <li>Basic <span style="font-weight:bold;color:DodgerBlue">hg38</span> annotation with suggested overall masking
       (<a href="http://zhouserver.research.chop.edu/InfiniumAnnotation/20180909/EPIC/EPIC.hg38.manifest.tsv.gz">EPIC</a>, 
       <a href="http://zhouserver.research.chop.edu/InfiniumAnnotation/20180909/HM450/HM450.hg38.manifest.tsv.gz">HM450</a>,
-      <a href="http://zhouserver.research.chop.edu/InfiniumAnnotation/20180909/HM27/HM27.hg38.manifest.tsv.gz">HM27</a>)
-    </li>
-  
-    <li>Basic <span style="font-weight:bold;color:DodgerBlue">hg19</span> annotation with suggested overall masking
-      (<a href="http://zhouserver.research.chop.edu/InfiniumAnnotation/20180909/EPIC/EPIC.hg19.manifest.tsv.gz">EPIC</a>, 
-      <a href="http://zhouserver.research.chop.edu/InfiniumAnnotation/20180909/HM450/HM450.hg19.manifest.tsv.gz">HM450</a>,
-      <a href="http://zhouserver.research.chop.edu/InfiniumAnnotation/20180909/HM27/HM27.hg19.manifest.tsv.gz">HM27</a>)
+      <a href="http://zhouserver.research.chop.edu/InfiniumAnnotation/20180909/HM27/HM27.hg38.manifest.tsv.gz">HM27</a>)<br>
+      - <smaller>see <b>MASK_general</b> column for the recommended masking</smaller>
     </li>
 
-    <li>Detailed gene, promoter, CpG island (including transcript ID and distance to TSS) <br>
-      (probes not listed are either <b>unmapped</b> or <b>not associated with any gene</b>) <br>
-      - <smaller>gene annotation based on GENCODE v37</smaller> (
-      <a href="http://zhouserver.research.chop.edu/InfiniumAnnotation/20210414/EPIC/EPIC.hg38.manifest.gencode.v37.tsv.gz">EPIC</a>,
-      <a href="http://zhouserver.research.chop.edu/InfiniumAnnotation/20210414/HM450/HM450.hg38.manifest.gencode.v37.tsv.gz">HM450</a>)<br>
-      - <smaller>association with CpG island (definition based on UCSC genome browser)</smaller>
-      <a href="http://zhouserver.research.chop.edu/InfiniumAnnotation/20210414/EPIC/EPIC.hg38.manifest.CpGIsland.tsv.gz">EPIC</a>,
-      <a href="http://zhouserver.research.chop.edu/InfiniumAnnotation/20210414/HM450/HM450.hg38.manifest.CpGIsland.tsv.gz">HM450</a>)<br>
-      - <smaller>gene annotation based on GENCODE v22 (<u>legacy</u> version)</smaller>
+    <li>Detailed gene, promoter (including transcript ID and distance to TSS), and CpG island annotation<br>
+      - <smaller>gene annotation based on GENCODE v36</smaller>
+      (<a href="http://zhouserver.research.chop.edu/InfiniumAnnotation/20210615/EPIC/EPIC.hg38.manifest.gencode.v36.tsv.gz">EPIC</a>,
+      <a href="http://zhouserver.research.chop.edu/InfiniumAnnotation/20210615/HM450/HM450.hg38.manifest.gencode.v36.tsv.gz">HM450</a>,
+      <a href="http://zhouserver.research.chop.edu/InfiniumAnnotation/20210615/HM27/HM27.hg38.manifest.gencode.v36.tsv.gz">HM27</a>)<br>
+      - <smaller>gene annotation based on GENCODE v22 </smaller>
       (<a href="http://zhouserver.research.chop.edu/InfiniumAnnotation/20180909/EPIC/EPIC.hg38.manifest.gencode.v22.tsv.gz">EPIC</a>,
       <a href="http://zhouserver.research.chop.edu/InfiniumAnnotation/20180909/HM450/HM450.hg38.manifest.gencode.v22.tsv.gz">HM450</a>,
       <a href="http://zhouserver.research.chop.edu/InfiniumAnnotation/20180909/HM27/HM27.hg38.manifest.gencode.v22.tsv.gz">HM27</a>) <br>
@@ -88,34 +81,15 @@
       (<a href="http://zhouserver.research.chop.edu/InfiniumAnnotation/20200704/EPIC/EPIC.hg38.snp_overlap_b151.tsv.gz">EPIC</a>)
     </li>
     
-    <li>Converting SNP to variant format - rs probes
-      <span style="font-weight:bold;color:DodgerBlue">hg19</span>
-      (<a href="http://zhouserver.research.chop.edu/InfiniumAnnotation/20200704/EPIC/EPIC.hg19.snp_overlap_b151.tsv.gz">EPIC</a>)
-    </li>
-
     <li>Converting SNP to variant format - channel-switching Infinium-I probes
       <span style="font-weight:bold;color:DodgerBlue">hg38</span>
       (<a href="http://zhouserver.research.chop.edu/InfiniumAnnotation/20200704/EPIC/EPIC.hg38.typeI_overlap_b151.tsv.gz">EPIC</a>)
     </li>
     
-    <li>Converting SNP to variant format - channel-switching Infinium-I probes
-      <span style="font-weight:bold;color:DodgerBlue">hg19</span>
-      (<a href="http://zhouserver.research.chop.edu/InfiniumAnnotation/20200704/EPIC/EPIC.hg19.typeI_overlap_b151.tsv.gz">EPIC</a>)
-    </li>
-    
-    
-    <br>
-
     <li>Population-specific masking GRCh38/hg38
       (<a href="http://zhouserver.research.chop.edu/InfiniumAnnotation/20180909/EPIC/EPIC.hg38.manifest.pop.tsv.gz">EPIC</a>,
       <a href="http://zhouserver.research.chop.edu/InfiniumAnnotation/20180909/HM450/HM450.hg38.manifest.pop.tsv.gz">HM450</a>,
       <a href="http://zhouserver.research.chop.edu/InfiniumAnnotation/20180909/HM27/HM27.hg38.manifest.pop.tsv.gz">HM27</a>)
-    </li>
-
-    <li>Population-specific masking GRCh37/hg19
-      (<a href="http://zhouserver.research.chop.edu/InfiniumAnnotation/20180909/EPIC/EPIC.hg19.manifest.pop.tsv.gz">EPIC</a>,
-      <a href="http://zhouserver.research.chop.edu/InfiniumAnnotation/20180909/HM450/HM450.hg19.manifest.pop.tsv.gz">HM450</a>,
-      <a href="http://zhouserver.research.chop.edu/InfiniumAnnotation/20180909/HM27/HM27.hg19.manifest.pop.tsv.gz">HM27</a>)
     </li>
 
     <li>Population-specific SNP information GRCh38/hg38
@@ -124,17 +98,43 @@
       <a href="http://zhouserver.research.chop.edu/InfiniumAnnotation/20180909/HM27/HM27.hg38.commonsnp.tsv.gz">HM27</a>)
     </li>
 
-    <li>Manufacturer's manifest GRCh37/hg19
-      (<a href="http://zhouserver.research.chop.edu/InfiniumAnnotation/20180909/EPIC/EPIC.hg19.manifest.original.tsv.gz">EPIC</a>,
-      <a href="http://zhouserver.research.chop.edu/InfiniumAnnotation/20180909/HM450/HM450.hg19.manifest.original.tsv.gz">HM450</a>,
-      <a href="http://zhouserver.research.chop.edu/InfiniumAnnotation/20180909/HM27/HM27.hg19.manifest.original.tsv.gz">HM27</a>)
-    </li>
-
     <li>Non-uniqueness of 3' nested subsequence GRCh38/hg38
       (<a href="http://zhouserver.research.chop.edu/InfiniumAnnotation/20180909/EPIC/EPIC.hg38.3sub.copynumber.tsv.gz">EPIC</a>, 
       <a href="http://zhouserver.research.chop.edu/InfiniumAnnotation/20180909/HM450/HM450.hg38.3sub.copynumber.tsv.gz">HM450</a>,
       <a href="http://zhouserver.research.chop.edu/InfiniumAnnotation/20180909/HM27/HM27.hg38.3sub.copynumber.tsv.gz">HM27</a>)
       <br />- <smaller>Bisulfite-Genomic copy number of 3'-subsequence of 11-50 bases in length</smaller>
+    </li>
+  </ul>
+
+  <h3>GRCh19 / hg19</h3>
+  <ul>
+    <li>Basic <span style="font-weight:bold;color:DodgerBlue">hg19</span> annotation with suggested overall masking
+      (<a href="http://zhouserver.research.chop.edu/InfiniumAnnotation/20180909/EPIC/EPIC.hg19.manifest.tsv.gz">EPIC</a>, 
+      <a href="http://zhouserver.research.chop.edu/InfiniumAnnotation/20180909/HM450/HM450.hg19.manifest.tsv.gz">HM450</a>,
+      <a href="http://zhouserver.research.chop.edu/InfiniumAnnotation/20180909/HM27/HM27.hg19.manifest.tsv.gz">HM27</a>)<br>
+      - <smaller>see <b>MASK_general</b> column for the recommended masking</smaller>
+    </li>
+
+    <li>Converting SNP to variant format - rs probes
+      <span style="font-weight:bold;color:DodgerBlue">hg19</span>
+      (<a href="http://zhouserver.research.chop.edu/InfiniumAnnotation/20200704/EPIC/EPIC.hg19.snp_overlap_b151.tsv.gz">EPIC</a>)
+    </li>
+
+    <li>Converting SNP to variant format - channel-switching Infinium-I probes
+      <span style="font-weight:bold;color:DodgerBlue">hg19</span>
+      (<a href="http://zhouserver.research.chop.edu/InfiniumAnnotation/20200704/EPIC/EPIC.hg19.typeI_overlap_b151.tsv.gz">EPIC</a>)
+    </li>
+
+    <li>Population-specific masking GRCh37/hg19
+      (<a href="http://zhouserver.research.chop.edu/InfiniumAnnotation/20180909/EPIC/EPIC.hg19.manifest.pop.tsv.gz">EPIC</a>,
+      <a href="http://zhouserver.research.chop.edu/InfiniumAnnotation/20180909/HM450/HM450.hg19.manifest.pop.tsv.gz">HM450</a>,
+      <a href="http://zhouserver.research.chop.edu/InfiniumAnnotation/20180909/HM27/HM27.hg19.manifest.pop.tsv.gz">HM27</a>)
+    </li>
+
+    <li>Manufacturer's manifest GRCh37/hg19
+      (<a href="http://zhouserver.research.chop.edu/InfiniumAnnotation/20180909/EPIC/EPIC.hg19.manifest.original.tsv.gz">EPIC</a>,
+      <a href="http://zhouserver.research.chop.edu/InfiniumAnnotation/20180909/HM450/HM450.hg19.manifest.original.tsv.gz">HM450</a>,
+      <a href="http://zhouserver.research.chop.edu/InfiniumAnnotation/20180909/HM27/HM27.hg19.manifest.original.tsv.gz">HM27</a>)
     </li>
 
     <li>
@@ -158,7 +158,7 @@
       (<a href="http://zhouserver.research.chop.edu/InfiniumAnnotation/20180909/EPIC/EPIC.hg19.imprinting.tsv.gz">EPIC</a>,
       <a href="http://zhouserver.research.chop.edu/InfiniumAnnotation/20180909/HM450/HM450.hg19.imprinting.tsv.gz">HM450</a>,
       <a href="http://zhouserver.research.chop.edu/InfiniumAnnotation/20180909/HM27/HM27.hg19.imprinting.tsv.gz">HM27</a>)
-      <br />- <smaller>based on Court et al. 2014 Genome Research</smaller>
+      <br />- <smaller>based on Court et al. 2014 Genome Research, PMID 24402520</smaller>
     </li>
 
     <li>
@@ -166,8 +166,7 @@
       (<a href="http://zhouserver.research.chop.edu/InfiniumAnnotation/20180909/EPIC/EPIC.hg19.ENCODE.TFBS.tsv.gz">EPIC</a>,
       <a href="http://zhouserver.research.chop.edu/InfiniumAnnotation/20180909/HM450/HM450.hg19.ENCODE.TFBS.tsv.gz">HM450</a>,
       <a href="http://zhouserver.research.chop.edu/InfiniumAnnotation/20180909/HM27/HM27.hg19.ENCODE.TFBS.tsv.gz">HM27</a>)
-      <br />- <smaller>171 TFs and 91 samples from ENCODE project</smaller>
-      <br />- <smaller>include distance to summit</smaller>
+      <br />- <smaller>171 TFs and 91 samples from ENCODE project, include distance to summit</smaller>
     </li>
 
     <li>
@@ -175,11 +174,11 @@
       (<a href="http://zhouserver.research.chop.edu/InfiniumAnnotation/20180909/EPIC/EPIC.hg19.CTCF.tsv.gz">EPIC</a>,
       <a href="http://zhouserver.research.chop.edu/InfiniumAnnotation/20180909/HM450/HM450.hg19.CTCF.tsv.gz">HM450</a>,
       <a href="http://zhouserver.research.chop.edu/InfiniumAnnotation/20180909/HM27/HM27.hg19.CTCF.tsv.gz">HM27</a>)
-      <br />- <smaller>based on Wang et al. 2012 Genome Research</smaller>
+      <br />- <smaller>based on Wang et al. 2012 Genome Research, PMID 22955990</smaller>
     </li>
-    
-  </ul>
 
+  </ul>
+  
   <hr>
   <a class="header" name="usage">Column Legends</a>
   <p>
