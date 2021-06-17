@@ -179,10 +179,11 @@
   
   <h3>Column Legends</h3>
   <p>
-    <b>seqnames</b>, <b>start</b> and <b>end</b> - the location of the target (1-based coordinates, 2 nucleotides for CpG probes, or 1 nucleotide for CpH and SNP probes). strand is left as "*" always. Some erroneous CpH probe coordinates mapping information in the manufacturer's manifest have been corrected. SNP probe coordinates are provided. <br />
+    <b>CpG_chrm</b>, <b>CpG_beg</b> and <b>CpG_end</b> - the location of the target (1-based coordinates, 2 nucleotides for CpG probes, or 1 nucleotide for CpH and SNP probes). strand is left as "*" always. Some erroneous CpH probe coordinates mapping information in the manufacturer's manifest have been corrected. SNP probe coordinates are provided. <br />
 
-    <b>strand</b> - This is consistent with "orientation" column for strand information of the actual probe. '+' is for all the up-probes positioned in smaller coordinates and '-' for all the down-probes positioned in greater coordinates with respect to the target CpGs.<br />
+    <b>probe_strand</b> - This is consistent with "orientation" column for strand information of the actual probe. '+' is for all the up-probes positioned in smaller coordinates and '-' for all the down-probes positioned in greater coordinates with respect to the target CpGs.<br />
 
+    <b>Probe_ID</b> - Probe ID
     <b>address_A</b> and <b>address_B</b> - addresses of probe A and B on the chip designated by the original manifest. <br />
 
     <b>channel</b> - "Both" for type II probes and "Grn"/"Red" for type I probes. <br />
@@ -272,7 +273,7 @@
   
   <h2>GRCm38 / mm10</h2>
   <ul>
-    <li>Basic <span style="font-weight:bold;color:DodgerBlue">mm10</span> annotation with suggested overall masking (see <b>Mask</b> column)
+    <li>Basic <span style="font-weight:bold;color:DodgerBlue">mm10</span> annotation with suggested overall masking (see the <b>mask</b> column)
       (<a href="http://zhouserver.research.chop.edu/InfiniumAnnotation/current/MM285/MM285.mm10.manifest.tsv.gz">MM285</a>)
 
     <li>Gene, promoter, and CpG island<br>
@@ -297,22 +298,23 @@
 
   <h3>Column Legends</h3>
   <p>
-    <b>1-3:</b> chrm, beg, end of target, length 2 for CpG, length 1 for SNP and CpH. beg is 0-based and end is 1-based like in bed files.<br>
-    <b>4-5:</b> Chip/tango address for M and U.<br>
-    <b>6:</b> target CpG, the target reference allele. <br>
-    <b>7:</b> extension base<br>
-    <b>8:</b> color channel, green or red<br>
-    <b>9:</b> probe ID<br>
-    <b>10:</b> last base on 3'-end of the probe sequence, for Infinium-II CpG probe it will always be C<br>
-    <b>11-19:</b> mapFlag, mapChrm, mapPos, mapQ, mapCigar, mapSeq, mapNM, mapAS, mapYD, mapFlag can be used to determine direction of the probe sequence. 0 means upstream and 16 means downstream.<br>
-    <b>20:</b> lastB, last for B-allele for Infinium-I probes<br>
-    <b>21-29:</b> mapFlag.B, mapChrm.B, mapPos.B, mapQ.B, mapCigar.B, mapSeq.B, mapNM.B, mapAS.B, mapYD.B<br>
-    <b>30:</b> design category string<br>
+    <b>CpG_chrm, CpG_beg, CpG_end</b> <em>(1-3)</em> - genomic coordinate for the target, length 2 for CpG, length 1 for SNP and CpH. beg is 0-based and end is 1-based like in bed files.<br>
+    <b>address_A, address_B</b> <em>(4-5)</em> - Chip/tango address for A-allele and B-allele.<br>
+    <b>target</b> <em>(6)</em> - CG if the probe measures CpG methylation, reference allele if otherwise<br>
+    <b>nextBase</b> <em>(7)</em> - the actual extension base (on the probe strand) <b>before</b> bisulfite conversion. "R" (stands for G/A) for Infinium-II probes <br />
+    <b>channel</b> <em>(8)</em> - color channel, green or red<br>
+    <b>Probe_ID</b> <em>(9)</em> - the probe ID<br>
+    <b>lastBase_A</b> <em>(10)</em> - last base on 3'-end of the probe sequence, for Infinium-II CpG probe it will always be a C<br>
+    <b>mapFlag_A, mapChrm_A, mapPos_A, mapQ_A, mapCigar_A, mapSeq_A, mapNM_A, mapAS_A, mapYD_A</b> <em>(11-19)</em> - Mapping information for allele A. NM is the number of mutations. AS represents alignment score. YD (f/r/n) represents the bisulfite strand. mapFlag can be used to determine direction of the probe sequence. 0 means upstream and 16 means downstream.<br>
+    <b>lastBase_B</b> <em>(20)</em> - lastB, last for B-allele for Infinium-I probes<br>
+    <b>mapFlag_B, mapChrm_B, mapPos_B, mapQ_B, mapCigar_B, mapSeq_B, mapNM_B, mapAS_B, mapYD_B</b> <em>(21-29)</em> - Mapping information for allele B. Same as allele A.<br>
+    <b>design</b> <em>(30)</em> - design category string<br>
+    <b>mask</b> <em>(31)</em> - whether the probe should be masked. This include control probes, multi-mapping probes (mapQ<30 for either allele A or B) and non-informative probes (uk probes).<br>
   </p>
-
+  
   <h2>GRCm39 / mm39</h2>
   <ul>
-    <li>Basic <span style="font-weight:bold;color:DodgerBlue">mm39</span> annotation with suggested overall masking (see <b>Mask</b> column)
+    <li>Basic <span style="font-weight:bold;color:DodgerBlue">mm39</span> annotation with suggested overall masking (see the <b>mask</b> column)
       (<a href="http://zhouserver.research.chop.edu/InfiniumAnnotation/current/MM285/MM285.mm39.manifest.tsv.gz">MM285</a>)
   </ul>
 
