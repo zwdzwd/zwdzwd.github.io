@@ -179,18 +179,18 @@
   
   <h3>Column Legends</h3>
   <p>
-    <b>CpG_chrm</b>, <b>CpG_beg</b> and <b>CpG_end</b> - the location of the target (1-based coordinates, 2 nucleotides for CpG probes, or 1 nucleotide for CpH and SNP probes). strand is left as "*" always. Some erroneous CpH probe coordinates mapping information in the manufacturer's manifest have been corrected. SNP probe coordinates are provided. <br />
+    <b>CpG_chrm</b>, <b>CpG_beg</b> and <b>CpG_end</b> - the location of the target. CpG_beg is 0-based coordinate and CpG_end is 1-based. The coordinates should have a span of 2 nucleotides for CpG probes, or 1 nucleotide for CpH and SNP probes. Some erroneous CpH probe coordinates mapping information in the manufacturer's manifest have been corrected. <br>
 
-    <b>probe_strand</b> - This is consistent with "orientation" column for strand information of the actual probe. '+' is for all the up-probes positioned in smaller coordinates and '-' for all the down-probes positioned in greater coordinates with respect to the target CpGs.<br />
+    <b>probe_strand</b> - This is consistent with "orientation" column for strand information of the actual probe. '+' is for all the up-probes positioned in smaller coordinates and '-' for all the down-probes positioned in greater coordinates with respect to the target CpGs. "*" is used for unmapped probes.<br>
 
     <b>Probe_ID</b> - Probe ID
-    <b>address_A</b> and <b>address_B</b> - addresses of probe A and B on the chip designated by the original manifest. <br />
+    <b>address_A</b> and <b>address_B</b> - addresses of probe A and B on the chip designated by the original manifest. <br>
 
     <b>channel</b> - "Both" for type II probes and "Grn"/"Red" for type I probes. <br />
 
-    <b>designType</b> - either "I" or "II". <br />
+    <b>designType</b> - either "I" or "II". <br>
 
-    <b>nextBase</b> - the actual extension base (on the probe strand) after bisulfite conversion ("A" or "C" or "T"). Unmapped probe has extension base labeled in the original manifest. <br />
+    <b>nextBase</b> - the actual extension base (on the probe strand) after bisulfite conversion ("A" or "C" or "T"). Unmapped probe has extension base labeled in the original manifest. <br>
 
     <b>nextBaseRef</b> - the extension base (on the hybridized/template DNA) before bisulfite conversion ("A", "C", "G" or "T"). Unmapped probe has "NA". <br />
 
