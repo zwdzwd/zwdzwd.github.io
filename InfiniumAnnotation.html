@@ -17,7 +17,11 @@
       h2 { font: bold 13px Arial;}
 
       h3 { font: bold 12px Arial;
-      color: #003366;}
+           color: #003366;}
+
+      table, th, td {
+      border: 1px solid black;
+      }
 
       td {font: 13px Arial;}
 
@@ -281,66 +285,163 @@
   <hr>
   <a href="#mouse" class="header" name="mouse">Mouse Array</a>
   (see <a href="https://bioconductor.org/packages/devel/bioc/vignettes/sesame/inst/doc/nonhuman.html">here</a> for working with the mouse array)
-  
+
   <h2>GRCm38 / mm10</h2>
   <ul>
-    <li>Basic <span style="font-weight:bold;color:DodgerBlue">mm10</span> annotation with suggested overall masking (see the <b>mask</b> column)
-      (<a href="https://zhouserver.research.chop.edu/InfiniumAnnotation/current/MM285/MM285.mm10.manifest.tsv.gz">MM285</a>)
-
-    <li>Gene, promoter, and CpG island<br>
-      - gene annotation based on GENCODE vM25 (<a href="https://zhouserver.research.chop.edu/InfiniumAnnotation/current/MM285/MM285.mm10.manifest.gencode.vM25.tsv.gz">MM285</a>)<br>
-      <p>The file includes annotation of probes if they fall from 1.5kbp upstream Transcription Start Site (TSS/Promoter), to Transcription Termination Site. A probe can be considered promoter associated if it is located from 1.5kbps upstream TSS to 1.5kbps dwonstream TSS. This information is given in the distToTSS column. Otherwise, the probe is considered associated with gene body. All isoforms are considered for each gene. This file also includes CpG island and CGI/Shore/Shelf annotation.
-      </p>
+    <li>Basic <span style="font-weight:bold;color:DodgerBlue">mm10</span> mapping information
+      (<a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/MM285/mm10.tsv.gz">MM285</a>)
     </li>
 
-    <li>
-      The New Array ID System (<a href="https://github.com/zhou-lab/InfiniumAnnotation/blob/main/MM285/202010418_MouseArray_ID_system.md">Illustration</a>)<br>
+    <table>
+      <tr>
+        <td>CpG_chrm</td>
+        <td>CpG_beg</td>
+        <td>CpG_end</td>
+        <td>address_A</td>
+        <td>address_B</td>
+        <td>target</td>
+        <td>nextBase</td>
+        <td>channel</td>
+        <td>Probe_ID</td>
+        <td>mapFlag_A</td>
+        <td>mapChrm_A</td>
+        <td>mapPos_A</td>
+        <td>mapQ_A</td>
+        <td>mapCigar_A</td>
+        <td>AlleleA_ProbeSeq</td>
+        <td>mapNM_A</td>
+        <td>mapAS_A</td>
+        <td>mapYD_A</td>
+        <td>mapFlag_B</td>
+        <td>mapChrm_B</td>
+        <td>mapPos_B</td>
+        <td>mapQ_B</td>
+        <td>mapCigar_B</td>
+        <td>AlleleB_ProbeSeq</td>
+        <td>mapNM_B</td>
+        <td>mapAS_B</td>
+        <td>mapYD_B</td>
+        <td>type</td>
+      </tr>
+    </table>
+
+      <u>Detailed Column Legends</u> <br>
+      <u>CpG_chrm, CpG_beg, CpG_end</u> <em>(1-3)</em> - genomic coordinate for the target, length 2 for CpG, length 1 for SNP and CpH. beg is 0-based and end is 1-based like in bed files.<br>
+      <u>address_A, address_B</u> <em>(4-5)</em> - Chip/tango address for A-allele and B-allele.<br>
+      <u>target</u> <em>(6)</em> - CG if the probe measures CpG methylation, reference allele if otherwise<br>
+      <u>nextBase</u> <em>(7)</em> - the actual extension base (on the probe strand) <b>before</b> bisulfite conversion. "R" (stands for G/A) for Infinium-II probes <br />
+      <u>channel</u> <em>(8)</em> - color channel, green or red<br>
+      <u>Probe_ID</u> <em>(9)</em> - the probe ID<br>
+      <u>mapFlag_A, mapChrm_A, mapPos_A, mapQ_A, mapCigar_A, mapNM_A, mapAS_A, mapYD_A</u> - Mapping information for allele A. NM is the number of mutations. AS represents alignment score. YD (f/r/n) represents the bisulfite strand. mapFlag can be used to determine direction of the probe sequence. 0 means upstream and 16 means downstream.<br>
+      <u>mapFlag_B, mapChrm_B, mapPos_B, mapQ_B, mapCigar_B, mapNM_B, mapAS_B, mapYD_B</u> - Mapping information for allele B. Same as allele A.<br>
+      <u>type</u> - Infinium-I or Infinium-II<br>
+
+    <li>Design information (<a href="https://zhouserver.research.chop.edu/InfiniumAnnotation/current/MM285/MM285.design.tsv.gz">MM285</a>)</li>
+
+    <table>
+      <tr>
+        <td>Probe_ID</td>
+        <td>design</td>
+      </tr>
+    </table>
+ 
+    <li>Mask information (<a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/MM285/MM285.mask.tsv.gz">MM285</a>)</li>
+    <table>
+      <tr>
+        <td>Probe_ID</td>
+        <td>mask</td>
+      </tr>
+    </table>
+    
+    This file includes a boolean indication of whether probes are recommended to be masked in data preprocessing. Probes masked by default includes control probes, multi-mapping probes (mapQ<30 for either allele A or B) and non-informative probes (uk probes) <br>
+
+    <li>Gene, promoter, and CpG island - gene annotation based on GENCODE vM25 (<a href="https://zhouserver.research.chop.edu/InfiniumAnnotation/current/MM285/MM285.mm10.manifest.gencode.vM25.tsv.gz">MM285</a>)<br>
+    </li>
+
+    <table>
+      <tr>
+        <td>CpG_chrm</td>
+        <td>CpG_beg</td>
+        <td>CpG_end</td>
+        <td>probe_strand</td>
+        <td>probeID</td>
+        <td>genesUniq</td>
+        <td>geneNames</td>
+        <td>transcriptTypes</td>
+        <td>transcriptIDs</td>
+        <td>distToTSS</td>
+        <td>CGI</td>
+        <td>CGIposition</td>
+      </tr>
+    </table>
+
+    The file includes annotation of probes if they fall from 1.5kbp upstream Transcription Start Site (TSS/Promoter), to Transcription Termination Site. A probe can be considered promoter associated if it is located from 1.5kbps upstream TSS to 1.5kbps dwonstream TSS. This information is given in the distToTSS column. Otherwise, the probe is considered associated with gene body. All isoforms are considered for each gene. This file also includes CpG island and CGI/Shore/Shelf annotation.
+
+    <li>Illustration of the new array ID system (<a href="https://github.com/zhou-lab/InfiniumAnnotation/blob/main/MM285/202010418_MouseArray_ID_system.md">Illustration</a>)<br>
       The mouse array employs an improved ID system on top of the traditional "cg" numbers. The new ID system uniquely specifies the design details. The new ID is designed to accomodate more flexible probe design such as replicates and opposite-strand design.
     </li>
 
-    <li>ChromHMM Annotation (<a href="https://zhouserver.research.chop.edu/InfiniumAnnotation/20210109/MM285/MM285.mm10.chromHMM.tsv.gz">MM285</a>)
+    <li>ChromHMM annotation (<a href="https://zhouserver.research.chop.edu/InfiniumAnnotation/20210109/MM285/MM285.mm10.chromHMM.tsv.gz">MM285</a>)
     </li>
 
     <li>Imprinting ICR/DMR annotation
-      (<a href="https://raw.githubusercontent.com/zhou-lab/ImprintingAnno/master/20210530_mm10_ICR_MM285.tsv">MM285</a>, also see <a href="https://github.com/zhou-lab/ImprintingAnno/blob/master/README.md">ICR annotation</a>)
+      (<a href="https://raw.githubusercontent.com/zhou-lab/ImprintingAnno/master/20210530_mm10_ICR_MM285.tsv">MM285</a>, also see <a href="https://github.com/zhou-lab/ImprintingAnno/blob/master/README.md">ICR annotation</a>, and a comparison of different ICR/DMR <a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/MM285/MM285.imprinting.rds">evidences</a>).
     </li>
 
     <li>Evolutionary Conservation (PhastCons)
-      (<a href="https://zhouserver.research.chop.edu/InfiniumAnnotation/current/MM285/MM285.mm10.60way.phastCons.txt.gz">MM285</a>)
+      (<a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/MM285/MM285.mm10.60way.phastCons.txt.gz">MM285</a>)
     </li>
     <li>Evolutionary Conservation (PhyloP)
-      (<a href="https://zhouserver.research.chop.edu/InfiniumAnnotation/current/MM285/MM285.mm10.60way.phyloP60way.txt.gz">MM285</a>)
+      (<a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/MM285/MM285.mm10.60way.phyloP60way.txt.gz">MM285</a>)
     </li>
 
   </ul>
-
-  <h3>Column Legends</h3>
-  <p>
-    <b>CpG_chrm, CpG_beg, CpG_end</b> <em>(1-3)</em> - genomic coordinate for the target, length 2 for CpG, length 1 for SNP and CpH. beg is 0-based and end is 1-based like in bed files.<br>
-    <b>address_A, address_B</b> <em>(4-5)</em> - Chip/tango address for A-allele and B-allele.<br>
-    <b>target</b> <em>(6)</em> - CG if the probe measures CpG methylation, reference allele if otherwise<br>
-    <b>nextBase</b> <em>(7)</em> - the actual extension base (on the probe strand) <b>before</b> bisulfite conversion. "R" (stands for G/A) for Infinium-II probes <br />
-    <b>channel</b> <em>(8)</em> - color channel, green or red<br>
-    <b>Probe_ID</b> <em>(9)</em> - the probe ID<br>
-    <b>lastBase_A</b> <em>(10)</em> - last base on 3'-end of the probe sequence, for Infinium-II CpG probe it will always be a C<br>
-    <b>mapFlag_A, mapChrm_A, mapPos_A, mapQ_A, mapCigar_A, mapSeq_A, mapNM_A, mapAS_A, mapYD_A</b> <em>(11-19)</em> - Mapping information for allele A. NM is the number of mutations. AS represents alignment score. YD (f/r/n) represents the bisulfite strand. mapFlag can be used to determine direction of the probe sequence. 0 means upstream and 16 means downstream.<br>
-    <b>lastBase_B</b> <em>(20)</em> - lastB, last for B-allele for Infinium-I probes<br>
-    <b>mapFlag_B, mapChrm_B, mapPos_B, mapQ_B, mapCigar_B, mapSeq_B, mapNM_B, mapAS_B, mapYD_B</b> <em>(21-29)</em> - Mapping information for allele B. Same as allele A.<br>
-    <b>design</b> <em>(30)</em> - design category string<br>
-    <b>mask</b> <em>(31)</em> - whether the probe should be masked. This include control probes, multi-mapping probes (mapQ<30 for either allele A or B) and non-informative probes (uk probes).<br>
-  </p>
   
   <h2>GRCm39 / mm39</h2>
   <ul>
-    <li>Basic <span style="font-weight:bold;color:DodgerBlue">mm39</span> annotation with suggested overall masking (see the <b>mask</b> column)
+    <li>Basic <span style="font-weight:bold;color:DodgerBlue">mm39</span> mapping information.
       (<a href="https://zhouserver.research.chop.edu/InfiniumAnnotation/current/MM285/MM285.mm39.manifest.tsv.gz">MM285</a>)
+
+      <table>
+        <tr>
+          <td>CpG_chrm</td>
+          <td>CpG_beg</td>
+          <td>CpG_end</td>
+          <td>address_A</td>
+          <td>address_B</td>
+          <td>target</td>
+          <td>nextBase</td>
+          <td>channel</td>
+          <td>Probe_ID</td>
+          <td>mapFlag_A</td>
+          <td>mapChrm_A</td>
+          <td>mapPos_A</td>
+          <td>mapQ_A</td>
+          <td>mapCigar_A</td>
+          <td>AlleleA_ProbeSeq</td>
+          <td>mapNM_A</td>
+          <td>mapAS_A</td>
+          <td>mapYD_A</td>
+          <td>mapFlag_B</td>
+          <td>mapChrm_B</td>
+          <td>mapPos_B</td>
+          <td>mapQ_B</td>
+          <td>mapCigar_B</td>
+          <td>AlleleB_ProbeSeq</td>
+          <td>mapNM_B</td>
+          <td>mapAS_B</td>
+          <td>mapYD_B</td>
+          <td>type</td>
+        </tr>
+      </table>
+      
   </ul>
 
-  <h3>Cross-species Mapping</h3>
+  <h2>Other genomes</h2>
   
   <ul>
     <li>310 species from Ensembl v101
-      (<a href="https://github.com/zhou-lab/mouse_array_multispecies/tree/main/Ensembl_v101">MM285</a>)
+      (<a href="https://github.com/zhou-lab/InfiniumAnnotationV1/tree/main/MM285">MM285</a>)
     </li>
   </ul>
   
@@ -404,11 +505,9 @@
   <hr>
   <a class="header" name="reference">Reference</a>
   <p>
-    Human Array - Zhou W, Laird PW and Shen H, <a href="https://academic.oup.com/nar/article/45/4/e22/2290930">Comprehensive characterization, annotation and innovative use of Infinium DNA Methylation BeadChip probes</a>, <b>Nucleic Acids Research</b> 2017
-  </p>
+    Human Array - Zhou W, Laird PW and Shen H, <a href="https://academic.oup.com/nar/article/45/4/e22/2290930">Comprehensive characterization, annotation and innovative use of Infinium DNA Methylation BeadChip probes</a>, <b>Nucleic Acids Research</b> 2017 <br>
 
-  <p>
-    Mouse Array - In preparation
+    Mouse Array - Zhou W et al. <a href="">DNA methylation dynamics and dysregulation delinated by high-throughput profiling in the mouse</a>, <b>Cell Genomics</b> 2022
   </p>
 
   <!-- <\!-- For Patient-derived Xenograft models in mice. -\-> -->
