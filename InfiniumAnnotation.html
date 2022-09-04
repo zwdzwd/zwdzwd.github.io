@@ -1,411 +1,428 @@
 
 <html>
   <head>
-    <style>
-      a { font: 13px Arial;
-      color: #933300;
-      text-decoration: none; }
+    <link rel="stylesheet" href="InfiniumAnnotation/style.css">
 
-      a.header {font-weight: bold;}
-      
-      a:hover {text-decoration: underline;}
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NMN8V8SDC8"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-      body { background-color: white;
-      font: 12px Arial;
-      margin: 50px 50px 50px 50px; }
-
-      h2 { font: bold 13px Arial;}
-
-      h3 { font: bold 12px Arial;
-           color: #003366;}
-
-      table, th, td {
-      border: 1px solid black;
-      }
-
-      td {font: 13px Arial;}
-
-      ul {line-height:150%}
-
-      p {line-height:150%}
-    </style>
-
-    <?php $rootdir="https://zhouserver.research.chop.edu/InfiniumAnnotation/20180909/"; ?>
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-NMN8V8SDC8"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-NMN8V8SDC8');
-</script>
+      gtag('config', 'G-NMN8V8SDC8');
+    </script>
 
     <title>InfiniumMethylation BeadChips Annotation</title>
 
   </head>
 
-  <table>
-    <tr>
+  <table style="border:white"><tr>
       <a href="#human">Human Array</a> | <mark>NEW</mark>&nbsp
-      <a href="#mouse">Mouse Array</a> | 
+      <a href="#mouse">Mouse Array</a> |
+      <a href="#mammal">Mammal Array</a> |
       <a href="#release">Release Notes</a> | 
       <a href="#reference">Reference</a>
-    </tr>
-  </table>
+  </tr></table>
   
   <hr>
 
   <!-- <b>Click <a href="https://github.com/zhou-lab/InfiniumAnnotation/blob/main/README.md">here</a> for annotation for other Infinium arrays including the <a href="https://github.com/zhou-lab/InfiniumAnnotation/blob/main/MM285/README.md">mouse (MM285) array</a> and HorvathMammalMethylChip40 (Mammal40) array. -->
   <!-- </b> -->
 
-  <p><u>All files are gzipped plain text files (tab-delimited). some old gz files appear double compressed when downloaded with filefox. Please apply decompression twice.</u></p>
+  <p><u>All files are gzipped plain text files (tab-delimited). some old gz files appear double compressed when downloaded with firefox. Please apply decompression twice.</u></p>
 
-  <a class="header" name="human">Human Array</a>
+  <a class="header" name="human">Human EPIC, HM450, HM27 Array</a>
   <br>
   <!-- <p><b>See <a href="https://zhouserver.research.chop.edu/InfiniumAnnotation/">here</a> for previous releases.</b><br /> -->
 
-  <h2>GRCh38 / hg38</h2>
+  <h2><span style="font-weight:bold;color:DodgerBlue">GRCh38 / hg38</span></h2>
   <ul>
-    <li>Basic <span style="font-weight:bold;color:DodgerBlue">hg38</span> annotation with suggested overall masking
-      (<a href="https://zhouserver.research.chop.edu/InfiniumAnnotation/EPIC/EPIC.hg38.manifest.tsv.gz">EPIC</a>, 
-      <a href="https://zhouserver.research.chop.edu/InfiniumAnnotation/HM450/HM450.hg38.manifest.tsv.gz">HM450</a>,
-      <a href="https://zhouserver.research.chop.edu/InfiniumAnnotation/HM27/HM27.hg38.manifest.tsv.gz">HM27</a>)<br>
-      - <smaller>see <b>MASK_general</b> column for the recommended masking</smaller>
+    <li><b>Basic annotation with suggested overall masking</b>
+      (<a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/EPIC/EPIC.hg38.manifest.tsv.gz">EPIC</a>, 
+      <a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/HM450/HM450.hg38.manifest.tsv.gz">HM450</a>,
+      <a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/HM27/HM27.hg38.manifest.tsv.gz">HM27</a>)<br>
+      See "MASK_general" column for the recommended masking<br>
+      Column header: (<a href="InfiniumAnnotation/manifest.html"><u>header description</u></a>)
+      <table href="InfiniumAnnotation/manifest.html"><tr>
+          <td>CpG_chrm</td>
+          <td>CpG_beg</td>
+          <td>CpG_end</td>
+          <td>probe_strand</td>
+          <td>Probe_ID</td>
+          <td>address_A</td>
+          <td>address_B</td>
+          <td>channel</td>
+          <td>designType</td>
+          <td>nextBase</td>
+          <td>nextBaseRef</td>
+          <td>probeType</td>
+          <td>orientation</td>
+          <td>probeCpGcnt</td>
+          <td>context35</td>
+          <td>probeBeg</td>
+          <td>probeEnd</td>
+          <td>ProbeSeq_A</td>
+          <td>ProbeSeq_B</td>
+          <td>gene</td>
+          <td>gene_HGNC</td>
+          <td>chrm_A</td>
+          <td>beg_A</td>
+          <td>flag_A</td>
+          <td>mapQ_A</td>
+          <td>cigar_A</td>
+          <td>NM_A</td>
+          <td>chrm_B</td>
+          <td>beg_B</td>
+          <td>flag_B</td>
+          <td>mapQ_B</td>
+          <td>cigar_B</td>
+          <td>NM_B</td>
+          <td>wDecoy_chrm_A</td>
+          <td>wDecoy_beg_A</td>
+          <td>wDecoy_mapQ_A</td>
+          <td>wDecoy_cigar_A</td>
+          <td>wDecoy_NM_A</td>
+          <td>wDecoy_chrm_B</td>
+          <td>wDecoy_beg_B</td>
+          <td>wDecoy_mapQ_B</td>
+          <td>wDecoy_cigar_B</td>
+          <td>wDecoy_NM_B</td>
+          <td>posMatch</td>
+      </tr></table>
     </li>
 
-    <li>Gene, promoter, and CpG island<br>
-      - <smaller>gene annotation based on GENCODE v36</smaller>
-      (<a href="https://zhouserver.research.chop.edu/InfiniumAnnotation/EPIC/EPIC.hg38.manifest.gencode.v36.tsv.gz">EPIC</a>,
-      <a href="https://zhouserver.research.chop.edu/InfiniumAnnotation/HM450/HM450.hg38.manifest.gencode.v36.tsv.gz">HM450</a>,
-      <a href="https://zhouserver.research.chop.edu/InfiniumAnnotation/HM27/HM27.hg38.manifest.gencode.v36.tsv.gz">HM27</a>)<br>
-      <p>
-        This file also includes transcript ID, distance to TSS, CpG island and CGI/Shore/Shelf annotation.
-      </p>
-      - <smaller>gene annotation based on GENCODE v22 </smaller>
-      (<a href="https://zhouserver.research.chop.edu/InfiniumAnnotation/EPIC/EPIC.hg38.manifest.gencode.v22.tsv.gz">EPIC</a>,
-      <a href="https://zhouserver.research.chop.edu/InfiniumAnnotation/HM450/HM450.hg38.manifest.gencode.v22.tsv.gz">HM450</a>,
-      <a href="https://zhouserver.research.chop.edu/InfiniumAnnotation/HM27/HM27.hg38.manifest.gencode.v22.tsv.gz">HM27</a>) <br>
+    <li><b>Gene annotation (GENCODEv36), promoter, and CpG island</b></smaller>
+      (<a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/EPIC/EPIC.hg38.manifest.gencode.v36.tsv.gz">EPIC</a>,
+      <a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/HM450/HM450.hg38.manifest.gencode.v36.tsv.gz">HM450</a>,
+      <a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/HM27/HM27.hg38.manifest.gencode.v36.tsv.gz">HM27</a>)<br>
+      Column header: (<a href="InfiniumAnnotation/gene_annotation.html"><u>header description</u></a>)
+      <table><tr>
+          <td>CpG_chrm</td>
+          <td>CpG_beg</td>
+          <td>CpG_end</td>
+          <td>probe_strand</td>
+          <td>Probe_ID</td>
+          <td>genesUniq</td>
+          <td>geneNames</td>
+          <td>transcriptTypes</td>
+          <td>transcriptIDs</td>
+          <td>distToTSS</td>
+          <td>CGI</td>
+          <td>CGIposition</td>
+      </tr></table>
+      <u>Previous versions:</u>
+      GENCODE v22
+      (<a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/EPIC/EPIC.hg38.manifest.gencode.v22.tsv.gz">EPIC</a>,
+      <a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/HM450/HM450.hg38.manifest.gencode.v22.tsv.gz">HM450</a>,
+      <a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/HM27/HM27.hg38.manifest.gencode.v22.tsv.gz">HM27</a>) <br>
     </li>
 
-    <li>Converting SNP to variant format - rs probes
-      <span style="font-weight:bold;color:DodgerBlue">hg38</span>
-      (<a href="https://zhouserver.research.chop.edu/InfiniumAnnotation/EPIC/EPIC.hg38.snp_overlap_b151.tsv.gz">EPIC</a>)
+    <li><b>Converting SNP to variant format - rs probes</b>
+      (<a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/EPIC/EPIC.hg38.snp_overlap_b151.tsv.gz">EPIC</a>)<br>
+      Column header: (<a href="InfiniumAnnotation/snp_to_variant.html"><u>header description</u></a>)
+      <table><tr>
+          <td>chrm</td>
+          <td>beg</td>
+          <td>end</td>
+          <td>rs</td>
+          <td>designType</td>
+          <td>U</td>
+          <td>REF</td>
+          <td>ALT</td>
+      </tr></table>
     </li>
     
-    <li>Converting SNP to variant format - channel-switching Infinium-I probes
-      <span style="font-weight:bold;color:DodgerBlue">hg38</span>
-      (<a href="https://zhouserver.research.chop.edu/InfiniumAnnotation/EPIC/EPIC.hg38.typeI_overlap_b151.tsv.gz">EPIC</a>)
+    <li><b>Converting SNP to variant format - channel-switching Infinium-I probes</b>
+      (<a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/EPIC/EPIC.hg38.typeI_overlap_b151.tsv.gz">EPIC</a>)<br>
+      Column header: (<a href="InfiniumAnnotation/channel_switch.html"><u>header description</u></a>)
+      <table><tr>
+          <td>chrm</td>
+          <td>beg</td>
+          <td>end</td>
+          <td>strand</td>
+          <td>cg</td>
+          <td>designType</td>
+          <td>In-band</td>
+          <td>REF</td>
+          <td>ALT</td>
+          <td>rs</td>
+      </tr></table>
     </li>
     
-    <li>Population-specific masking GRCh38/hg38
-      (<a href="https://zhouserver.research.chop.edu/InfiniumAnnotation/EPIC/EPIC.hg38.manifest.pop.tsv.gz">EPIC</a>,
-      <a href="https://zhouserver.research.chop.edu/InfiniumAnnotation/HM450/HM450.hg38.manifest.pop.tsv.gz">HM450</a>,
-      <a href="https://zhouserver.research.chop.edu/InfiniumAnnotation/HM27/HM27.hg38.manifest.pop.tsv.gz">HM27</a>)
+    <li><b>Population-specific masking GRCh38/hg38</b>
+      (<a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/EPIC/EPIC.hg38.manifest.pop.tsv.gz">EPIC</a>,
+      <a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/HM450/HM450.hg38.manifest.pop.tsv.gz">HM450</a>,
+      <a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/HM27/HM27.hg38.manifest.pop.tsv.gz">HM27</a>)
+      <table><tr>
+          <td>CpG_chrm</td>
+          <td>CpG_beg</td>
+          <td>CpG_end</td>
+          <td>probeID</td>
+          <td>MASK_general_AFR</td>
+          <td>MASK_snp5_AFR</td>
+          <td>MASK_general_EAS</td>
+          <td>MASK_snp5_EAS</td>
+          <td>MASK_general_EUR</td>
+          <td>MASK_snp5_EUR</td>
+          <td>...</td>
+          <td>MASK_snp5_ASW</td>
+      </tr></table>
     </li>
 
-    <li>Population-specific SNP information GRCh38/hg38
-      (<a href="https://zhouserver.research.chop.edu/InfiniumAnnotation/EPIC/EPIC.hg38.commonsnp.tsv.gz">EPIC</a>,
-      <a href="https://zhouserver.research.chop.edu/InfiniumAnnotation/HM450/HM450.hg38.commonsnp.tsv.gz">HM450</a>,
-      <a href="https://zhouserver.research.chop.edu/InfiniumAnnotation/HM27/HM27.hg38.commonsnp.tsv.gz">HM27</a>)
-    </li>
+    <u>Population-specific SNP info</u> <br>
+    Population-specific SNP information GRCh38/hg38
+    (<a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/EPIC/EPIC.hg38.commonsnp.tsv.gz">EPIC</a>,
+    <a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/HM450/HM450.hg38.commonsnp.tsv.gz">HM450</a>,
+    <a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/HM27/HM27.hg38.commonsnp.tsv.gz">HM27</a>)
 
-    <li>Non-uniqueness of 3' nested subsequence GRCh38/hg38
-      (<a href="https://zhouserver.research.chop.edu/InfiniumAnnotation/EPIC/EPIC.hg38.3sub.copynumber.tsv.gz">EPIC</a>, 
-      <a href="https://zhouserver.research.chop.edu/InfiniumAnnotation/HM450/HM450.hg38.3sub.copynumber.tsv.gz">HM450</a>,
-      <a href="https://zhouserver.research.chop.edu/InfiniumAnnotation/HM27/HM27.hg38.3sub.copynumber.tsv.gz">HM27</a>)
-      <br />- <smaller>Bisulfite-Genomic copy number of 3'-subsequence of 11-50 bases in length</smaller>
+    <li><b>Bisulfite non-uniqueness of 3'-subsequence of 10-50 bases in length</b>
+      (<a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/EPIC/EPIC.hg38.3sub.copynumber.tsv.gz">EPIC</a>, 
+      <a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/HM450/HM450.hg38.3sub.copynumber.tsv.gz">HM450</a>,
+      <a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/HM27/HM27.hg38.3sub.copynumber.tsv.gz">HM27</a>)<br>
+      Column header: (<a href="InfiniumAnnotation/copy_number.html"><u>header description</u></a>)
+      <table><tr>
+          <td>probeID</td>
+          <td>copy_10</td>
+          <td>copy_11</td>
+          <td>copy_12</td>
+          <td>copy_13</td>
+          <td>...</td>
+          <td>copy_49</td>
+          <td>copy_50</td>
+      </tr></table>
     </li>
   </ul>
 
   <h2>GRCh37 / hg19</h2>
   <ul>
-    <li>Basic <span style="font-weight:bold;color:DodgerBlue">hg19</span> annotation with suggested overall masking
-      (<a href="https://zhouserver.research.chop.edu/InfiniumAnnotation/EPIC/EPIC.hg19.manifest.tsv.gz">EPIC</a>, 
-      <a href="https://zhouserver.research.chop.edu/InfiniumAnnotation/HM450/HM450.hg19.manifest.tsv.gz">HM450</a>,
-      <a href="https://zhouserver.research.chop.edu/InfiniumAnnotation/HM27/HM27.hg19.manifest.tsv.gz">HM27</a>)<br>
-      - <smaller>see <b>MASK_general</b> column for the recommended masking</smaller>
+    <li><b>Basic annotation with suggested overall masking</b>
+      (<a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/EPIC/EPIC.hg19.manifest.tsv.gz">EPIC</a>, 
+      <a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/HM450/HM450.hg19.manifest.tsv.gz">HM450</a>,
+      <a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/HM27/HM27.hg19.manifest.tsv.gz">HM27</a>)<br>
+      See "MASK_general" column for the recommended masking<br>
+      Column header: (<a href="InfiniumAnnotation/manifest.html"><u>header description</u></a>)
+      <table href="InfiniumAnnotation/manifest.html"><tr>
+          <td>CpG_chrm</td>
+          <td>CpG_beg</td>
+          <td>CpG_end</td>
+          <td>probe_strand</td>
+          <td>Probe_ID</td>
+          <td>address_A</td>
+          <td>address_B</td>
+          <td>channel</td>
+          <td>designType</td>
+          <td>nextBase</td>
+          <td>nextBaseRef</td>
+          <td>probeType</td>
+          <td>orientation</td>
+          <td>probeCpGcnt</td>
+          <td>context35</td>
+          <td>probeBeg</td>
+          <td>probeEnd</td>
+          <td>ProbeSeq_A</td>
+          <td>ProbeSeq_B</td>
+          <td>gene</td>
+          <td>gene_HGNC</td>
+          <td>chrm_A</td>
+          <td>beg_A</td>
+          <td>flag_A</td>
+          <td>mapQ_A</td>
+          <td>cigar_A</td>
+          <td>NM_A</td>
+          <td>chrm_B</td>
+          <td>beg_B</td>
+          <td>flag_B</td>
+          <td>mapQ_B</td>
+          <td>cigar_B</td>
+          <td>NM_B</td>
+          <td>wDecoy_chrm_A</td>
+          <td>wDecoy_beg_A</td>
+          <td>wDecoy_mapQ_A</td>
+          <td>wDecoy_cigar_A</td>
+          <td>wDecoy_NM_A</td>
+          <td>wDecoy_chrm_B</td>
+          <td>wDecoy_beg_B</td>
+          <td>wDecoy_mapQ_B</td>
+          <td>wDecoy_cigar_B</td>
+          <td>wDecoy_NM_B</td>
+          <td>posMatch</td>
+      </tr></table>
     </li>
 
-    <li>Converting SNP to variant format - rs probes
-      <span style="font-weight:bold;color:DodgerBlue">hg19</span>
-      (<a href="https://zhouserver.research.chop.edu/InfiniumAnnotation/EPIC/EPIC.hg19.snp_overlap_b151.tsv.gz">EPIC</a>)
+    <li><b>Converting SNP to variant format - rs probes</b>
+      (<a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/EPIC/EPIC.hg19.snp_overlap_b151.tsv.gz">EPIC</a>)<br>
+      Column header: (<a href="InfiniumAnnotation/snp_to_variant.html"><u>header description</u></a>)
+      <table><tr>
+          <td>chrm</td>
+          <td>beg</td>
+          <td>end</td>
+          <td>rs</td>
+          <td>designType</td>
+          <td>U</td>
+          <td>REF</td>
+          <td>ALT</td>
+      </tr></table>
     </li>
 
-    <li>Converting SNP to variant format - channel-switching Infinium-I probes
-      <span style="font-weight:bold;color:DodgerBlue">hg19</span>
-      (<a href="https://zhouserver.research.chop.edu/InfiniumAnnotation/EPIC/EPIC.hg19.typeI_overlap_b151.tsv.gz">EPIC</a>)
+    <li><b>Converting SNP to variant format - channel-switching Infinium-I probes</b>
+      (<a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/EPIC/EPIC.hg19.typeI_overlap_b151.tsv.gz">EPIC</a>)<br>
+      Column header: (<a href="InfiniumAnnotation/channel_switch.html"><u>header description</u></a>)
+      <table><tr>
+          <td>chrm</td>
+          <td>beg</td>
+          <td>end</td>
+          <td>strand</td>
+          <td>cg</td>
+          <td>designType</td>
+          <td>In-band</td>
+          <td>REF</td>
+          <td>ALT</td>
+          <td>rs</td>
+      </tr></table>
     </li>
 
-    <li>Population-specific masking GRCh37/hg19
-      (<a href="https://zhouserver.research.chop.edu/InfiniumAnnotation/EPIC/EPIC.hg19.manifest.pop.tsv.gz">EPIC</a>,
-      <a href="https://zhouserver.research.chop.edu/InfiniumAnnotation/HM450/HM450.hg19.manifest.pop.tsv.gz">HM450</a>,
-      <a href="https://zhouserver.research.chop.edu/InfiniumAnnotation/HM27/HM27.hg19.manifest.pop.tsv.gz">HM27</a>)
+    <li><b>Population-specific masking GRCh37/hg19</b>
+      (<a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/EPIC/EPIC.hg19.manifest.pop.tsv.gz">EPIC</a>,
+      <a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/HM450/HM450.hg19.manifest.pop.tsv.gz">HM450</a>,
+      <a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/HM27/HM27.hg19.manifest.pop.tsv.gz">HM27</a>)<br>
+      <table><tr>
+          <td>CpG_chrm</td>
+          <td>CpG_beg</td>
+          <td>CpG_end</td>
+          <td>probeID</td>
+          <td>MASK_general_AFR</td>
+          <td>MASK_snp5_AFR</td>
+          <td>MASK_general_EAS</td>
+          <td>MASK_snp5_EAS</td>
+          <td>MASK_general_EUR</td>
+          <td>MASK_snp5_EUR</td>
+          <td>...</td>
+          <td>MASK_snp5_ASW</td>
+      </tr></table>
     </li>
 
-    <li>Manufacturer's manifest GRCh37/hg19
-      (<a href="https://zhouserver.research.chop.edu/InfiniumAnnotation/EPIC/EPIC.hg19.manifest.original.tsv.gz">EPIC</a>,
-      <a href="https://zhouserver.research.chop.edu/InfiniumAnnotation/HM450/HM450.hg19.manifest.original.tsv.gz">HM450</a>,
-      <a href="https://zhouserver.research.chop.edu/InfiniumAnnotation/HM27/HM27.hg19.manifest.original.tsv.gz">HM27</a>)
+    <!-- <li>Manufacturer's manifest GRCh37/hg19 -->
+    <!--   (<a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/EPIC/EPIC.hg19.manifest.original.tsv.gz">EPIC</a>, -->
+    <!--   <a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/HM450/HM450.hg19.manifest.original.tsv.gz">HM450</a>, -->
+    <!--   <a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/HM27/HM27.hg19.manifest.original.tsv.gz">HM27</a>) -->
+    <!-- </li> -->
+
+    <li><b>Roadmap Epigenomics Mapping Consortium, 15 chromHMM states, 127 samples</b>
+      (<a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/EPIC/EPIC.hg19.REMC.chromHMM.tsv.gz">EPIC</a>,
+      <a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/HM450/HM450.hg19.REMC.chromHMM.tsv.gz">HM450</a>,
+      <a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/HM27/HM27.hg19.REMC.chromHMM.tsv.gz">HM27</a>)<br>
+      Column header: (<a href="InfiniumAnnotation/REMC_chromHMM.html"><u>header description</u></a>)
+      <table><tr>
+          <td>CpG_chrm</td>
+          <td>CpG_beg</td>
+          <td>CpG_end</td>
+          <td>probeID</td>
+          <td>E001</td>
+          <td>E002</td>
+          <td>E003</td>
+          <td>E004</td>
+          <td>E005</td>
+          <td>E006</td>
+          <td>E007</td>
+          <td>E008</td>
+          <td>E009</td>
+          <td>E010</td>
+          <td>E011</td>
+          <td>E012</td>
+          <td>E013</td>
+          <td>E014</td>
+          <td>E015</td>
+          <td>E016</td>
+          <td>E017</td>
+          <td>E018</td>
+          <td>...</td>
+          <td>E129</td>
+      </tr></table>
     </li>
 
-    <li>
-      Roadmap Epigenomics Mapping Consortium
-      (<a href="https://zhouserver.research.chop.edu/InfiniumAnnotation/EPIC/EPIC.hg19.REMC.chromHMM.tsv.gz">EPIC</a>,
-      <a href="https://zhouserver.research.chop.edu/InfiniumAnnotation/HM450/HM450.hg19.REMC.chromHMM.tsv.gz">HM450</a>,
-      <a href="https://zhouserver.research.chop.edu/InfiniumAnnotation/HM27/HM27.hg19.REMC.chromHMM.tsv.gz">HM27</a>)
-      <br />- <smaller>15 chromHMM states, 127 samples</smaller>
+    <li><b>ENCODE chromHMM states, 15 chromHMM states, 9 samples</b>
+      (<a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/EPIC/EPIC.hg19.ENCODE.chromHMM.tsv.gz">EPIC</a>,
+      <a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/HM450/HM450.hg19.ENCODE.chromHMM.tsv.gz">HM450</a>,
+      <a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/HM27/HM27.hg19.ENCODE.chromHMM.tsv.gz">HM27</a>)<br>
+      Column header: (<a href="InfiniumAnnotation/ENCODE_chromHMM.html"><u>header description</u></a>)
+      <table><tr>
+          <td>CpG_chrm</td>
+          <td>CpG_beg</td>
+          <td>CpG_end</td>
+          <td>probeID</td>
+          <td>Gm12878</td>
+          <td>H1hesc</td>
+          <td>Hepg2</td>
+          <td>Hmec</td>
+          <td>Hsmm</td>
+          <td>Huvec</td>
+          <td>K562</td>
+          <td>Nhek</td>
+          <td>Nhlf</td>
+      </tr></table>
     </li>
 
-    <li>
-      ENCODE chromHMM states
-      (<a href="https://zhouserver.research.chop.edu/InfiniumAnnotation/EPIC/EPIC.hg19.ENCODE.chromHMM.tsv.gz">EPIC</a>,
-      <a href="https://zhouserver.research.chop.edu/InfiniumAnnotation/HM450/HM450.hg19.ENCODE.chromHMM.tsv.gz">HM450</a>,
-      <a href="https://zhouserver.research.chop.edu/InfiniumAnnotation/HM27/HM27.hg19.ENCODE.chromHMM.tsv.gz">HM27</a>)
-      <br />- <smaller>15 chromHMM states, 9 samples</smaller>
+    <li><b>Imprinted differentially methylated loci, based on Court et al. 2014 Genome Research, PMID 24402520</b>
+      (<a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/EPIC/EPIC.hg19.imprinting.tsv.gz">EPIC</a>,
+      <a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/HM450/HM450.hg19.imprinting.tsv.gz">HM450</a>,
+      <a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/HM27/HM27.hg19.imprinting.tsv.gz">HM27</a>)<br>
+      Column header: (<a href="InfiniumAnnotation/HumanImprinting.html"><u>header description</u></a>)
+      <table><tr>
+          <td>CpG_chrm</td>
+          <td>CpG_beg</td>
+          <td>CpG_end</td>
+          <td>probeID</td>
+          <td>ICR</td>
+          <td>PaternalOrMaternal</td>
+      </tr></table>
     </li>
 
-    <li>
-      Imprinted differentially methylated loci
-      (<a href="https://zhouserver.research.chop.edu/InfiniumAnnotation/EPIC/EPIC.hg19.imprinting.tsv.gz">EPIC</a>,
-      <a href="https://zhouserver.research.chop.edu/InfiniumAnnotation/HM450/HM450.hg19.imprinting.tsv.gz">HM450</a>,
-      <a href="https://zhouserver.research.chop.edu/InfiniumAnnotation/HM27/HM27.hg19.imprinting.tsv.gz">HM27</a>)
-      <br />- <smaller>based on Court et al. 2014 Genome Research, PMID 24402520</smaller>
-    </li>
-
-    <li>
-      ENCODE Transcription Factor Binding Sites
+    <li><b>ENCODE Transcription Factor Binding Sites, 171 TFs and 91 samples from ENCODE project, include distance to summit</b>
       (<a href="https://zhouserver.research.chop.edu/InfiniumAnnotation/EPIC/EPIC.hg19.ENCODE.TFBS.tsv.gz">EPIC</a>,
       <a href="https://zhouserver.research.chop.edu/InfiniumAnnotation/HM450/HM450.hg19.ENCODE.TFBS.tsv.gz">HM450</a>,
-      <a href="https://zhouserver.research.chop.edu/InfiniumAnnotation/HM27/HM27.hg19.ENCODE.TFBS.tsv.gz">HM27</a>)
-      <br />- <smaller>171 TFs and 91 samples from ENCODE project, include distance to summit</smaller>
+      <a href="https://zhouserver.research.chop.edu/InfiniumAnnotation/HM27/HM27.hg19.ENCODE.TFBS.tsv.gz">HM27</a>)<br>
+      Column header: (<a href="InfiniumAnnotation/HumanTFBS.html"><u>header description</u></a>)
+      <table><tr>
+          <td>CpG_chrm</td>
+          <td>CpG_beg</td>
+          <td>CpG_end</td>
+          <td>probeID</td>
+          <td>TFBS_location</td>
+          <td>TFBS_summit</td>
+          <td>sample</td>
+          <td>TF</td>
+          <td>loc_summit</td>
+      </tr></table>
     </li>
 
+    <li><b>CTCF binding sites, based on Wang et al. 2012 Genome Research, PMID 22955990</b>
+      (<a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/EPIC/EPIC.hg19.CTCF.tsv.gz">EPIC</a>,
+      <a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/HM450/HM450.hg19.CTCF.tsv.gz">HM450</a>,
+      <a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/HM27/HM27.hg19.CTCF.tsv.gz">HM27</a>)<br>
+      Column header: (<a href="InfiniumAnnotation/HumanCTCF.html"><u>header description</u></a>)
+      <table><tr>
+          <td>CpG_chrm</td>
+          <td>CpG_beg</td>
+          <td>CpG_end</td>
+          <td>probeID</td>
+          <td>CTCF</td>
+          <td>distance</td>
+      </tr></table>
+    </li>
+
+  </ul>
+  
+  <h2>Other Genomes</h2>
+  
+  <ul>
     <li>
-      CTCF binding sites
-      (<a href="https://zhouserver.research.chop.edu/InfiniumAnnotation/EPIC/EPIC.hg19.CTCF.tsv.gz">EPIC</a>,
-      <a href="https://zhouserver.research.chop.edu/InfiniumAnnotation/HM450/HM450.hg19.CTCF.tsv.gz">HM450</a>,
-      <a href="https://zhouserver.research.chop.edu/InfiniumAnnotation/HM27/HM27.hg19.CTCF.tsv.gz">HM27</a>)
-      <br />- <smaller>based on Wang et al. 2012 Genome Research, PMID 22955990</smaller>
-    </li>
-
-  </ul>
-  
-  <h3>Column Legends</h3>
-  <p>
-    <b>CpG_chrm</b>, <b>CpG_beg</b> and <b>CpG_end</b> - the location of the target. CpG_beg is 0-based coordinate and CpG_end is 1-based. The coordinates should have a span of 2 nucleotides for CpG probes, or 1 nucleotide for CpH and SNP probes. Some erroneous CpH probe coordinates mapping information in the manufacturer's manifest have been corrected. <br>
-
-    <b>probe_strand</b> - This is consistent with "orientation" column for strand information of the actual probe. '+' is for all the up-probes positioned in smaller coordinates and '-' for all the down-probes positioned in greater coordinates with respect to the target CpGs. "*" is used for unmapped probes.<br>
-
-    <b>Probe_ID</b> - Probe ID
-    <b>address_A</b> and <b>address_B</b> - addresses of probe A and B on the chip designated by the original manifest. <br>
-
-    <b>channel</b> - "Both" for type II probes and "Grn"/"Red" for type I probes. <br />
-
-    <b>designType</b> - either "I" or "II". <br>
-
-    <b>nextBase</b> - the actual extension base (on the probe strand) after bisulfite conversion ("A" or "C" or "T"). Unmapped probe has extension base labeled in the original manifest. <br>
-
-    <b>nextBaseRef</b> - the extension base (on the hybridized/template DNA) before bisulfite conversion ("A", "C", "G" or "T"). Unmapped probe has "NA". <br />
-
-    <b>probeType</b> - either "cg", "ch" or "rs". <br />
-
-    <b>orientation</b> - either "up" or "down" specifying whether the probe is positioned upstream (in smaller coordinates) or downstream (in greater coordinates) the target. <br />
-    <b style="color:DodgerBlue;">Note that by design, probes positioned upstream (in smaller coordinates) are always on the Watson strand and probes positioned downstream (in greater coordinates) are always on the Crick strand.</b><br />
-
-    <b>probeCpGcnt</b> - the number of additional CpGs in the probe (not counting the interrogated CpG). <br />
-
-    <b>context35</b> - the number of CpG in the [-35bp, +35bp] window. <br />
-
-    <b>probeStart</b> and <b>probeEnd</b> - the mapped start and end position of the probe, it is always 50bp long. <br />
-
-    <b>ProbeSeq_A</b> and <b>ProbeSeq_B</b> - the probe sequence for allele A and B.<br />
-
-    <b>gene</b> - ";"-separated list of gene annotations (unique and alphabetically sorted). Gene models follows GENCODE version 22 (hg38). <br />
-
-    <b>gene_HGNC</b> - ";"-separated list of gene annotations (unique and alphabetically sorted). Genes are checked using HGNChelper for compatibility with HGNC. Gene models follows GENCODE version 22 (hg38). <br />
-
-    <b>chrm_A</b>, <b>beg_A</b>, <b>flag_A</b>, <b>mapQ_A</b>, <b>cigar_A</b>, <b>NM_A</b> - the mapping info for probe A excluding decoy chromsomes. mapQ=mapping quality score, 0-60, with 60 being the best.<br />
-
-    <b>chrm_B</b>, <b>beg_B</b>, <b>flag_B</b>, <b>mapQ_B</b>, <b>cigar_B</b>, <b>NM_B</b> - the mapping info for probe B excluding decoy chromosomes, like above.<br />
-
-    <b>wDecoy_chrm_A</b>, <b>wDecoy_beg_A</b>, <b>wDecoy_mapQ_A</b>, <b>wDecoy_cigar_A</b>, <b>wDecoy_NM_A</b> - the mapping info for probe A including decoy chromosomes.<br />
-
-    <b>wDecoy_chrm_B</b>, <b>wDecoy_beg_B</b>, <b>wDecoy_mapQ_B</b>, <b>wDecoy_cigar_B</b>, <b>wDecoy_NM_B</b> - the mapping info for probe B including decoy chromosomes.<br />
-
-    <b>posMatch</b> - whether the mapping matches the original manifest, it only applies to hg19 and will be NA under hg38. <br />
-
-  </p>
-
-  <h3>Masking</h3>
-  <p>
-    <b>MASK.mapping</b> - whether the probe is masked for mapping reason. Probes retained should have high quality (>=40 on 0-60 scale) consistent (with designed MAPINFO) mapping (for both in the case of type I) without INDELs.
-    <br />
-
-    <b>MASK.typeINextBaseSwitch</b> - whether the probe has a SNP in the extension base that causes a color channel switch from the official annotation (described as color-channel-switching, or CCS SNP in the reference). These probes should be processed differently than designed (by summing up both color channels instead of just the annotated color channel).
-    <!-- This is implemented in SeSAMe, available on research.vai.org/tools/ -->
-    <br />
-
-    <b>MASK.rmsk15</b> - whether the 15bp 3'-subsequence of the probe overlap with repeat masker, this MASK is NOT recommended.
-    <br />
-
-    <b>MASK.sub25.copy</b>, <b>MASK.sub30.copy</b>, <b>MASK.sub35.copy</b> and <b>MASK.sub40.copy</b> - whether the 25bp, 30bp, 35bp and 40bp 3'-subsequence of the probe is non-unique.
-    <br />
-
-    <b>MASK.snp5.common</b> - whether 5bp 3'-subsequence (including extension for typeII) overlap with any of the common SNPs from dbSNP (global MAF can be under 1%).
-    <br />
-
-    <b>MASK.snp5.GMAF1p</b> - whether 5bp 3'-subsequence (including extension for typeII) overlap with any of the SNPs with global MAF >1%.
-    <br />
-
-    <b>MASK.extBase</b> - probes masked for extension base inconsistent with specified color channel (type-I) or CpG (type-II) based on mapping.
-    <br />
-
-    <b>MASK.general</b> - recommended general purpose masking merged from "MASK.sub30.copy", "MASK.mapping", "MASK.extBase", "MASK.typeINextBaseSwitch" and "MASK.snp5.GMAF1p".
-    <br />
-  </p>
-
-  <h3>Cross-species Mapping</h3>
-  
-  <ul>
-    <li>Mouse mm10/GRCm38 mapping
-      (<a href="https://zhouserver.research.chop.edu/InfiniumAnnotation/EPIC/EPIC.mm10.map.tsv.gz">EPIC</a>,
-      <a href="https://zhouserver.research.chop.edu/InfiniumAnnotation/HM450/HM450.mm10.map.tsv.gz">HM450</a>,
-      <a href="https://zhouserver.research.chop.edu/InfiniumAnnotation/HM27/HM27.mm10.map.tsv.gz">HM27</a>)
-    </li>
-    
-    <li>Mouse 3'-subsequence copy number based on mm10/GRCm38
-      (<a href="https://zhouserver.research.chop.edu/InfiniumAnnotation/EPIC/EPIC.mm10.3sub.copynumber.tsv.gz">EPIC</a>,
-      <a href="https://zhouserver.research.chop.edu/InfiniumAnnotation/HM450/HM450.mm10.3sub.copynumber.tsv.gz">HM450</a>,
-      <a href="https://zhouserver.research.chop.edu/InfiniumAnnotation/HM27/HM27.mm10.3sub.copynumber.tsv.gz">HM27</a>)
-    </li>
-  </ul>
-
-  <hr>
-  <a href="#mouse" class="header" name="mouse">Mouse Array</a>
-  (see <a href="https://bioconductor.org/packages/devel/bioc/vignettes/sesame/inst/doc/nonhuman.html">here</a> for working with the mouse array)
-
-  <h2>GRCm38 / mm10</h2>
-  <ul>
-    <li>Basic <span style="font-weight:bold;color:DodgerBlue">mm10</span> mapping information
-      (<a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/MM285/mm10.tsv.gz">MM285</a>)
-    </li>
-
-    <table>
-      <tr>
-        <td>CpG_chrm</td>
-        <td>CpG_beg</td>
-        <td>CpG_end</td>
-        <td>address_A</td>
-        <td>address_B</td>
-        <td>target</td>
-        <td>nextBase</td>
-        <td>channel</td>
-        <td>Probe_ID</td>
-        <td>mapFlag_A</td>
-        <td>mapChrm_A</td>
-        <td>mapPos_A</td>
-        <td>mapQ_A</td>
-        <td>mapCigar_A</td>
-        <td>AlleleA_ProbeSeq</td>
-        <td>mapNM_A</td>
-        <td>mapAS_A</td>
-        <td>mapYD_A</td>
-        <td>mapFlag_B</td>
-        <td>mapChrm_B</td>
-        <td>mapPos_B</td>
-        <td>mapQ_B</td>
-        <td>mapCigar_B</td>
-        <td>AlleleB_ProbeSeq</td>
-        <td>mapNM_B</td>
-        <td>mapAS_B</td>
-        <td>mapYD_B</td>
-        <td>type</td>
-      </tr>
-    </table>
-
-      <u>Detailed Column Legends</u> <br>
-      <u>CpG_chrm, CpG_beg, CpG_end</u> <em>(1-3)</em> - genomic coordinate for the target, length 2 for CpG, length 1 for SNP and CpH. beg is 0-based and end is 1-based like in bed files.<br>
-      <u>address_A, address_B</u> <em>(4-5)</em> - Chip/tango address for A-allele and B-allele.<br>
-      <u>target</u> <em>(6)</em> - CG if the probe measures CpG methylation, reference allele if otherwise<br>
-      <u>nextBase</u> <em>(7)</em> - the actual extension base (on the probe strand) <b>before</b> bisulfite conversion. "R" (stands for G/A) for Infinium-II probes <br />
-      <u>channel</u> <em>(8)</em> - color channel, green or red<br>
-      <u>Probe_ID</u> <em>(9)</em> - the probe ID<br>
-      <u>mapFlag_A, mapChrm_A, mapPos_A, mapQ_A, mapCigar_A, mapNM_A, mapAS_A, mapYD_A</u> - Mapping information for allele A. NM is the number of mutations. AS represents alignment score. YD (f/r/n) represents the bisulfite strand. mapFlag can be used to determine direction of the probe sequence. 0 means upstream and 16 means downstream.<br>
-      <u>mapFlag_B, mapChrm_B, mapPos_B, mapQ_B, mapCigar_B, mapNM_B, mapAS_B, mapYD_B</u> - Mapping information for allele B. Same as allele A.<br>
-      <u>type</u> - Infinium-I or Infinium-II<br>
-
-    <li>Design information (<a href="https://zhouserver.research.chop.edu/InfiniumAnnotation/MM285/MM285.design.tsv.gz">MM285</a>)</li>
-
-    <table>
-      <tr>
-        <td>Probe_ID</td>
-        <td>design</td>
-      </tr>
-    </table>
-
-    design - contains the annotation of the probes. For the syntenic EPIC probe mapping, search for EPIC prefix in the design column.
- 
-    <li>Mask information (<a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/MM285/MM285.mask.tsv.gz">MM285</a>)</li>
-    <table>
-      <tr>
-        <td>Probe_ID</td>
-        <td>mask</td>
-      </tr>
-    </table>
-    
-    This file includes a boolean indication of whether probes are recommended to be masked in data preprocessing. Probes masked by default includes control probes, multi-mapping probes (mapQ<30 for either allele A or B) and non-informative probes (uk probes) <br>
-
-    <li>Gene, promoter, and CpG island - gene annotation based on GENCODE vM25 (<a href="https://zhouserver.research.chop.edu/InfiniumAnnotation/MM285/MM285.mm10.manifest.gencode.vM25.tsv.gz">MM285</a>)<br>
-    </li>
-
-    <table>
-      <tr>
-        <td>CpG_chrm</td>
-        <td>CpG_beg</td>
-        <td>CpG_end</td>
-        <td>probe_strand</td>
-        <td>probeID</td>
-        <td>genesUniq</td>
-        <td>geneNames</td>
-        <td>transcriptTypes</td>
-        <td>transcriptIDs</td>
-        <td>distToTSS</td>
-        <td>CGI</td>
-        <td>CGIposition</td>
-      </tr>
-    </table>
-
-    The file includes annotation of probes if they fall from 1.5kbp upstream Transcription Start Site (TSS/Promoter), to Transcription Termination Site. A probe can be considered promoter associated if it is located from 1.5kbps upstream TSS to 1.5kbps dwonstream TSS. This information is given in the distToTSS column. Otherwise, the probe is considered associated with gene body. All isoforms are considered for each gene. This file also includes CpG island and CGI/Shore/Shelf annotation.
-
-    <li>Illustration of the new array ID system (<a href="https://github.com/zhou-lab/InfiniumAnnotation/blob/main/MM285/202010418_MouseArray_ID_system.md">Illustration</a>)<br>
-      The mouse array employs an improved ID system on top of the traditional "cg" numbers. The new ID system uniquely specifies the design details. The new ID is designed to accomodate more flexible probe design such as replicates and opposite-strand design.
-    </li>
-
-    <li>ChromHMM annotation (<a href="https://zhouserver.research.chop.edu/InfiniumAnnotation/MM285/MM285.mm10.chromHMM.tsv.gz">MM285</a>)
-    </li>
-
-    <li>Imprinting ICR/DMR annotation
-      (<a href="https://raw.githubusercontent.com/zhou-lab/ImprintingAnno/master/20210530_mm10_ICR_MM285.tsv">MM285</a>, also see <a href="https://github.com/zhou-lab/ImprintingAnno/blob/master/README.md">ICR annotation</a>, and a comparison of different ICR/DMR <a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/MM285/MM285.imprinting.rds">evidences</a>).
-    </li>
-
-    <li>Evolutionary Conservation (PhastCons)
-      (<a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/MM285/MM285.mm10.60way.phastCons.txt.gz">MM285</a>)
-    </li>
-    <li>Evolutionary Conservation (PhyloP)
-      (<a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/MM285/MM285.mm10.60way.phyloP60way.txt.gz">MM285</a>)
-    </li>
-
-  </ul>
-  
-  <h2>GRCm39 / mm39</h2>
-  <ul>
-    <li>Basic <span style="font-weight:bold;color:DodgerBlue">mm39</span> mapping information.
-      (<a href="https://zhouserver.research.chop.edu/InfiniumAnnotation/MM285/MM285.mm39.manifest.tsv.gz">MM285</a>)
-
-      <table>
-        <tr>
+      <b>310 species manifest from Ensemble v101</b>
+      (<a href="https://github.com/zhou-lab/InfiniumAnnotationV1/tree/main/EPIC">EPIC</a>,
+      <a href="https://github.com/zhou-lab/InfiniumAnnotationV1/tree/main/HM450">HM450</a>,
+      <a href="https://github.com/zhou-lab/InfiniumAnnotationV1/tree/main/HM27">HM27</a>)<br>
+      Column header: (<a href="InfiniumAnnotation/manifestV2.html"><u>header description</u></a>)
+      <table><tr>
           <td>CpG_chrm</td>
           <td>CpG_beg</td>
           <td>CpG_end</td>
@@ -434,73 +451,377 @@
           <td>mapAS_B</td>
           <td>mapYD_B</td>
           <td>type</td>
+      </tr></table>
+    </li>
+
+    <li><b>Mouse mm10/GRCm38 mapping</b>
+      (<a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/EPIC/EPIC.mm10.map.tsv.gz">EPIC</a>,
+      <a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/HM450/HM450.mm10.map.tsv.gz">HM450</a>,
+      <a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/HM27/HM27.mm10.map.tsv.gz">HM27</a>)<br>
+      Column header: (<a href="InfiniumAnnotation/human_mouseMapping.html"><u>header description</u></a>)
+      <table><tr>
+          <td>probeID</td>
+          <td>chrm_A</td>
+          <td>beg_A</td>
+          <td>flag_A</td>
+          <td>mapQ_A</td>
+          <td>cigar_A</td>
+          <td>chrm_B</td>
+          <td>beg_B</td>
+          <td>flag_B</td>
+          <td>mapQ_B</td>
+          <td>cigarB</td>
+      </tr></table>
+    </li>
+    
+    <li><b>Mouse 3'-subsequence copy number based on mm10/GRCm38</b>
+      (<a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/EPIC/EPIC.mm10.3sub.copynumber.tsv.gz">EPIC</a>,
+      <a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/HM450/HM450.mm10.3sub.copynumber.tsv.gz">HM450</a>,
+      <a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/HM27/HM27.mm10.3sub.copynumber.tsv.gz">HM27</a>)<br>
+      Column header: (<a href="InfiniumAnnotation/copy_number.html"><u>header description</u></a>)
+      <table><tr>
+          <td>probeID</td>
+          <td>copy_10</td>
+          <td>copy_11</td>
+          <td>copy_12</td>
+          <td>copy_13</td>
+          <td>...</td>
+          <td>copy_49</td>
+          <td>copy_50</td>
+      </tr></table>
+    </li>
+  </ul>
+
+  <hr>
+  <a href="#mouse" class="header" name="mouse">Mouse/MM285 Array</a>
+  (see <a href="https://bioconductor.org/packages/devel/bioc/vignettes/sesame/inst/doc/nonhuman.html">here</a> for working with the mouse array)
+
+  <h2><span style="font-weight:bold;color:DodgerBlue">GRCm38 / mm10</span></h2>
+  <ul>
+    <li><b>Mapping information</b>
+      (<a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/MM285/MM285.mm10.manifest.tsv.gz">MM285</a>)
+    </li>
+    Column header: (<a href="InfiniumAnnotation/manifestV2.html"><u>header description</u></a>)
+    <table><tr>
+        <td>CpG_chrm</td>
+        <td>CpG_beg</td>
+        <td>CpG_end</td>
+        <td>address_A</td>
+        <td>address_B</td>
+        <td>target</td>
+        <td>nextBase</td>
+        <td>channel</td>
+        <td>Probe_ID</td>
+        <td>mapFlag_A</td>
+        <td>mapChrm_A</td>
+        <td>mapPos_A</td>
+        <td>mapQ_A</td>
+        <td>mapCigar_A</td>
+        <td>AlleleA_ProbeSeq</td>
+        <td>mapNM_A</td>
+        <td>mapAS_A</td>
+        <td>mapYD_A</td>
+        <td>mapFlag_B</td>
+        <td>mapChrm_B</td>
+        <td>mapPos_B</td>
+        <td>mapQ_B</td>
+        <td>mapCigar_B</td>
+        <td>AlleleB_ProbeSeq</td>
+        <td>mapNM_B</td>
+        <td>mapAS_B</td>
+        <td>mapYD_B</td>
+        <td>type</td>
+    </tr></table>
+    <u>Previous versions:</u>
+    Old manifest (<a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/MM285/archive/202209/MM285.mm10.manifest.tsv.gz">MM285</a>,
+    <a href="InfiniumAnnotation/manifest_mouseV1.html">header description</a>)<br>
+    
+    <li><b>Mouse array design groups</b>
+      (<a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/MM285/MM285.design.tsv.gz">MM285</a>)<br>
+      Column header:
+      <table><tr>
+          <td>Probe_ID</td>
+          <td>design</td>
+      </tr></table>
+      <u>Header description:</u> <br>
+      <em>(2) design</em>: contains the annotation of the probes. For the syntenic EPIC probe mapping, search for EPIC prefix in the design column.
+    </li>
+ 
+    <li><b>Mask information</b>
+      (<a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/MM285/MM285.mask.tsv.gz">MM285</a>)<br>
+      Column header:
+      <table>
+        <tr>
+          <td>Probe_ID</td>
+          <td>mask</td>
         </tr>
       </table>
-      
+      <u>Header description:</u> <br>
+      <em>(2) mask</em>: a boolean indication of whether probes are recommended to be masked in data preprocessing. Probes masked by default includes control probes, multi-mapping probes (mapQ<30 for either allele A or B) and non-informative probes (uk probes)
+    </li>
+
+    <li><b>Gene annotation (GENCODEvM25), promoter, and CpG island</b>
+      (<a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/MM285/MM285.mm10.manifest.gencode.vM25.tsv.gz">MM285</a>)<br>
+      Column header: (<a href="InfiniumAnnotation/gene_annotation.html"><u>header description</u></a>)
+      <table>
+        <tr>
+          <td>CpG_chrm</td>
+          <td>CpG_beg</td>
+          <td>CpG_end</td>
+          <td>probe_strand</td>
+          <td>probeID</td>
+          <td>genesUniq</td>
+          <td>geneNames</td>
+          <td>transcriptTypes</td>
+          <td>transcriptIDs</td>
+          <td>distToTSS</td>
+          <td>CGI</td>
+          <td>CGIposition</td>
+        </tr>
+      </table>
+    </li>
+    
+    <li><b>The <a href="https://github.com/zhou-lab/InfiniumAnnotation/blob/main/MM285/202010418_MouseArray_ID_system.md">Illustration</a> of the new array ID system</b><br>
+      The mouse array employs an improved ID system on top of the traditional "cg" numbers. The new ID system uniquely specifies the design details. The new ID is designed to accomodate more flexible probe design such as replicates and opposite-strand design.
+    </li>
+
+    <li><b>ChromHMM annotation of 66 samples</b>
+      (<a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/MM285/MM285.mm10.chromHMM.tsv.gz">MM285</a>)<br>
+      Column header: (<a href="InfiniumAnnotation/chromHMM_mouse.html"><u>header description</u></a>)
+      <table><tr>
+          <td>chrm</td>
+          <td>beg</td>
+          <td>end</td>
+          <td>probeID</td>
+          <td>ENCFF005IEW_forebrain_embryonic_12.5</td>
+          <td>ENCFF014LBF_hindbrain_postnatal_0</td>
+          <td>ENCFF023ETX_liver_embryonic_14.5</td>
+          <td>ENCFF065PNO_midbrain_embryonic_16.5</td>
+          <td>ENCFF072LNA_liver_embryonic_11.5</td>
+          <td>...</td>
+      </tr></table>
+    </li>
+
+    <li><b>Imprinting ICR/DMR annotation</b>
+      (<a href="https://raw.githubusercontent.com/zhou-lab/ImprintingAnno/master/20210530_mm10_ICR_MM285.tsv">MM285</a>, also see <a href="https://github.com/zhou-lab/ImprintingAnno/blob/master/README.md">ICR annotation</a>, and a comparison of different ICR/DMR <a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/MM285/MM285.imprinting.rds">evidences</a>).
+    </li>
+
+    <li><b>PhastCons Evolutionary Conservation</b>
+      (<a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/MM285/MM285.mm10.60way.phastCons.txt.gz">MM285</a>)
+      <table><tr>
+          <td>Probe_ID</td>
+          <td>score</td>
+      </tr></table>
+    </li>
+    
+    <li><b>PhyloP Evolutionary Conservation</b>
+      (<a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/MM285/MM285.mm10.60way.phyloP60way.txt.gz">MM285</a>)
+      <table><tr>
+          <td>Probe_ID</td>
+          <td>score</td>
+      </tr></table>
+    </li>
+
+  </ul>
+  
+  <h2>GRCm39 / mm39</h2>
+  <ul>
+    <li><b>Mapping information</b>
+      (<a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/MM285/MM285.mm39.manifest.tsv.gz">MM285</a>)<br>
+      Column header: (<a href="InfiniumAnnotation/manifestV2.html"><u>header description</u></a>)
+      <table><tr>
+          <td>CpG_chrm</td>
+          <td>CpG_beg</td>
+          <td>CpG_end</td>
+          <td>address_A</td>
+          <td>address_B</td>
+          <td>target</td>
+          <td>nextBase</td>
+          <td>channel</td>
+          <td>Probe_ID</td>
+          <td>mapFlag_A</td>
+          <td>mapChrm_A</td>
+          <td>mapPos_A</td>
+          <td>mapQ_A</td>
+          <td>mapCigar_A</td>
+          <td>AlleleA_ProbeSeq</td>
+          <td>mapNM_A</td>
+          <td>mapAS_A</td>
+          <td>mapYD_A</td>
+          <td>mapFlag_B</td>
+          <td>mapChrm_B</td>
+          <td>mapPos_B</td>
+          <td>mapQ_B</td>
+          <td>mapCigar_B</td>
+          <td>AlleleB_ProbeSeq</td>
+          <td>mapNM_B</td>
+          <td>mapAS_B</td>
+          <td>mapYD_B</td>
+          <td>type</td>
+      </tr></table>
   </ul>
 
   <h2>Other genomes</h2>
   
   <ul>
-    <li>310 species from Ensembl v101
-      (<a href="https://github.com/zhou-lab/InfiniumAnnotationV1/tree/main/MM285">MM285</a>)
+    <li><b>310 species manifest from Ensemble v101</b>
+      (<a href="https://github.com/zhou-lab/InfiniumAnnotationV1/tree/main/MM285">MM285</a>)<br>
+      Column header: (<a href="InfiniumAnnotation/manifestV2.html"><u>header description</u></a>)
+      <table><tr>
+          <td>CpG_chrm</td>
+          <td>CpG_beg</td>
+          <td>CpG_end</td>
+          <td>address_A</td>
+          <td>address_B</td>
+          <td>target</td>
+          <td>nextBase</td>
+          <td>channel</td>
+          <td>Probe_ID</td>
+          <td>mapFlag_A</td>
+          <td>mapChrm_A</td>
+          <td>mapPos_A</td>
+          <td>mapQ_A</td>
+          <td>mapCigar_A</td>
+          <td>AlleleA_ProbeSeq</td>
+          <td>mapNM_A</td>
+          <td>mapAS_A</td>
+          <td>mapYD_A</td>
+          <td>mapFlag_B</td>
+          <td>mapChrm_B</td>
+          <td>mapPos_B</td>
+          <td>mapQ_B</td>
+          <td>mapCigar_B</td>
+          <td>AlleleB_ProbeSeq</td>
+          <td>mapNM_B</td>
+          <td>mapAS_B</td>
+          <td>mapYD_B</td>
+          <td>type</td>
+      </tr></table>
+    </li>
+  </ul>
+
+  <hr>
+  <a href="#mammal" class="header" name="mammal">Mammal/Mammal40 Array</a>
+
+  <h2><span style="font-weight:bold;color:DodgerBlue">GRCh38 / hg38</span></h2>
+  <ul>
+    <li><b>Mapping information</b>
+      (<a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/Mammal40/Mammal40.hg38.manifest.tsv.gz">Mammal40</a>)<br>
+      Column header: (<a href="InfiniumAnnotation/manifestV2.html"><u>header description</u></a>)
+      <table><tr>
+          <td>CpG_chrm</td>
+          <td>CpG_beg</td>
+          <td>CpG_end</td>
+          <td>address_A</td>
+          <td>address_B</td>
+          <td>target</td>
+          <td>nextBase</td>
+          <td>channel</td>
+          <td>Probe_ID</td>
+          <td>mapFlag_A</td>
+          <td>mapChrm_A</td>
+          <td>mapPos_A</td>
+          <td>mapQ_A</td>
+          <td>mapCigar_A</td>
+          <td>AlleleA_ProbeSeq</td>
+          <td>mapNM_A</td>
+          <td>mapAS_A</td>
+          <td>mapYD_A</td>
+          <td>mapFlag_B</td>
+          <td>mapChrm_B</td>
+          <td>mapPos_B</td>
+          <td>mapQ_B</td>
+          <td>mapCigar_B</td>
+          <td>AlleleB_ProbeSeq</td>
+          <td>mapNM_B</td>
+          <td>mapAS_B</td>
+          <td>mapYD_B</td>
+          <td>type</td>
+      </tr></table>
+      <u>Previous versions:</u>
+      Old manifest (<a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/Mammal40/archive/202209/Mammal40.hg38.manifest.tsv.gz">Mammal40</a>,
+      <a href="InfiniumAnnotation/manifest_mouseV1.html">header description</a>)<br>
+  </ul>
+
+  <h2>Other genomes</h2>
+  
+  <ul>
+    <li><b>310 species manifest from Ensemble v101</b>
+      (<a href="https://github.com/zhou-lab/InfiniumAnnotationV1/tree/main/Mammal40">Mammal40</a>)<br>
+      Column header: (<a href="InfiniumAnnotation/manifestV2.html"><u>header description</u></a>)
+      <table><tr>
+          <td>CpG_chrm</td>
+          <td>CpG_beg</td>
+          <td>CpG_end</td>
+          <td>address_A</td>
+          <td>address_B</td>
+          <td>target</td>
+          <td>nextBase</td>
+          <td>channel</td>
+          <td>Probe_ID</td>
+          <td>mapFlag_A</td>
+          <td>mapChrm_A</td>
+          <td>mapPos_A</td>
+          <td>mapQ_A</td>
+          <td>mapCigar_A</td>
+          <td>AlleleA_ProbeSeq</td>
+          <td>mapNM_A</td>
+          <td>mapAS_A</td>
+          <td>mapYD_A</td>
+          <td>mapFlag_B</td>
+          <td>mapChrm_B</td>
+          <td>mapPos_B</td>
+          <td>mapQ_B</td>
+          <td>mapCigar_B</td>
+          <td>AlleleB_ProbeSeq</td>
+          <td>mapNM_B</td>
+          <td>mapAS_B</td>
+          <td>mapYD_B</td>
+          <td>type</td>
+      </tr></table>
     </li>
   </ul>
   
   <hr>
   <a class="header" name="release">Release Notes</a>
 
-  <br><br>
-
-  <b>Update Jun-15-2021:</b><br>
   <ul>
+    <b>Update Sep-03-2022:</b><br>
+    <li>update to Ensembl manifests, mouse manifests and human anotation</li>
+    <li>update to the documentation of column headers</li>
+    <b>Update Jun-15-2021:</b><br>
     <li>updated gene annotation to GENCODE v36 to be consistent with GDC. CGI column is updated to contain CGI only when CGIposition is not NA.</li>
     <li>updated mouse array gene model</li>
-  </ul>
-  
-  <b>Update Apr-14-2021:</b><br>
-  <ul>
+    <b>Update Apr-14-2021:</b><br>
     <li>updated gene annotation to GENCODE v37</li>
-  </ul>
-  
-  <b>Update Jul-4-2020</b>  Updates: <br />
-  <ul>
+    <b>Update Jul-4-2020:</b><br>
     <li>More detailed annotation to SNP and channel-switching probes</li>
-  </ul>
-  
-  <b>Release Sep-9-2018 (latest)</b>  Updates: <br />
-  <ul>
+    <b>Release Sep-9-2018:</b><br>
     <li>Added gene_HGNC column for gene symbols corrected for HGNC compatibility</li>
     <li>Updated SNP masking with dbSNP build 151</li>
     <li>All maskings were redone on hg19. Previously hg19 manifest file was "borrowing" hg38 maskings.</li>
     <li>CCS probes have shrunk in numbers based on AF filtering (>1%).</li>
     <li>See <a href="http://rpubs.com/zhouwanding/417953">Updates Summary</a> for more details.</li>
-  </ul>
-
-  <b>Release Aug-8-2018</b> Updates: <br />
-  <ul>
+    <b>Release Aug-8-2018:</b><br>
     <li>Fix to MASK_mapping, some mapping with NM>0 are now masked as well </li>
     <li>Addition of NM columns and gene annotation to the manifest file.</li>
     <li>Previously, masking of mapping issues were merged from hg19 and hg38. Now masking on hg19 and hg38 was re-built entirely independently. There is some small decrease in the number of masking due to this change and a small increase due to the added NM-based masking (included in MASK_mapping).</li>
     <li>See <a href="http://rpubs.com/zhouwanding/InfiniumMethylation20180808">Updates Summary</a> for more details.</li>
-  </ul>
-
-  <p><b>Release Mar-4-2018</b> Fix to hg19 decoy mapping inconsistency. </p>
-
-  <p><b>Release Jan-4-2018</b> Updated strand information. </p>
-  
-  <b>Release Nov-23-2017</b> Updates: <br />
-  <ul>
+    <b>Release Mar-4-2018</b><br>
+    <li>Fix to hg19 decoy mapping inconsistency.</li>
+    <b>Release Jan-4-2018</b><br>
+    <li>Updated strand information.</li>
+    <b>Release Nov-23-2017</b><br>
     <li>Changed to RDS from RData following R's recommendation.</li>
     <li>Update to missing value representation.</li>
     <li>Update to table headers.</li>
     <li>Added gene annotation in short forms.</li>
     <li>Added mapping to genome both including and excluding alt-chromosomes.</li>
     <li>Made consistent naming of columns with underscores.</li>
+    <b>Release Mar-13-2017</b>
+    <li>fix to relative position in SNP masking of type-I probes.<br>
   </ul>
 
-  <b>Release Mar-13-2017</b> Updates: fix to relative position in SNP masking of type-I probes. <br />
-  
   <!-- More cross-species mapping can be found at -->
   <!-- <a href="https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-017-1870-y">Needhamsen et al. 2017 BMC Bioinformatics</a> <br /> -->
 

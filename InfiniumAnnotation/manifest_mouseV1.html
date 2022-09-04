@@ -1,0 +1,51 @@
+<html>
+  <head><link rel="stylesheet" href="style.css"></head>
+  <table>
+    <tr>
+      <td>CpG_chrm</td>
+      <td>CpG_beg</td>
+      <td>CpG_end</td>
+      <td>address_A</td>
+      <td>address_B</td>
+      <td>target</td>
+      <td>nextBase</td>
+      <td>channel</td>
+      <td>Probe_ID</td>
+      <td>lastBase_A</td>
+      <td>mapFlag_A</td>
+      <td>mapChrm_A</td>
+      <td>mapPos_A</td>
+      <td>mapQ_A</td>
+      <td>mapCigar_A</td>
+      <td>mapSeq_A</td>
+      <td>mapNM_A</td>
+      <td>mapAS_A</td>
+      <td>mapYD_A</td>
+      <td>lastBase_B</td>
+      <td>mapFlag_B</td>
+      <td>mapChrm_B</td>
+      <td>mapPos_B</td>
+      <td>mapQ_B</td>
+      <td>mapCigar_B</td>
+      <td>mapSeq_B</td>
+      <td>mapNM_B</td>
+      <td>mapAS_B</td>
+      <td>mapYD_B</td>
+      <td>design</td>
+      <td>mask</td>
+    </tr>
+  </table>
+  <br>
+  <em>(1-3) CpG_chrm, CpG_beg, CpG_end</em>: genomic coordinate for the target, length 2 for CpG, length 1 for SNP and CpH. beg is 0-based and end is 1-based like in bed files.<br>
+  <em>(4-5) address_A, address_B</em>: Chip/tango address for A-allele and B-allele.<br>
+  <em>(6) target</em>: CG if the probe measures CpG methylation, reference allele if otherwise<br>
+  <em>(7) nextBase</em>: the actual extension base (on the probe strand). "R" (stands for G/A) for Infinium-II probes <br>
+  <em>(8) channel</em>: color channel, green or red<br>
+  <em>(9) Probe_ID</em>: the probe ID<br>
+  <em>(10-19) lastBase_A, mapFlag_A, mapChrm_A, mapPos_A, mapQ_A, mapCigar_A, mapSeq_A, mapNM_A, mapAS_A, mapYD_A</em>: <br>
+  Mapping information for allele A. NM is the number of mutations. AS represents alignment score. YD (f/r/n) represents the bisulfite strand. mapFlag can be used to determine direction of the probe sequence. 0 means upstream and 16 means downstream.<br>
+  <em>(20-29) lastBase_B, mapFlag_B, mapChrm_B, mapPos_B, mapQ_B, mapCigar_B, mapSeq_B, mapNM_B, mapAS_B, mapYD_B</em>: <br>
+  Mapping information for allele B. Same as allele A.<br>
+  <em>(30) design</em>: design group<br>
+  <em>(31) type</em>: Infinium-I or Infinium-II<br>
+</html>

@@ -1,0 +1,80 @@
+<html>
+  <head><link rel="stylesheet" href="style.css"></head>
+  <table href="InfiniumAnnotation/manifest.html"><tr>
+      <td>CpG_chrm</td>
+      <td>CpG_beg</td>
+      <td>CpG_end</td>
+      <td>probe_strand</td>
+      <td>Probe_ID</td>
+      <td>address_A</td>
+      <td>address_B</td>
+      <td>channel</td>
+      <td>designType</td>
+      <td>nextBase</td>
+      <td>nextBaseRef</td>
+      <td>probeType</td>
+      <td>orientation</td>
+      <td>probeCpGcnt</td>
+      <td>context35</td>
+      <td>probeBeg</td>
+      <td>probeEnd</td>
+      <td>ProbeSeq_A</td>
+      <td>ProbeSeq_B</td>
+      <td>gene</td>
+      <td>gene_HGNC</td>
+      <td>chrm_A</td>
+      <td>beg_A</td>
+      <td>flag_A</td>
+      <td>mapQ_A</td>
+      <td>cigar_A</td>
+      <td>NM_A</td>
+      <td>chrm_B</td>
+      <td>beg_B</td>
+      <td>flag_B</td>
+      <td>mapQ_B</td>
+      <td>cigar_B</td>
+      <td>NM_B</td>
+      <td>wDecoy_chrm_A</td>
+      <td>wDecoy_beg_A</td>
+      <td>wDecoy_mapQ_A</td>
+      <td>wDecoy_cigar_A</td>
+      <td>wDecoy_NM_A</td>
+      <td>wDecoy_chrm_B</td>
+      <td>wDecoy_beg_B</td>
+      <td>wDecoy_mapQ_B</td>
+      <td>wDecoy_cigar_B</td>
+      <td>wDecoy_NM_B</td>
+      <td>posMatch</td>
+  </tr></table>
+  <br>
+  <em>(1-3) CpG_chrm, CpG_beg, CpG_end</em>: the location of the target. CpG_beg is 0-based coordinate and CpG_end is 1-based. The coordinates should have a span of 2 nucleotides for CpG probes, or 1 nucleotide for CpH and SNP probes. Some erroneous CpH probe coordinates mapping information in the manufacturer's manifest have been corrected. <br>
+  <em>(4) probe_strand</em>: This is consistent with "orientation" column for strand information of the actual probe. '+' is for all the up-probes positioned in smaller coordinates and '-' for all the down-probes positioned in greater coordinates with respect to the target CpGs. "*" is used for unmapped probes.<br>
+  <em>(5) Probe_ID</em>: Probe ID
+  <em>(6-7) address_A, address_B</em>: addresses of probe A and B on the chip designated by the original manifest. <br>
+  <em>(8) channel</em>: "Both" for type II probes and "Grn"/"Red" for type I probes. <br>
+  <em>(9) designType</em>: either "I" or "II". <br>
+  <em>(10) nextBase</em>: the actual extension base (on the probe strand) after bisulfite conversion ("A" or "C" or "T"). Unmapped probe has extension base labeled in the original manifest. <br>
+  <em>(11) nextBaseRef</em>: the extension base (on the hybridized/template DNA) before bisulfite conversion ("A", "C", "G" or "T"). Unmapped probe has "NA". <br>
+  <em>(12) probeType</em>: either "cg", "ch" or "rs". <br>
+  <em>(13) orientation</em>: either "up" or "down" specifying whether the probe is positioned upstream (in smaller coordinates) or downstream (in greater coordinates) the target. <br>
+  <b style="color:DodgerBlue;">Note that by design, probes positioned upstream (in smaller coordinates) are always on the Watson strand and probes positioned downstream (in greater coordinates) are always on the Crick strand.</b><br>
+  <em>(14) probeCpGcnt</em>: the number of additional CpGs in the probe (not counting the interrogated CpG). <br>
+  <em>(15) context35</em>: the number of CpG in the [-35bp, +35bp] window. <br>
+  <em>(16-17) probeBeg, probeEnd</em>: the mapped start and end position of the probe, it is always 50bp long. <br>
+  <em>(18-19) ProbeSeq_A, ProbeSeq_B</em>: the probe sequence for allele A and B.<br>
+  <em>(20) gene</em>: ";"-separated list of gene annotations (unique and alphabetically sorted). Gene models follows GENCODE version 22 (hg38). <br>
+  <em>(21) gene_HGNC</em>: ";"-separated list of gene annotations (unique and alphabetically sorted). Genes are checked using HGNChelper for compatibility with HGNC. Gene models follows GENCODE version 22 (hg38). <br>
+  <em>(22-27) chrm_A, beg_A, flag_A, mapQ_A, cigar_A, NM_A</em>: the mapping info for probe A excluding decoy chromsomes. mapQ=mapping quality score, 0-60, with 60 being the best.<br>
+  <em>(28-33) chrm_B, beg_B, flag_B, mapQ_B, cigar_B, NM_B</em>: the mapping info for probe B excluding decoy chromosomes, like above.<br>
+  <em>(34-39) wDecoy_chrm_A, wDecoy_beg_A, wDecoy_flag_A, wDecoy_mapQ_A, wDecoy_cigar_A, wDecoy_NM_A</em>: the mapping info for probe A including decoy chromosomes.<br>
+  <em>(40-45) wDecoy_chrm_B, wDecoy_beg_B, wDecoy_flag_B, wDecoy_mapQ_B, wDecoy_cigar_B, wDecoy_NM_B</em>: the mapping info for probe B including decoy chromosomes.<br>
+  <em>(46) posMatch</em>: whether the mapping matches the original manifest, it only applies to hg19 and will be NA under hg38. <br>
+  <em>(47) MASK.mapping</em>: whether the probe is masked for mapping reason. Probes retained should have high quality (>=40 on 0-60 scale) consistent (with designed MAPINFO) mapping (for both in the case of type I) without INDELs. <br>
+  <em>(48) MASK.typeINextBaseSwitch</em>: whether the probe has a SNP in the extension base that causes a color channel switch from the official annotation (described as color-channel-switching, or CCS SNP in the reference). These probes should be processed differently than designed (by summing up both color channels instead of just the annotated color channel).<br>    <!-- This is implemented in SeSAMe, available on research.vai.org/tools/ -->
+  <em>(49) MASK.rmsk15</em>: whether the 15bp 3'-subsequence of the probe overlap with repeat masker, this MASK is NOT recommended. <br>
+  <em>(50-53) MASK.sub25.copy, MASK.sub30.copy, MASK.sub35.copy, MASK.sub40.copy</em>: whether the 25bp, 30bp, 35bp and 40bp 3'-subsequence of the probe is non-unique. <br>
+  <em>(54) MASK.snp5.common</em>: whether 5bp 3'-subsequence (including extension for typeII) overlap with any of the common SNPs from dbSNP (global MAF can be under 1%). <br>
+  <em>(55) MASK.snp5.GMAF1p</em>: whether 5bp 3'-subsequence (including extension for typeII) overlap with any of the SNPs with global MAF >1%. <br>
+  <em>(56) MASK.extBase</em>: probes masked for extension base inconsistent with specified color channel (type-I) or CpG (type-II) based on mapping.<br>
+  <em><b style="color:DodgerBlue;">(57) MASK.general</b></em>: the recommended general purpose masking merged from "MASK.sub30.copy", "MASK.mapping", "MASK.extBase", "MASK.typeINextBaseSwitch" and "MASK.snp5.GMAF1p".<br>
+</html>
