@@ -1,0 +1,27 @@
+<html>
+  <head><link rel="stylesheet" href="style.css"></head>
+  <table href="InfiniumAnnotation/manifest.html"><tr>
+      <td>Probe_ID</td>
+      <td>MASK.mapping</td>
+      <td>MASK.typeINextBaseSwitch</td>
+      <td>MASK.rmsk15</td>
+      <td>MASK.sub25.copy</td>
+      <td>MASK.sub30.copy</td>
+      <td>MASK.sub35.copy</td>
+      <td>MASK.sub40.copy</td>
+      <td>MASK.snp5.common</td>
+      <td>MASK.snp5.GMAF1p</td>
+      <td>MASK.extBase</td>
+      <td>MASK.general</td>
+  </tr></table>
+  <br>
+  <em>(1) Probe_ID</em>: Probe ID<br>
+  <em>(2) MASK.mapping</em>: whether the probe is masked for mapping reason. Probes retained should have high quality (>=40 on 0-60 scale) consistent (with designed MAPINFO) mapping (for both in the case of type I) without INDELs. <br>
+  <em>(3) MASK.typeINextBaseSwitch</em>: whether the probe has a SNP in the extension base that causes a color channel switch from the official annotation (described as color-channel-switching, or CCS SNP in the reference). These probes should be processed differently than designed (by summing up both color channels instead of just the annotated color channel).<br>    <!-- This is implemented in SeSAMe, available on research.vai.org/tools/ -->
+  <em>(4) MASK.rmsk15</em>: whether the 15bp 3'-subsequence of the probe overlap with repeat masker, this MASK is NOT recommended. <br>
+  <em>(5-8) MASK.sub25.copy, MASK.sub30.copy, MASK.sub35.copy, MASK.sub40.copy</em>: whether the 25bp, 30bp, 35bp and 40bp 3'-subsequence of the probe is non-unique. <br>
+  <em>(9) MASK.snp5.common</em>: whether 5bp 3'-subsequence (including extension for typeII) overlap with any of the common SNPs from dbSNP (global MAF can be under 1%). <br>
+  <em>(10) MASK.snp5.GMAF1p</em>: whether 5bp 3'-subsequence (including extension for typeII) overlap with any of the SNPs with global MAF >1%. <br>
+  <em>(11) MASK.extBase</em>: probes masked for extension base inconsistent with specified color channel (type-I) or CpG (type-II) based on mapping.<br>
+  <em><b style="color:DodgerBlue;">(12) MASK.general</b></em>: the recommended general purpose masking merged from "MASK.sub30.copy", "MASK.mapping", "MASK.extBase", "MASK.typeINextBaseSwitch" and "MASK.snp5.GMAF1p".<br>
+</html>
