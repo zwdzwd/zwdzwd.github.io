@@ -32,7 +32,7 @@
 
   <p><u>All files are gzipped plain text files (tab-delimited). some old gz files appear double compressed when downloaded with firefox. Please apply decompression twice.</u></p>
 
-  <a class="header" name="human">Human EPIC, HM450, HM27 Array</a>
+  <a class="header" name="human">Human EPIC+, EPIC, HM450, HM27 Array</a>
   <br>
   <!-- <p><b>See <a href="https://zhouserver.research.chop.edu/InfiniumAnnotation/">here</a> for previous releases.</b><br /> -->
 
@@ -94,6 +94,18 @@
       <a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/HM450/archive/202209/HM450.hg38.mask.tsv.gz">HM450</a>,
       <a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/HM27/archive/202209/HM27.hg38.mask.tsv.gz">HM27</a>,
       <a href="InfiniumAnnotation/mask.html">header description</a>) <br>
+      <u>Previous population-specific SNP masking:</u>
+      (<a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/EPIC/EPIC.hg38.manifest.pop.tsv.gz">EPIC</a>,
+      <a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/HM450/HM450.hg38.manifest.pop.tsv.gz">HM450</a>,
+      <a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/HM27/HM27.hg38.manifest.pop.tsv.gz">HM27</a>,
+      <a href="InfiniumAnnotation/mask_pop.html">header description</a>)
+    </li>
+    <!-- <u>Population-specific SNP info</u> <br> -->
+    <!-- Population-specific SNP information GRCh38/hg38 -->
+    <!-- (<a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/EPIC/EPIC.hg38.commonsnp.tsv.gz">EPIC</a>, -->
+    <!-- <a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/HM450/HM450.hg38.commonsnp.tsv.gz">HM450</a>, -->
+    <!-- <a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/HM27/HM27.hg38.commonsnp.tsv.gz">HM27</a>) -->
+
     </li>
 
     <li><b>Gene annotation (GENCODEv36), promoter, and CpG island</b></smaller>
@@ -154,32 +166,6 @@
       </tr></table>
     </li>
     
-    <li><b>Population-specific masking GRCh38/hg38</b>
-      (<a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/EPIC/EPIC.hg38.manifest.pop.tsv.gz">EPIC</a>,
-      <a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/HM450/HM450.hg38.manifest.pop.tsv.gz">HM450</a>,
-      <a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/HM27/HM27.hg38.manifest.pop.tsv.gz">HM27</a>)
-      <table><tr>
-          <td>CpG_chrm</td>
-          <td>CpG_beg</td>
-          <td>CpG_end</td>
-          <td>probeID</td>
-          <td>MASK_general_AFR</td>
-          <td>MASK_snp5_AFR</td>
-          <td>MASK_general_EAS</td>
-          <td>MASK_snp5_EAS</td>
-          <td>MASK_general_EUR</td>
-          <td>MASK_snp5_EUR</td>
-          <td>...</td>
-          <td>MASK_snp5_ASW</td>
-      </tr></table>
-    </li>
-
-    <u>Population-specific SNP info</u> <br>
-    Population-specific SNP information GRCh38/hg38
-    (<a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/EPIC/EPIC.hg38.commonsnp.tsv.gz">EPIC</a>,
-    <a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/HM450/HM450.hg38.commonsnp.tsv.gz">HM450</a>,
-    <a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/HM27/HM27.hg38.commonsnp.tsv.gz">HM27</a>)
-
     <li><b>Bisulfite non-uniqueness of 3'-subsequence of 10-50 bases in length</b>
       (<a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/EPIC/EPIC.hg38.3sub.copynumber.tsv.gz">EPIC</a>, 
       <a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/HM450/HM450.hg38.3sub.copynumber.tsv.gz">HM450</a>,
@@ -561,16 +547,8 @@
           <td>MASK_general</td>
       </tr></table>
       <u>Previous versions:</u>
-      (<a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/MM285/archive/202209/MM285.mask.tsv.gz">MM285</a>) <br>
-      Column header:
-      <table>
-        <tr>
-          <td>Probe_ID</td>
-          <td>mask</td>
-        </tr>
-      </table>
-      <u>Header description:</u> <br>
-      <em>(2) mask</em>: a boolean indication of whether probes are recommended to be masked in data preprocessing. Probes masked by default includes control probes, multi-mapping probes (mapQ<30 for either allele A or B) and non-informative probes (uk probes)
+      (<a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/MM285/archive/202209/MM285.mask.tsv.gz">MM285</a>)
+      <em>(2) mask</em>: a boolean indication of whether probes are recommended to be masked in data preprocessing. Probes masked by default includes control probes, multi-mapping probes (mapQ<30 for either allele A or B) and non-informative probes (uk probes) <br>
     </li>
 
     <li><b>Gene annotation (GENCODEvM25), promoter, and CpG island</b>
@@ -714,7 +692,7 @@
   </ul>
 
   <hr>
-  <a href="#mammal" class="header" name="mammal">Mammal/Mammal40 Array</a>
+  <a href="#mammal" class="header" name="mammal">HorvathMammal40/Mammal40 Array</a>
 
   <h2><span style="font-weight:bold;color:DodgerBlue">GRCh38 / hg38</span></h2>
   <ul>
