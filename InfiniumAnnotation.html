@@ -28,13 +28,12 @@
   <hr>
 
   <!-- <b>Click <a href="https://github.com/zhou-lab/InfiniumAnnotation/blob/main/README.md">here</a> for annotation for other Infinium arrays including the <a href="https://github.com/zhou-lab/InfiniumAnnotation/blob/main/MM285/README.md">mouse (MM285) array</a> and HorvathMammalMethylChip40 (Mammal40) array. -->
-  <!-- </b> -->
+    <!-- </b> -->
 
   <p><u>All files are gzipped plain text files (tab-delimited). some old gz files appear double compressed when downloaded with firefox. Please apply decompression twice.</u></p>
 
   <a class="header" name="human">Human EPIC+, EPIC, HM450, HM27 Array</a>
   <br>
-  <!-- <p><b>See <a href="https://zhouserver.research.chop.edu/InfiniumAnnotation/">here</a> for previous releases.</b><br /> -->
 
   <h2><span style="font-weight:bold;color:DodgerBlue">GRCh38 / hg38</span></h2>
   <ul>
@@ -100,15 +99,8 @@
       <a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/HM27/HM27.hg38.manifest.pop.tsv.gz">HM27</a>,
       <a href="InfiniumAnnotation/mask_pop.html">header description</a>)
     </li>
-    <!-- <u>Population-specific SNP info</u> <br> -->
-    <!-- Population-specific SNP information GRCh38/hg38 -->
-    <!-- (<a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/EPIC/EPIC.hg38.commonsnp.tsv.gz">EPIC</a>, -->
-    <!-- <a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/HM450/HM450.hg38.commonsnp.tsv.gz">HM450</a>, -->
-    <!-- <a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/HM27/HM27.hg38.commonsnp.tsv.gz">HM27</a>) -->
-
-    </li>
-
-    <li><b>Gene annotation (GENCODEv36), promoter, and CpG island</b></smaller>
+    
+    <li><b>Gene annotation (GENCODEv36), promoter, and CpG island</b>
       (<a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/EPIC/EPIC.hg38.manifest.gencode.v36.tsv.gz">EPIC</a>,
       <a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/HM450/HM450.hg38.manifest.gencode.v36.tsv.gz">HM450</a>,
       <a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/HM27/HM27.hg38.manifest.gencode.v36.tsv.gz">HM27</a>)<br>
@@ -134,7 +126,7 @@
       <a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/HM27/HM27.hg38.manifest.gencode.v22.tsv.gz">HM27</a>) <br>
     </li>
 
-    <li><b>Regulatory annotations (CGI, enhancer, TF binding, chromatin state, ...)</b></smaller>
+    <li><b>Regulatory annotations (CGI, enhancer, TF binding, chromatin state, ...)</b>
       (<a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/EPIC+/EPIC+.hg38.annotations.tar.gz">EPIC+</a>)<br>
       Column header: (<a href="InfiniumAnnotation/annotations.html">header description</a>)
       <table><tr>
@@ -301,10 +293,10 @@
     </li>
 
     <!-- <li>Manufacturer's manifest GRCh37/hg19 -->
-    <!--   (<a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/EPIC/EPIC.hg19.manifest.original.tsv.gz">EPIC</a>, -->
-    <!--   <a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/HM450/HM450.hg19.manifest.original.tsv.gz">HM450</a>, -->
-    <!--   <a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/HM27/HM27.hg19.manifest.original.tsv.gz">HM27</a>) -->
-    <!-- </li> -->
+      <!--   (<a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/EPIC/EPIC.hg19.manifest.original.tsv.gz">EPIC</a>, -->
+      <!--   <a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/HM450/HM450.hg19.manifest.original.tsv.gz">HM450</a>, -->
+      <!--   <a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/HM27/HM27.hg19.manifest.original.tsv.gz">HM27</a>) -->
+      <!-- </li> -->
 
     <li><b>Roadmap Epigenomics Mapping Consortium, 15 chromHMM states, 127 samples</b>
       (<a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/EPIC/EPIC.hg19.REMC.chromHMM.tsv.gz">EPIC</a>,
@@ -544,7 +536,7 @@
       <u>Header description:</u> <br>
       <em>(2) design</em>: contains the annotation of the probes. For the syntenic EPIC probe mapping, search for EPIC prefix in the design column.
     </li>
- 
+    
     <li><b>Mask information</b>
       (<a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/MM285/MM285.mm10.mask.tsv.gz">MM285</a>) <br>
       Column header: (<a href="InfiniumAnnotation/mask2.html">header description</a>),
@@ -557,7 +549,7 @@
       </tr></table>
       <u>Previous versions:</u>
       (<a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/MM285/archive/202209/MM285.mask.tsv.gz">MM285</a>)
-      <em>(2) mask</em>: a boolean indication of whether probes are recommended to be masked in data preprocessing. Probes masked by default includes control probes, multi-mapping probes (mapQ<30 for either allele A or B) and non-informative probes (uk probes) <br>
+      <em>(2) mask</em>: a boolean indication of whether probes are recommended to be masked in data preprocessing. Probes masked by default includes control probes, multi-mapping probes (mapQ &lt 30 for either allele A or B) and non-informative probes (uk probes)
     </li>
 
     <li><b>Gene annotation (GENCODEvM25), promoter, and CpG island</b>
@@ -579,6 +571,15 @@
           <td>CGIposition</td>
         </tr>
       </table>
+    </li>
+
+    <li><b>Regulatory annotations (CGI, enhancer, TF binding, chromatin state, ...)</b>
+      (<a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/MM285/MM285.mm10.annotations.tar.gz">MM285</a>)<br>
+      Column header: (<a href="InfiniumAnnotation/annotations.html">header description</a>)
+      <table><tr>
+          <td>Probe_ID</td>
+          <td>Knowledgebase</td>
+      </tr></table>
     </li>
     
     <li><b>The <a href="https://github.com/zhou-lab/InfiniumAnnotation/blob/main/MM285/202010418_MouseArray_ID_system.md">Illustration</a> of the new array ID system</b><br>
@@ -821,10 +822,6 @@
     <b>Release Mar-13-2017</b>
     <li>fix to relative position in SNP masking of type-I probes.<br>
   </ul>
-
-  <!-- More cross-species mapping can be found at -->
-  <!-- <a href="https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-017-1870-y">Needhamsen et al. 2017 BMC Bioinformatics</a> <br /> -->
-
   <hr>
   <a class="header" name="reference">Reference</a>
   <p>
@@ -833,9 +830,6 @@
     Mouse Array - Zhou W et al. <a href="https://www.cell.com/cell-genomics/fulltext/S2666-979X(22)00077-5">DNA methylation dynamics and dysregulation delinated by high-throughput profiling in the mouse</a>, <b>Cell Genomics</b> 2022
   </p>
 
-  <!-- <\!-- For Patient-derived Xenograft models in mice. -\-> -->
-  <!-- <a class="header" name="usage">Column Legends</a> -->
-  
   <hr>
   <a class="header" name="contact">Contact</a>
   <p>
@@ -843,3 +837,15 @@
   </p>
   
 </html>
+
+<!-- <u>Population-specific SNP info</u> <br> -->
+<!-- Population-specific SNP information GRCh38/hg38 -->
+<!-- (<a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/EPIC/EPIC.hg38.commonsnp.tsv.gz">EPIC</a>, -->
+<!-- <a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/HM450/HM450.hg38.commonsnp.tsv.gz">HM450</a>, -->
+<!-- <a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/HM27/HM27.hg38.commonsnp.tsv.gz">HM27</a>) -->
+<!-- </li> -->
+<!-- <p><b>See <a href="https://zhouserver.research.chop.edu/InfiniumAnnotation/">here</a> for previous releases.</b><br /> -->
+<!-- More cross-species mapping can be found at -->
+<!-- <a href="https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-017-1870-y">Needhamsen et al. 2017 BMC Bioinformatics</a> <br /> -->
+<!-- <\!-- For Patient-derived Xenograft models in mice. -\-> -->
+<!-- <a class="header" name="usage">Column Legends</a> -->
