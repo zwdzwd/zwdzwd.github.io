@@ -32,13 +32,14 @@
 
   <p><u>All files are gzipped plain text files (tab-delimited). some old gz files appear double compressed when downloaded with firefox. Please apply decompression twice.</u></p>
 
-  <a class="header" name="human">Human EPIC+, EPIC, HM450, HM27 Array</a>
+  <a class="header" name="human">Human EPICv2, EPIC+, EPIC, HM450, HM27 Array</a>
   <br>
 
   <h2><span style="font-weight:bold;color:DodgerBlue">GRCh38 / hg38</span></h2>
   <ul>
     <li><b>Basic manifest with mapping information</b>
-      (<a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/EPIC+/EPIC+.hg38.manifest.tsv.gz">EPIC+</a>,
+      (<a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/EPICv2/EPICv2.hg38.manifest.tsv.gz">EPICv2</a>,
+      <a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/EPIC+/EPIC+.hg38.manifest.tsv.gz">EPIC+</a>,
       <a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/EPIC/EPIC.hg38.manifest.tsv.gz">EPIC</a>)<br>
       Column header: (<a href="InfiniumAnnotation/manifestV2.html">header description</a>)
       <table><tr>
@@ -79,7 +80,8 @@
     </li>
 
     <li><b>Mask information</b>
-      (<a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/EPIC+/EPIC+.hg38.mask.tsv.gz">EPIC+</a>) <br>
+      (<a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/EPICv2/EPICv2.hg38.mask.tsv.gz">EPICv2</a>,
+      <a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/EPIC+/EPIC+.hg38.mask.tsv.gz">EPIC+</a>) <br>
       Column header: (<a href="InfiniumAnnotation/mask2.html">header description</a>),
       see <b style="font-weight:bold;color:DodgerBlue">MASK_general</b> column for the recommended masking<br>
       <table><tr>
@@ -100,10 +102,8 @@
       <a href="InfiniumAnnotation/mask_pop.html">header description</a>)
     </li>
     
-    <li><b>Gene annotation (GENCODEv36), promoter, and CpG island</b>
-      (<a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/EPIC/EPIC.hg38.manifest.gencode.v36.tsv.gz">EPIC</a>,
-      <a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/HM450/HM450.hg38.manifest.gencode.v36.tsv.gz">HM450</a>,
-      <a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/HM27/HM27.hg38.manifest.gencode.v36.tsv.gz">HM27</a>)<br>
+    <li><b>Gene annotation (GENCODEv41), promoter, and CpG island</b>
+      (<a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/EPICv2/EPICv2.hg38.manifest.gencode.v41.tsv.gz">EPICv2</a>)<br>
       Column header: (<a href="InfiniumAnnotation/gene_annotation.html">header description</a>)
       <table><tr>
           <td>CpG_chrm</td>
@@ -119,7 +119,11 @@
           <td>CGI</td>
           <td>CGIposition</td>
       </tr></table>
-      <u>Previous versions:</u>
+      <u>Previous versions:</u><br>
+      GENCODEv36
+      (<a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/EPIC/EPIC.hg38.manifest.gencode.v36.tsv.gz">EPIC</a>,
+      <a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/HM450/HM450.hg38.manifest.gencode.v36.tsv.gz">HM450</a>,
+      <a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/HM27/HM27.hg38.manifest.gencode.v36.tsv.gz">HM27</a>) <br>
       GENCODEv22
       (<a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/EPIC/EPIC.hg38.manifest.gencode.v22.tsv.gz">EPIC</a>,
       <a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/HM450/HM450.hg38.manifest.gencode.v22.tsv.gz">HM450</a>,
@@ -127,7 +131,8 @@
     </li>
 
     <li><b>SeSAMe annotations (CGI, enhancer, TF binding, chromatin state, ...)</b>
-      (<a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/EPIC+/EPIC+.hg38.annotations.tar.gz">EPIC+</a>)<br>
+      (<a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/EPICv2/EPICv2.hg38.annotations.tar.gz">EPICv2</a>,
+      <a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/EPIC+/EPIC+.hg38.annotations.tar.gz">EPIC+</a>)<br>
       Column header: (<a href="InfiniumAnnotation/annotations.html">header description</a>)
       <table><tr>
           <td>Probe_ID</td>
