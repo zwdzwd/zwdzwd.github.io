@@ -18,8 +18,9 @@
 
   <p>Common masks:</p>
   <ul>
-    <li>M_mapping: unmapped probes, or probes having too low mapping quality (alignment score <35, either probe for Infinium-I) or Infinium-I probe allele A and B mapped to different locations</li>
+    <li>M_mapping: unmapped probes, or probes having too low mapping quality (alignment score under 35, either probe for Infinium-I) or Infinium-I probe allele A and B mapped to different locations</li>
     <li>M_nonuniq: mapped probes but with mapping quality smaller than 10, either probe for Infinium-I</li>
+    <li>M_uncorr_titration: CpGs with titration correlation under 0.9. Functioning probes should have very high correlation with titrated methylation fraction.</li>
   </ul>
 
   <p>Human masks (general and population-specific):</p>
