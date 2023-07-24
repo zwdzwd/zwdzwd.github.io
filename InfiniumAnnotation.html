@@ -283,7 +283,7 @@
   <h2><span style="font-weight:bold;color:DodgerBlue">GRCm38 / mm10</span></h2>
   <ul>
     <li><b>Manifest with mapping information</b>
-      (<a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/MM285/MM285.mm10.manifest.tsv.gz">MM285</a>)
+      (<a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/MM285/N296070/MM285.mm10.manifest.tsv.gz">MM285</a>)
     </li>
     Column header: (<a href="InfiniumAnnotation/manifestV2.html">header description</a>)
     <table><tr>
@@ -316,10 +316,11 @@
         <td>mapYD_B</td>
         <td>type</td>
     </tr></table>
-    <u>Previous versions:</u>
-    Old manifest (<a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/MM285/archive/202209/MM285.mm10.manifest.tsv.gz">MM285</a>,
+    <u>Note</u>: This annotation is based on the <a href="https://pubmed.ncbi.nlm.nih.gov/35873672/">design paper</a> (N=296,070). It described a slightly different set that corrects the Illumina A2 manifest (N=287,692). <br>See <a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/MM285/MM285.manifest.comparison.tsv.gz">Manifest comparison</a> for details. Sesame default preprocessing is based on the 296070 version.<br>
+    <u>Previous versions:</u><br>
+    Illumina A2 manifest (<a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/MM285/MM285.mm10.manifest.tsv.gz">MM285</a>) (N=287,692)<br>
+    LEGX manifest (<a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/MM285/archive/202209/MM285.mm10.manifest.tsv.gz">MM285</a>,
     <a href="InfiniumAnnotation/manifest_mouseV1.html">header description</a>)<br>
-    <b>Note</b>: this annotation is based on the Illumina A2 manifest. The <a href="https://pubmed.ncbi.nlm.nih.gov/35873672/">design paper</a> described a slightly different set which applied some corrections. See <a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/MM285/MM285.manifest.comparison.tsv.gz">Manifest comparison</a> for details.<br>
     
     <li><b>Mouse array design groups</b>
       (<a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/MM285/MM285.design.tsv.gz">MM285</a>)<br>
@@ -333,7 +334,7 @@
     </li>
     
     <li><b>Mask information</b>
-      (<a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/MM285/MM285.mm10.mask.tsv.gz">MM285</a>) <br>
+      (<a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/MM285/N296070/MM285.mm10.mask.tsv.gz">MM285</a>) <br>
       Column header: (<a href="InfiniumAnnotation/mask2.html">header description</a>),
       see <b style="font-weight:bold;color:DodgerBlue">M_general</b> column for the recommended masking<br>
       <table><tr>
@@ -342,13 +343,15 @@
           <td>maskUniq</td>
           <td>M_general</td>
       </tr></table>
-      <u>Previous versions:</u>
-      (<a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/MM285/archive/202209/MM285.mask.tsv.gz">MM285</a>)
+      <u>Header description:</u> <br>
       <em>(2) mask</em>: a boolean indication of whether probes are recommended to be masked in data preprocessing. Probes masked by default includes control probes, multi-mapping probes (mapQ &lt 30 for either allele A or B) and non-informative probes (uk probes)
+      <u>Previous versions:</u><br>
+      Illumina A2 manifest (<a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/MM285/MM285.mm10.mask.tsv.gz">MM285</a>),<br>
+      LEGX manifest (<a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/MM285/archive/202209/MM285.mask.tsv.gz">MM285</a>)<br>
     </li>
 
     <li><b>Gene annotation (GENCODEvM25) and promoters</b>
-      (<a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/MM285/MM285.mm10.manifest.gencode.vM25.tsv.gz">MM285</a>)<br>
+      (<a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/MM285/N296070/MM285.mm10.manifest.gencode.vM25.tsv.gz">MM285</a>)<br>
       Column header: (<a href="InfiniumAnnotation/gene_annotation.html">header description</a>)
       <table>
         <tr>
@@ -367,7 +370,8 @@
         </tr>
       </table>
     </li>
-
+    <u>Previous versions:</u><br>
+    Illumina A2 manifest (<a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/MM285/MM285.mm10.manifest.gencode.vM25.tsv.gz">MM285</a>)<br>
     <li><b>KnowYourCG annotations (CGI, enhancer, TF binding, chromatin state, ...)</b>
       (<a href="https://github.com/zhou-lab/KYCG_knowledgebase_MM285">MM285</a>)<br>
       Column header: (<a href="InfiniumAnnotation/annotations.html">header description</a>)
