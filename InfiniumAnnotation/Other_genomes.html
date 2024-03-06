@@ -1,0 +1,83 @@
+<html>
+  <head><link rel="stylesheet" href="style.css"></head>
+
+  <h2>Other Genomes</h2>
+  <ul>
+    <li>
+      <b>310 species manifest from Ensemble v101</b>
+      (<a href="https://github.com/zhou-lab/InfiniumAnnotationEPICv2/tree/main/tsv_manifest">EPICv2</a>,
+      <a href="https://github.com/zhou-lab/InfiniumAnnotationV1/tree/main/EPIC">EPIC</a>,
+      <a href="https://github.com/zhou-lab/InfiniumAnnotationV1/tree/main/HM450">HM450</a>,
+      <a href="https://github.com/zhou-lab/InfiniumAnnotationV1/tree/main/HM27">HM27</a>)<br>
+      Column header: (<a href="InfiniumAnnotation/manifestV2.html">header description</a>)
+      <table><tr>
+          <td>CpG_chrm</td>
+          <td>CpG_beg</td>
+          <td>CpG_end</td>
+          <td>address_A</td>
+          <td>address_B</td>
+          <td>target</td>
+          <td>nextBase</td>
+          <td>channel</td>
+          <td>Probe_ID</td>
+          <td>mapFlag_A</td>
+          <td>mapChrm_A</td>
+          <td>mapPos_A</td>
+          <td>mapQ_A</td>
+          <td>mapCigar_A</td>
+          <td>AlleleA_ProbeSeq</td>
+          <td>mapNM_A</td>
+          <td>mapAS_A</td>
+          <td>mapYD_A</td>
+          <td>mapFlag_B</td>
+          <td>mapChrm_B</td>
+          <td>mapPos_B</td>
+          <td>mapQ_B</td>
+          <td>mapCigar_B</td>
+          <td>AlleleB_ProbeSeq</td>
+          <td>mapNM_B</td>
+          <td>mapAS_B</td>
+          <td>mapYD_B</td>
+          <td>type</td>
+      </tr></table>
+    </li>
+
+    <li><b>Mouse mm10/GRCm38 mapping</b>
+      (<a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/EPIC/EPIC.mm10.map.tsv.gz">EPIC</a>,
+      <a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/HM450/HM450.mm10.map.tsv.gz">HM450</a>,
+      <a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/HM27/HM27.mm10.map.tsv.gz">HM27</a>)<br>
+      Column header: (<a href="InfiniumAnnotation/human_mouseMapping.html">header description</a>)
+      <table><tr>
+          <td>probeID</td>
+          <td>chrm_A</td>
+          <td>beg_A</td>
+          <td>flag_A</td>
+          <td>mapQ_A</td>
+          <td>cigar_A</td>
+          <td>chrm_B</td>
+          <td>beg_B</td>
+          <td>flag_B</td>
+          <td>mapQ_B</td>
+          <td>cigarB</td>
+      </tr></table>
+    </li>
+    
+    <li><b>Mouse 3'-subsequence copy number based on mm10/GRCm38</b>
+      (<a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/EPIC/EPIC.mm10.3sub.copynumber.tsv.gz">EPIC</a>,
+      <a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/HM450/HM450.mm10.3sub.copynumber.tsv.gz">HM450</a>,
+      <a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/HM27/HM27.mm10.3sub.copynumber.tsv.gz">HM27</a>)<br>
+      Column header: (<a href="InfiniumAnnotation/copy_number.html">header description</a>)
+      <table><tr>
+          <td>probeID</td>
+          <td>copy_10</td>
+          <td>copy_11</td>
+          <td>copy_12</td>
+          <td>copy_13</td>
+          <td>...</td>
+          <td>copy_49</td>
+          <td>copy_50</td>
+      </tr></table>
+    </li>
+  </ul>
+  
+</html>
