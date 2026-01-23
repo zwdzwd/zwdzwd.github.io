@@ -106,8 +106,8 @@
       <a href="InfiniumAnnotation/mask_pop.html">header description</a>)
     </li>
 
-    <li><b>Trait associations</b>
-      (<a href="https://github.com/zhou-lab/InfiniumAnnotationV1/raw/main/Anno/MSA/MSA.design.tsv.gz">MSA</a>)<br>
+    <li><b>Design</b>
+      (<a href="https://zenodo.org/records/18350703/files/MSA.design.tsv.gz">MSA</a>)<br>
       Column header:
       <table><tr>
           <td>Probe_ID</td>
@@ -117,6 +117,19 @@
       <em>(2) Trait_Associations</em>: a comma-delimited string of trait associations. EWAS
       hits has the following format:
       <em>EWAS_hit:[trait]:[PMID]:[q-value of association]</em>. NA is used when the info is missing.
+    </li>
+
+    <li><b>Trait associations</b>
+      (<a href="https://zenodo.org/records/18350703/files/MSA_EWAS_Traits_Full.tsv.gz">MSA</a>)<br>
+      Column header:
+      <table><tr>
+          <td>Probe_ID</td>
+          <td>Trait_Associations</td>
+          <td>CoordID</td>
+      </tr></table>
+      <u>Header description:</u> <br>
+      <em>(2) Trait_Associations</em>: a string of trait associations using following format:
+      <em>[trait_group]:[trait]:[PMID]:[q-value of association]</em>. NA is used when the info is missing.
     </li>
     
     <li><b>Gene annotation (GENCODEv41) and promoters</b>
@@ -151,7 +164,7 @@
 
     <li id="KYCG"><b>Functional annotations (CGI, enhancer, TF binding, chromatin state, ...)</b>
       (<a href="https://doi.org/10.5281/zenodo.18180812">MSA</a>,
-      <a href="https://github.com/zhou-lab/KYCG_knowledgebase_EPICv2">EPICv2</a>,
+      <a href="https://doi.org/10.5281/zenodo.18176782">EPICv2</a>,
       <a href="https://github.com/zhou-lab/KYCG_knowledgebase_EPIC">EPIC</a>,
       <a href="https://github.com/zhou-lab/KYCG_knowledgebase_HM450">HM450</a>,
       <a href="https://github.com/zhou-lab/KYCG_knowledgebase_HM27">HM27</a>)<br>
