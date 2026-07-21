@@ -53,13 +53,16 @@ ul.tight{margin:6px 0;padding-left:18px;font-size:13px}ul.tight li{margin:3px 0}
 <header class="top">
   <div>
     <h1>Infinium DNA Methylation BeadChip Annotation</h1>
-    <div class="sub">Coordinates, masks, gene &amp; SNP annotation, and KnowYourCG features for every
+    <div class="sub">Coordinates, masks, gene &amp; SNP annotation, and
+    <a href="https://zhou-lab.github.io/kycg/">KnowYourCG</a> features for every
     Illumina Infinium methylation array — human, mouse, and mammalian.</div>
   </div>
   <div class="btns">
     <a class="p" href="https://github.com/zhou-lab/InfiniumAnnotation">Release v8.1 ↗</a>
     <a href="https://github.com/zhou-lab/InfiniumAnnotationData">Data repo ↗</a>
-    <a href="https://github.com/zhou-lab/InfiniumAnnotation#readme">Usage ↗</a>
+    <a href="https://zwdzwd.github.io/sesame-cli/">sesame-cli ↗</a>
+    <a href="https://zhou-lab.github.io/kycg/">KnowYourCG ↗</a>
+    <a href="https://zhou-lab.github.io/YAME/">YAME ↗</a>
   </div>
 </header>
 
@@ -105,12 +108,17 @@ ul.tight{margin:6px 0;padding-left:18px;font-size:13px}ul.tight li{margin:3px 0}
 </table>
 </div>
 
-<div class="note"><b>Coherent</b> files are row-aligned to <code>&lt;plat&gt;.ordering.tsv.gz</code> — recover probe
-names with <code>paste &lt;(zcat ordering|cut -f1) &lt;(zcat coord)</code>; see the
-<a href="https://github.com/zhou-lab/InfiniumAnnotation#readme">README</a>. The <b>snp</b> table is
+<div class="note"><b>Coherent</b> files are row-aligned to <code>&lt;plat&gt;.ordering.tsv.gz</code> and carry no
+probe IDs — attach them with <a href="https://zwdzwd.github.io/sesame-cli/">sesame-cli</a>:
+<code>sesame attach-probe --platform EPIC EPIC.hg38.coord.tsv.gz</code> (works on a coord table, a
+<code>.cm</code> mask/feature, or a beta <code>.cg</code>; or a positional
+<code>paste</code> with the ordering's first column). Read and query the <code>.cm</code> files with
+<a href="https://zhou-lab.github.io/YAME/">YAME</a>, and test feature enrichment with
+<a href="https://zhou-lab.github.io/kycg/">KnowYourCG</a>. The <b>snp</b> table is
 sesame's <code>formatVCF</code> input (rs-probe genotyping + Infinium-I channel-switch, folded into its
-<code>U</code> column). Downloads track the latest release; for a fixed version replace <code>main</code>
-with a tag.</div>
+<code>U</code> column) and <b>typeI_ext</b> drives the GCT bisulfite-conversion control. See the
+<a href="https://github.com/zhou-lab/InfiniumAnnotation#readme">README</a>. Downloads track the latest
+release; for a fixed version replace <code>main</code> with a tag.</div>
 
 <!-- ============ FORMATS, PREVIOUS VERSIONS, LEGACY ============ -->
 <h2 id="details">Formats, previous versions &amp; legacy resources</h2>
