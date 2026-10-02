@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MSA Design Groups</title>
+<meta name="description" content="How each probe design group on the Infinium Methylation Screening Array (MSA) was selected: source data, criteria and probe counts.">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NMN8V8SDC8"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NMN8V8SDC8');</script>
+<style>
+:root{--ink:#12161c;--muted:#5b6672;--line:#e6e9ee;--bg:#fff;--accent:#0b6e99;--accent2:#0a7d5a;--warn:#c0392b;--chip:#f2f5f8;--card:#fafbfc;--mono:"SF Mono",ui-monospace,Menlo,Consolas,monospace;}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--ink:#e6e9ee;--muted:#95a0ad;--line:#252b33;--bg:#0f1216;--chip:#1a1f25;--card:#141920;--accent:#4cc3f0;--accent2:#4fd9a5;--warn:#f08070;}}
+:root[data-theme="dark"]{--ink:#e6e9ee;--muted:#95a0ad;--line:#252b33;--bg:#0f1216;--chip:#1a1f25;--card:#141920;--accent:#4cc3f0;--accent2:#4fd9a5;--warn:#f08070;}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;font:14px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg)}
+a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
+.wrap{max-width:1100px;margin:0 auto;padding:0 16px 70px}
+header{padding:20px 0 6px}
+header .back{font-size:12px}
+h1{font-size:20px;margin:6px 0 2px;letter-spacing:-.01em}
+.sub{color:var(--muted);font-size:13px;max-width:78ch}
+h2{font-size:15px;margin:30px 0 8px;padding-bottom:5px;border-bottom:2px solid var(--line)}
+p{max-width:86ch}
+code{font-family:var(--mono);font-size:12px;background:var(--chip);padding:1px 5px;border-radius:4px}
+.note{font-size:12.5px;color:var(--muted);background:var(--chip);border-left:3px solid var(--accent);padding:8px 12px;border-radius:0 7px 7px 0;margin:14px 0}
+.note b{color:var(--ink)}
+.note.warn{border-left-color:var(--warn)}
+.toc{font-size:12.5px;display:flex;flex-wrap:wrap;gap:6px 14px;margin:10px 0}
+.scroll{overflow-x:auto;border:1px solid var(--line);border-radius:12px}
+table.g{width:100%;border-collapse:collapse;font-size:12.5px}
+table.g th,table.g td{padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top;text-align:left}
+table.g thead th{font-size:10.5px;text-transform:uppercase;letter-spacing:.03em;color:var(--muted);background:var(--card)}
+table.g td.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+table.g td.grp{font-family:var(--mono);font-size:12px;font-weight:700;white-space:nowrap}
+table.g td.src{color:var(--muted);min-width:150px}
+table.g td.fmt{font-family:var(--mono);font-size:11px;color:var(--muted);min-width:140px}
+table.g tr:last-child td{border-bottom:0}
+.tag{display:inline-block;font-size:10.5px;font-weight:700;padding:1px 6px;border-radius:5px;margin-left:4px;vertical-align:1px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+.tag.bad{color:var(--warn);border:1px solid var(--warn)}
+.tag.ok{color:var(--accent2);border:1px solid var(--accent2)}
+.tag.nt{color:var(--muted);border:1px solid var(--line)}
+ol.refs{font-size:12px;color:var(--muted);padding-left:20px}ol.refs li{margin:3px 0}
+.foot{margin-top:36px;padding-top:14px;border-top:1px solid var(--line);color:var(--muted);font-size:12px}
+@media(max-width:700px){table.g td.fmt{display:none}table.g th.fmt{display:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="back"><a href="../InfiniumAnnotation.html">← Infinium annotation</a></div>
+  <h1>MSA probe design groups</h1>
+  <div class="sub">How each design group on the Infinium Methylation Screening Array (MSA) was selected:
+  the source data, the selection criteria and how many probes carry the label.</div>
+</header>
+
+<div class="toc">
+  <a href="#file">The design file</a><a href="#designability">Designability</a>
+  <a href="#traits">Trait associations</a><a href="#identity">Cell &amp; tissue identity</a>
+  <a href="#regulatory">Regulation &amp; expression</a><a href="#allelic">Allelic, sex-linked &amp; variable</a>
+  <a href="#other">Other &amp; unlabelled content</a><a href="#refs">References</a>
+</div>
+
+<h2 id="file">The design file</h2>
+<p><a href="https://zenodo.org/records/18350703">MSA.design.tsv.gz</a> (Zenodo) has two columns with no header, the probe
+ID and its design groups, one row for each of 281,806 CpG, CpH and SNP probes. Control probes are not listed. The
+second column lists every group the probe belongs to, separated by commas, and colons separate a group name from its
+details. Some EWAS trait names contain commas themselves, so split on a comma only when the next token starts with a
+known group name.</p>
+<p>The MSA design and selection criteria are described in Goldberg <em>et al.</em> 2025 [1]. The design file itself is
+a later annotation, built in 2024 by matching each probe's coordinates against the selection lists. A probe that
+matched none of them is labelled <code>Other</code>.</p>
+<div class="note"><b>Counts.</b> The "Probes" column counts probes carrying each label. A probe can carry several
+labels, so the column does not sum to the array size.</div>
+
+<h2 id="designability">Designability: the shared pre-filter</h2>
+<p>All new content was drawn from one list of designable CpGs [1]. Probe sequences for both alleles were aligned to
+hg38 with BISCUIT. A CpG was kept only if its 30-, 35- and 40-nt subsequences and the full 50-nt probe all map with
+mapping quality above 20 for both alleles, which left 19,253,974 CpGs. A design score for hybridization efficiency and
+melting temperature had to exceed 0.3. Designs with a dbSNP 151 SNP within 5 nt of the 3′ end, or with more than six
+other CpGs, were removed. 9,993,793 designable CpGs remained. High-quality designs, with a score of at least 0.6, were
+preferred where possible.</p>
+
+<h2 id="traits">Trait associations</h2>
+<div class="scroll"><table class="g">
+<thead><tr><th>Group</th><th>Probes</th><th>Source</th><th>Selection</th><th class="fmt">Detail format</th></tr></thead>
+<tbody>
+<tr><td class="grp">EWAS_Hit</td><td class="n">144,679</td><td class="src">1,067 EWAS studies curated from the literature, the EWAS Catalog [2] and EWAS Atlas [3]; meQTLs from GoDMC [4] and Hawe <em>et al.</em> [5]</td>
+<td>High-priority studies were chosen by sample size, significance, trait diversity and citations. They contributed all
+their probes or their 2,500 most significant. Every other curated study contributed its top 100. Traits were grouped
+into 16 major trait groups by regular expression. The 10,000 CpGs with the most GoDMC meQTL associations and 20,000
+random Hawe meQTLs were added. These carry the trait <code>meqtl_hawe_na</code> here.</td>
+<td class="fmt">EWAS_Hit:trait:PMID:p-value</td></tr>
+</tbody></table></div>
+
+<h2 id="identity">Cell and tissue identity</h2>
+<p>Cell-type markers were found with hierarchical one-versus-rest comparisons. Within each major cell group, a
+Wilcoxon rank-sum test compared the target cells with the contrast group at each CpG. Designable CpGs with the highest
+AUC and methylation difference were kept, balancing hyper- and hypomethylated markers where possible [1].</p>
+<div class="scroll"><table class="g">
+<thead><tr><th>Group</th><th>Probes</th><th>Source</th><th>Selection</th><th class="fmt">Detail format</th></tr></thead>
+<tbody>
+<tr><td class="grp">Loyfer_Tissue_Signature</td><td class="n">15,060</td><td class="src">Sorted-cell WGBS atlas, Loyfer <em>et al.</em> 2023 [6]</td>
+<td>Cell-type markers from the hierarchical comparison, plus the published U25 deconvolution markers from the same
+atlas.</td><td class="fmt">…:cell.in.contrast-Hyper|Hypo</td></tr>
+<tr><td class="grp">BLUEPRINT_Signature</td><td class="n">12,487</td><td class="src">Sorted immune-cell WGBS [7]</td>
+<td>Immune and hematopoietic cell markers from the hierarchical comparison.</td><td class="fmt">…:cell.in.contrast-Hyper|Hypo</td></tr>
+<tr><td class="grp">Brain_Signature</td><td class="n">16,307</td><td class="src">Single-cell brain methylomes [8–10], pseudobulked by the authors' cell-type clusters</td>
+<td>Neuronal and glial subtype markers from the hierarchical comparison. 715 entries carry the label
+<code>NA.in.All-hypo</code>, with no cell type recorded.</td><td class="fmt">…:cell.in.contrast-Hyper|Hypo</td></tr>
+<tr><td class="grp">GeneBody_mCH_Brain_Signature</td><td class="n">2,282</td><td class="src">Genes with cell-type-specific non-CpG methylation [10]</td>
+<td>CpH probes. For each brain cell type, the ten genes with the highest AUROC were taken, and 20 CAC cytosines were
+sampled from each gene body.</td><td class="fmt">…:gene-ID_rank:gene:cell type</td></tr>
+<tr><td class="grp">5hmC</td><td class="n">3,471</td><td class="src">5hmC-Seal [11] and hmC-CATCH [12] tissue 5hmC maps</td>
+<td>Tissue-specific 5hmC sites, found as for the WGBS markers. A second set spans the range of specificity: CpGs in
+each sample's 10,000 most-covered sites were binned by how many of 60 samples share them, with up to 200 per
+bin.</td><td class="fmt">5hmC:tissue-Hyper, or 5hmC:bin</td></tr>
+</tbody></table></div>
+
+<h2 id="regulatory">Regulation and expression</h2>
+<div class="scroll"><table class="g">
+<thead><tr><th>Group</th><th>Probes</th><th>Source</th><th>Selection</th><th class="fmt">Detail format</th></tr></thead>
+<tbody>
+<tr><td class="grp">ENCODE_CRE</td><td class="n">28,754</td><td class="src">ENCODE candidate cis-regulatory elements [13]; methylation range across sorted immune [7] and pan-tissue [6] cells</td>
+<td>Designable CpGs in a cCRE whose methylation varies by more than 0.4 across cell types. 30,000 were sampled, favoring
+enhancers: distal enhancer-like 64%, proximal enhancer-like 21%, CTCF 11%, promoter-like 2%.</td>
+<td class="fmt">ENCODE_CRE:dELS|pELS|PLS|CTCF-only|…</td></tr>
+<tr><td class="grp">CTCF-bound</td><td class="n">3,050</td><td class="src">ENCODE cCREs [13]</td>
+<td>CTCF-bound cCREs, chosen in the same selection as <code>ENCODE_CRE</code>.</td><td class="fmt">CTCF-bound</td></tr>
+<tr><td class="grp">CpG_gene_correlation</td><td class="n">4,305</td><td class="src">Matched WGBS and RNA-seq from Roadmap Epigenomics; TCGA normal tissues</td>
+<td>Spearman correlation between each high-quality CpG and genes within 10 kb. The 2,500 most negatively and 2,500 most
+positively correlated CpGs were taken, ranked by significance, gene variability and expression. TCGA pairs with a
+correlation of at least 0.6, or at most −0.7, and P below 0.05 were added.</td><td class="fmt">CpG_gene_correlation:gene-ID:+|-</td></tr>
+<tr><td class="grp">CpG_ATAC_correlation</td><td class="n">3,704</td><td class="src">Matched methylation and chromatin accessibility [10]</td>
+<td>CpGs whose methylation correlates with a nearby accessibility peak, with |Spearman ρ| above 0.5 and P below
+0.05.</td><td class="fmt">CpG_ATAC_correlation:+|-</td></tr>
+<tr><td class="grp">MIR200C</td><td class="n">2</td><td class="src">MIR200C locus, chr12:6,961,853–6,964,983</td>
+<td>Designable CpGs at the MIR200C/141 promoter, an epithelial versus mesenchymal marker.</td><td class="fmt">MIR200C</td></tr>
+</tbody></table></div>
+
+<h2 id="allelic">Allelic, sex-linked and variable methylation</h2>
+<p>Groups ending in <code>S</code> or <code>Sorted</code> come from the Loyfer sorted-cell WGBS atlas [6]. The others come
+from bulk normal-tissue WGBS.</p>
+<div class="scroll"><table class="g">
+<thead><tr><th>Group</th><th>Probes</th><th>Source</th><th>Selection</th><th class="fmt">Detail format</th></tr></thead>
+<tbody>
+<tr><td class="grp">IntermediateMeth</td><td class="n">4,305</td><td class="src">180 bulk adult normal WGBS samples</td>
+<td>Autosomal CpGs with at least 20 reads and methylation between 0.3 and 0.7 in at least 140 of 180 samples. Intended
+to capture mono-allelic methylation.</td><td class="fmt">IntermediateMeth</td></tr>
+<tr><td class="grp">IntermediateMethS</td><td class="n">1,528</td><td class="src">207 sorted-cell methylomes [6]</td>
+<td>CpGs between 0.3 and 0.7 in at least 180 of 207 samples, plus a curated list of imprinting CpGs.</td><td class="fmt">IntermediateMethS</td></tr>
+<tr><td class="grp">ImprintingDMR</td><td class="n">123</td><td class="src">Skaar <em>et al.</em> 2012 [14], lifted to hg38</td>
+<td>Designable CpGs in DMRs of mono-allelically expressed genes.</td><td class="fmt">ImprintingDMR:gene:PMID23744971</td></tr>
+<tr><td class="grp">XCILinkedWGBS</td><td class="n">2,117</td><td class="src">76 female and 95 male normal WGBS samples</td>
+<td>X-linked CpGs intermediate (0.3 to 0.7) in females but unmethylated (&lt;0.3) or methylated (&gt;0.7) in males.
+These track X inactivation.</td><td class="fmt">XCILinkedWGBS</td></tr>
+<tr><td class="grp">XCILinkedWGBSSorted</td><td class="n">2,675</td><td class="src">Sorted-cell methylomes [6]</td>
+<td>The same female-intermediate, male-binary rule, applied to sorted cells.</td><td class="fmt">XCILinkedWGBSSorted</td></tr>
+<tr><td class="grp">Y-linked</td><td class="n">1,837</td><td class="src">180 WGBS samples; GENCODE v39 chrY genes</td>
+<td>For each chrY gene, the 20 designable CpGs most variable across samples.</td><td class="fmt">Y-linked:gene-IDs</td></tr>
+<tr><td class="grp">CoRSIV</td><td class="n">3,316</td><td class="src">Correlated regions of systemic interindividual variation [15,16]</td>
+<td>High-quality designable CpGs inside CoRSIVs. These vary between people consistently across tissues.</td><td class="fmt">CoRSIV</td></tr>
+<tr><td class="grp">SoloWCGW</td><td class="n">5,143</td><td class="src">Solo-WCGW CpGs in common PMDs, Zhou <em>et al.</em> 2018 [17]</td>
+<td>About 6,000 sampled high-quality CpGs that lose methylation with mitotic cell division.</td><td class="fmt">SoloWCGW</td></tr>
+</tbody></table></div>
+
+<h2 id="other">Other and unlabelled content</h2>
+<div class="scroll"><table class="g">
+<thead><tr><th>Group</th><th>Probes</th><th>Source</th><th>Selection</th></tr></thead>
+<tbody>
+<tr><td class="grp">Other</td><td class="n">43,742</td><td class="src">—</td>
+<td>Probes that matched no list above. They include all 4,348 SNP (<code>rs</code>) probes, 192 CpH probes and 39,202
+CpG probes. About 14,000 of those CpGs are also on earlier human Infinium arrays.</td></tr>
+</tbody></table></div>
+<div class="note"><b>Content without its own label.</b> The original design also selected CpGs for several sets the
+2024 annotation does not label. These include epigenetic clocks, a brain-tumor classifier, a kidney EWAS, EpiSign
+Mendelian-disorder episignatures, an imprintome set, transposable-element probes and Alzheimer's disease SNPs. Their
+probes appear under another group or under <code>Other</code>.</div>
+
+<h2 id="refs">References</h2>
+<ol class="refs">
+<li>Goldberg DC <em>et al.</em> Scalable screening of ternary-code DNA methylation dynamics associated with human traits. <a href="https://www.sciencedirect.com/science/article/pii/S2666979X25001855">Cell Genomics 2025</a>.</li>
+<li>EWAS Catalog, <a href="https://pubmed.ncbi.nlm.nih.gov/35592546/">PMID 35592546</a>.</li>
+<li>EWAS Atlas, <a href="https://pubmed.ncbi.nlm.nih.gov/30364969/">PMID 30364969</a>.</li>
+<li>GoDMC meQTLs, <a href="https://pubmed.ncbi.nlm.nih.gov/34493871/">PMID 34493871</a>.</li>
+<li>Hawe <em>et al.</em> meQTLs, <a href="https://pubmed.ncbi.nlm.nih.gov/34980917/">PMID 34980917</a>.</li>
+<li>Loyfer N <em>et al.</em> A DNA methylation atlas of normal human cell types. Nature 2023, <a href="https://pubmed.ncbi.nlm.nih.gov/36599988/">PMID 36599988</a>.</li>
+<li>Sorted immune-cell methylomes, <a href="https://pubmed.ncbi.nlm.nih.gov/24091925/">PMID 24091925</a>.</li>
+<li>Single-cell brain methylomes, <a href="https://pubmed.ncbi.nlm.nih.gov/28798132/">PMID 28798132</a>.</li>
+<li>Single-cell brain methylomes, <a href="https://pubmed.ncbi.nlm.nih.gov/31501549/">PMID 31501549</a>.</li>
+<li>Single-cell brain methylation, CpH and accessibility, <a href="https://pubmed.ncbi.nlm.nih.gov/35419551/">PMID 35419551</a>.</li>
+<li>5hmC-Seal tissue 5hmC, <a href="https://pubmed.ncbi.nlm.nih.gov/33268789/">PMID 33268789</a>.</li>
+<li>hmC-CATCH tissue 5hmC, <a href="https://pubmed.ncbi.nlm.nih.gov/34253716/">PMID 34253716</a>.</li>
+<li>ENCODE Project Consortium. Registry of candidate cis-regulatory elements, <a href="https://pubmed.ncbi.nlm.nih.gov/32728249/">PMID 32728249</a>.</li>
+<li>Skaar DA <em>et al.</em> Imprinted DMRs, <a href="https://pubmed.ncbi.nlm.nih.gov/23744971/">PMID 23744971</a>.</li>
+<li>CoRSIVs, <a href="https://pubmed.ncbi.nlm.nih.gov/31155008/">PMID 31155008</a>.</li>
+<li>CoRSIVs, <a href="https://pubmed.ncbi.nlm.nih.gov/36631879/">PMID 36631879</a>.</li>
+<li>Zhou W <em>et al.</em> DNA methylation loss in late-replicating domains is linked to mitotic cell division. Nat Genet 2018, <a href="https://pubmed.ncbi.nlm.nih.gov/29610480/">PMID 29610480</a>.</li>
+</ol>
+
+<div class="foot">Questions: <a href="mailto:wanding.zhou@pennmedicine.upenn.edu">wanding.zhou@pennmedicine.upenn.edu</a></div>
+</div>
+</body>
+</html>

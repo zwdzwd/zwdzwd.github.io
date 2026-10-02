@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MM285 Design Groups</title>
+<meta name="description" content="How each probe design group on the Infinium Mouse Methylation BeadChip (MM285) was selected: source data, criteria and probe counts.">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NMN8V8SDC8"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NMN8V8SDC8');</script>
+<style>
+:root{--ink:#12161c;--muted:#5b6672;--line:#e6e9ee;--bg:#fff;--accent:#0b6e99;--accent2:#0a7d5a;--warn:#c0392b;--chip:#f2f5f8;--card:#fafbfc;--mono:"SF Mono",ui-monospace,Menlo,Consolas,monospace;}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--ink:#e6e9ee;--muted:#95a0ad;--line:#252b33;--bg:#0f1216;--chip:#1a1f25;--card:#141920;--accent:#4cc3f0;--accent2:#4fd9a5;--warn:#f08070;}}
+:root[data-theme="dark"]{--ink:#e6e9ee;--muted:#95a0ad;--line:#252b33;--bg:#0f1216;--chip:#1a1f25;--card:#141920;--accent:#4cc3f0;--accent2:#4fd9a5;--warn:#f08070;}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;font:14px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg)}
+a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
+.wrap{max-width:1100px;margin:0 auto;padding:0 16px 70px}
+header{padding:20px 0 6px}
+header .back{font-size:12px}
+h1{font-size:20px;margin:6px 0 2px;letter-spacing:-.01em}
+.sub{color:var(--muted);font-size:13px;max-width:78ch}
+h2{font-size:15px;margin:30px 0 8px;padding-bottom:5px;border-bottom:2px solid var(--line)}
+p{max-width:86ch}
+code{font-family:var(--mono);font-size:12px;background:var(--chip);padding:1px 5px;border-radius:4px}
+.note{font-size:12.5px;color:var(--muted);background:var(--chip);border-left:3px solid var(--accent);padding:8px 12px;border-radius:0 7px 7px 0;margin:14px 0}
+.note b{color:var(--ink)}
+.note.warn{border-left-color:var(--warn)}
+.toc{font-size:12.5px;display:flex;flex-wrap:wrap;gap:6px 14px;margin:10px 0}
+.scroll{overflow-x:auto;border:1px solid var(--line);border-radius:12px}
+table.g{width:100%;border-collapse:collapse;font-size:12.5px}
+table.g th,table.g td{padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top;text-align:left}
+table.g thead th{font-size:10.5px;text-transform:uppercase;letter-spacing:.03em;color:var(--muted);background:var(--card)}
+table.g td.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+table.g td.grp{font-family:var(--mono);font-size:12px;font-weight:700;white-space:nowrap}
+table.g td.src{color:var(--muted);min-width:150px}
+table.g td.fmt{font-family:var(--mono);font-size:11px;color:var(--muted);min-width:140px}
+table.g tr:last-child td{border-bottom:0}
+.tag{display:inline-block;font-size:10.5px;font-weight:700;padding:1px 6px;border-radius:5px;margin-left:4px;vertical-align:1px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+.tag.bad{color:var(--warn);border:1px solid var(--warn)}
+.tag.ok{color:var(--accent2);border:1px solid var(--accent2)}
+.tag.nt{color:var(--muted);border:1px solid var(--line)}
+ol.refs{font-size:12px;color:var(--muted);padding-left:20px}ol.refs li{margin:3px 0}
+.foot{margin-top:36px;padding-top:14px;border-top:1px solid var(--line);color:var(--muted);font-size:12px}
+@media(max-width:700px){table.g td.fmt{display:none}table.g th.fmt{display:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="back"><a href="../InfiniumAnnotation.html">← Infinium annotation</a></div>
+  <h1>MM285 probe design groups</h1>
+  <div class="sub">How each design group on the Infinium Mouse Methylation BeadChip (MM285) was selected:
+  the source data, the selection criteria and how many probes carry the label.</div>
+</header>
+
+<div class="toc">
+  <a href="#file">The design file</a><a href="#designability">Designability</a>
+  <a href="#genomic">Genomic features</a><a href="#biology">Target biology</a>
+  <a href="#germline">Germline &amp; early development</a><a href="#technical">Random, CpH, SNP &amp; technical</a>
+  <a href="#issues">Known issues</a><a href="#refs">References</a>
+</div>
+
+<h2 id="file">The design file</h2>
+<p><a href="https://github.com/zhou-lab/InfiniumAnnotationData/raw/main/Anno/MM285/MM285.design.tsv.gz">MM285.design.tsv.gz</a>
+has two columns, <code>Probe_ID</code> and <code>design</code>, one row per probe on the
+296,070-probe design-paper manifest. The <code>design</code> field lists every group the probe was selected for,
+separated by commas. A probe picked by two strategies carries both, for example
+<code>CTCF,EPIC;cg04056615</code>. Within a group entry, semicolons separate the group name from its details, such as
+the syntenic human EPIC probe or the nearest TSS. The last column of each table below shows that format.</p>
+<p>The same groups are distributed as the knowYourCG (v1) knowledgebase <code>KYCG.MM285.designGroup.20210210</code>
+(ExperimentHub EH6825, <code>getDBs("MM285.designGroup")</code>). The design and the selection criteria are described
+in Zhou <em>et al.</em> 2022 [1]. This page adds the criteria from the original selection code where the paper is
+silent, and notes where the two differ.</p>
+<div class="note"><b>Counts.</b> The "Probes" column counts probes carrying each label in the design file. A probe can
+carry several labels, so the column does not sum to the array size. The paper counts label occurrences instead, so a
+probe near two TSSs counts twice there. That is why, for example, the paper gives 100,948 TSS CpGs against 69,237
+probes here.</div>
+
+<h2 id="designability">Designability: the shared pre-filter</h2>
+<p>Every CpG group draws from one list of designable CpGs [1]. For each CpG in mm10, both Infinium-I probe designs on
+the converted strand were aligned with BISCUIT. A design was kept only if its 30-, 35- and 40-nt 3′ subsequences and
+the full probe all map uniquely, with mapping quality above 20 for both alleles. Designs were then dropped if a SNP
+from 15 laboratory strains [2] or another CpG lay within 10 nt of the 3′ end, or if the probe held six or more CpGs.
+A design score for GC content and melting temperature had to exceed 0.3. About 9.77 million CpGs passed. Some groups
+draw from a stricter high-quality subset.</p>
+
+<h2 id="genomic">Genomic features</h2>
+<div class="scroll"><table class="g">
+<thead><tr><th>Group</th><th>Probes</th><th>Source</th><th>Selection</th><th class="fmt">Detail format</th></tr></thead>
+<tbody>
+<tr><td class="grp">TSS</td><td class="n">69,237</td><td class="src">Ensembl release 96 protein-coding transcripts, collapsed to 54,376 TSSs [3]</td>
+<td>Designable CpGs within 1,500 bp of a TSS, ranked by distance. Lower-quality designs (score under 0.6) carry a 500 bp
+penalty. At most two CpGs per TSS. 1,972 TSSs (3.6%) have no designable CpG.</td>
+<td class="fmt">TSS;chr:pos;gene;transcript;distance;rank</td></tr>
+<tr><td class="grp">lincRNATSS</td><td class="n">12,029</td><td class="src">Ensembl 96 lincRNA TSSs (8,621) [3]</td>
+<td>At most two CpGs per TSS, closest first. 1,327 lincRNA TSSs have no designable CpG.</td>
+<td class="fmt">lincRNATSS;chr:pos;gene;transcript;distance</td></tr>
+<tr><td class="grp">PseudogeneTSS</td><td class="n">10,244</td><td class="src">Ensembl 96 pseudogene TSSs [3]</td>
+<td>Closest designable CpG to each TSS.</td><td class="fmt">PseudogeneTSS;chr:pos;gene;transcript;distance</td></tr>
+<tr><td class="grp">miRNA</td><td class="n">3,970</td><td class="src">Ensembl 96 miRNA transcripts [3]</td>
+<td>Closest designable CpGs to each transcript start.</td><td class="fmt">miRNA;chr:pos;gene;transcript;distance;rank</td></tr>
+<tr><td class="grp">CGI</td><td class="n">17,134</td><td class="src">UCSC mm10 CpG islands</td>
+<td>One CpG for each island at an Ensembl TSS, three for each island away from any TSS. Covers 13,365 of 16,023
+islands.</td><td class="fmt">CGI;chr:beg-end</td></tr>
+<tr><td class="grp">GeneBody</td><td class="n">24,638</td><td class="src">RefSeq canonical protein-coding transcripts [4]</td>
+<td>One random CpG per transcript, from 2 kb downstream of the TSS to the transcription end, excluding 5′ CpG islands.
+Transcripts shorter than 2 kb were skipped.</td><td class="fmt">GeneBody;gene;RefSeq;location;splice=0|1</td></tr>
+<tr><td class="grp">Enhancer</td><td class="n">58,759</td><td class="src">ChromHMM enhancer states (strong and poised) in mouse ESCs [5] and adult tissues [6]; 176 public WGBS methylomes (paper Table S1)</td>
+<td>High-quality CpGs in an enhancer state and over 1 kb from a protein-coding TSS. Kept if methylated (&gt;0.7) in at
+least five methylomes and unmethylated (&lt;0.3) in at least five, which left 757,439 tissue-variable CpGs. 30,000
+were sampled from CpGs in three or more enhancer calls and 30,000 from the rest.</td><td class="fmt">Enhancer</td></tr>
+<tr><td class="grp">EnhancerVista</td><td class="n">1,245</td><td class="src">VISTA Enhancer Browser, experimentally validated enhancers [7]</td>
+<td>High-quality CpGs inside validated mouse enhancer elements.</td><td class="fmt">EnhancerVista;chr:beg-end</td></tr>
+<tr><td class="grp">CTCF</td><td class="n">8,616</td><td class="src">Mouse ENCODE CTCF ChIP-seq, 19 tissues [8], checked against ChromHMM [6]</td>
+<td>CpGs inside CTCF peaks in at least two tissues. They were binned by the fraction of compendium methylomes in which
+they are unmethylated (&lt;0.2), and up to 1,000 were sampled per bin. Sites methylated in every sample were
+dropped.</td><td class="fmt">CTCF</td></tr>
+<tr><td class="grp">EPIC</td><td class="n">29,008</td><td class="src">Human MethylationEPIC CpGs [9], UCSC liftOver to mm10</td>
+<td>EPIC CpGs that lift over to a designable mouse CpG. 28,719 map uniquely in both genomes. The mouse probe sequence
+differs from the human one. The set is promoter-rich because EPIC is.</td><td class="fmt">EPIC;&lt;EPIC probe ID&gt;</td></tr>
+</tbody></table></div>
+
+<h2 id="biology">Target biology</h2>
+<div class="scroll"><table class="g">
+<thead><tr><th>Group</th><th>Probes</th><th>Source</th><th>Selection</th><th class="fmt">Detail format</th></tr></thead>
+<tbody>
+<tr><td class="grp">MonoallelicMeth</td><td class="n">7,813</td><td class="src">WGBS compendium, excluding germ-cell and early-embryo samples</td>
+<td>Autosomal CpGs measured in more than six samples and intermediately methylated (0.35 to 0.65) in over 65% of them.
+Intended to capture imprinting and other mono-allelic methylation.</td><td class="fmt">MonoallelicMeth</td></tr>
+<tr><td class="grp">ImprintDMR</td><td class="n">623</td><td class="src">26 curated imprinted regions (paper key resources table)</td>
+<td>High-quality CpGs inside known imprinting control regions and secondary DMRs.</td><td class="fmt">ImprintDMR;chr:beg-end;allele;DMR name</td></tr>
+<tr><td class="grp">PlacentaIntermed</td><td class="n">981 <span class="tag nt">1 sample</span></td><td class="src">One placenta WGBS sample, Hon <em>et al.</em> 2013, GSM1051161 [10]</td>
+<td>Intended for placenta-specific imprinting. CpGs between 0.4 and 0.6 in that sample, about 5.8 million, of which
+1,000 were sampled. No comparison with other tissues was made, so the check is the absolute level. It holds in aggregate: the group median is 0.54 across 16 MM285 placentas, against 0.82 in somatic tissue. Per-probe agreement has not been measured.</td><td class="fmt">PlacentaIntermed</td></tr>
+<tr><td class="grp">VMR</td><td class="n">5,835</td><td class="src">Variably methylated IAP elements, Kazachenka <em>et al.</em> 2018 [11]</td>
+<td>One CpG for each of 6,402 VM-IAP regions. 633 regions had no designable CpG.</td><td class="fmt">VMR;chr:beg-end</td></tr>
+<tr><td class="grp">PMDsoloWCGW</td><td class="n">5,095</td><td class="src">Common PMDs and solo-WCGW CpGs [12]; lamina-associated domains [13]</td>
+<td>Random solo-WCGW CpGs, with no other CpG within 35 bp, inside common PMDs that are also lamina-associated. These
+CpGs lose methylation with mitotic cell division.</td><td class="fmt">PMDsoloWCGW</td></tr>
+<tr><td class="grp">Adenoma</td><td class="n">8,311</td><td class="src">Colon tumors induced with DSS and azoxymethane, Abu-Remaileh <em>et al.</em> 2015 [14]</td>
+<td>CpGs methylated in tumor (&gt;0.7) and unmethylated in normal colon (&lt;0.3). See the <a href="#paper-vs-code">note on sample numbers</a>.</td><td class="fmt">Adenoma</td></tr>
+<tr><td class="grp">Clock</td><td class="n">754</td><td class="src">Published mouse epigenetic clocks [15–19]</td>
+<td>All designable CpGs of six clocks: Meer 435, Petkovich 90, Stubbs 329, Thompson 273 and 582, and Wang 148.</td>
+<td class="fmt">Clock;&lt;clock&gt;;coefficient</td></tr>
+<tr><td class="grp">RMSK</td><td class="n">4,517</td><td class="src">Repbase consensus sequences [20]</td>
+<td>Internal CpGs of rodent-specific repeat families with over 1,000 genomic copies, including 242 probes for IAP and
+423 for L1 families.</td><td class="fmt">RMSK;family|class|…;consensus position</td></tr>
+<tr><td class="grp">Mitochondria</td><td class="n">32</td><td class="src">chrM</td>
+<td>Mitochondrial CpGs, expected unmethylated, for use as a technical control.</td><td class="fmt">Mitochondria</td></tr>
+</tbody></table></div>
+
+<h2 id="germline">Germline and early development</h2>
+<p>The paper's methods describe these groups in one sentence, with no criteria [1]. The criteria below come from the
+original selection code. Each group compares target samples with the rest of the public WGBS compendium, after
+dropping methylomes with 15 million or fewer covered CpGs. That filter removed several cited studies, so some groups
+rest on very few samples. The tags say how many target samples were used and whether the group has been checked on
+the array.</p>
+<div class="scroll"><table class="g">
+<thead><tr><th>Group</th><th>Probes</th><th>Target samples</th><th>Selection</th></tr></thead>
+<tbody>
+<tr><td class="grp">PGCMeth</td><td class="n">474 <span class="tag nt">5 samples</span></td><td class="src">Wang <em>et al.</em> 2014 [21]: male and female PGCs, ICM, 2-cell, 4-cell</td>
+<td>Either methylated (&gt;0.7) in all five, or above 0.8 in both PGC samples. These CpGs resist the global
+demethylation of early development. Not testable on the MM285 atlas, which has no PGC or early-embryo profiles.</td></tr>
+<tr><td class="grp">SpermMeth</td><td class="n">397 <span class="tag ok">replicates in testis</span></td><td class="src">Male germline, spermatogonia to sperm, 6 samples: Hammoud <em>et al.</em> 2014 [22] spermatogonia (2), spermatocyte, spermatid and mature sperm; Wang 2014 sperm [21]</td>
+<td>Above 0.85 in all but one target sample, below 0.15 in over 80% of other samples, and below 0.3 in at least one
+zygote. The group is male-germline rather than sperm-specific, despite its name. In the 7 MM285 testis profiles, which contain that whole lineage, 99% of probes gain more than 0.2 over somatic tissue.</td></tr>
+<tr><td class="grp">SpermUnmeth</td><td class="n">208 <span class="tag ok">replicates in testis</span></td><td class="src">Same six male germline samples</td>
+<td>Below 0.15 in all but one target sample, above 0.85 in over 80% of other samples, and above 0.7 in at least one
+zygote. In the 7 MM285 testis profiles, 99% of probes lose more than 0.2.</td></tr>
+<tr><td class="grp">OocyteMeth</td><td class="n">172 <span class="tag nt">1 sample</span></td><td class="src">Wang 2014 oocyte [21]</td>
+<td>Above 0.85 in the oocyte and below 0.15 in over 80% of other samples. Not testable on the MM285 atlas, which has no
+oocyte profiles.</td></tr>
+<tr><td class="grp">OocyteUnmeth</td><td class="n">486 <span class="tag nt">1 sample</span></td><td class="src">Wang 2014 oocyte [21]</td>
+<td>Below 0.15 in the oocyte and above 0.85 in over 80% of other samples. Not testable on the MM285 atlas, which has no oocyte profiles.</td></tr>
+<tr><td class="grp">ZygoteMeth</td><td class="n">474 <span class="tag nt">2 samples</span></td><td class="src">Peat <em>et al.</em> 2014 [23]: wild-type and Tet3-knockout zygote</td>
+<td>Above 0.75 in both zygotes and below 0.15 in over 80% of other samples. Not testable on the MM285 atlas, which has no zygote profiles.</td></tr>
+<tr><td class="grp">ZygoteUnmeth</td><td class="n">480 <span class="tag nt">2 samples</span></td><td class="src">Same two zygotes</td>
+<td>Below 0.15 in both and above 0.85 in over 80% of other samples. Not testable on the MM285 atlas.</td></tr>
+<tr><td class="grp">PlacentaMeth</td><td class="n">485 <span class="tag bad">does not replicate</span></td><td class="src">One placenta sample, Hon 2013, GSM1051161 [10]</td>
+<td>Above 0.85 in the placenta and below 0.15 in over 90% of other samples. See <a href="#issues">known issues</a>.</td></tr>
+<tr><td class="grp">PlacentaUnmeth</td><td class="n">484 <span class="tag bad">does not replicate</span></td><td class="src">Same placenta sample</td>
+<td>Below 0.15 in the placenta and above 0.85 in over 90% of other samples. See <a href="#issues">known issues</a>.</td></tr>
+</tbody></table></div>
+
+<h2 id="technical">Random, CpH, SNP and technical probes</h2>
+<div class="scroll"><table class="g">
+<thead><tr><th>Group</th><th>Probes</th><th>Source</th><th>Selection</th><th class="fmt">Detail format</th></tr></thead>
+<tbody>
+<tr><td class="grp">Random</td><td class="n">27,999</td><td class="src">Designability list</td>
+<td>Random designable CpGs to cover uncharacterized biology. Extra draws on chrX, and every designable chrY CpG, offset
+the sex chromosomes' loss to the uniqueness filter.</td><td class="fmt">Random</td></tr>
+<tr><td class="grp">CpH</td><td class="n">2,794</td><td class="src">Adult brain WGBS, Guo <em>et al.</em> 2014 [24]</td>
+<td>CpA, CpC and CpT sites. Half are methylated in brain, the rest random. Same mapping and design-score filters as
+CpG probes.</td><td class="fmt">CpH;CA|CC|CT</td></tr>
+<tr><td class="grp">SNP</td><td class="n">1,490</td><td class="src">Mouse Genomes Project, 36 inbred and wild strains [2]</td>
+<td>Up to ten SNPs per branch of the strain phylogeny, 591 branch-specific SNPs in all, outside repeats. Used to check
+genetic background.</td><td class="fmt">SNP;chr:pos;…;REF&gt;ALT;strain;…</td></tr>
+<tr><td class="grp">Control</td><td class="n">4,216</td><td class="src">Illumina and custom control probes</td>
+<td>Control probes, including negative and bisulfite-conversion controls.</td><td class="fmt">Control;type</td></tr>
+<tr><td class="grp">Multi</td><td class="n">7,317</td><td class="src">—</td>
+<td>Probes intentionally designed to hit several genomic locations. SeSAMe masks them by default.</td><td class="fmt">Multi</td></tr>
+<tr><td class="grp">UK</td><td class="n">4,541</td><td class="src">—</td>
+<td>Probes that missed the design objective through sequence mismatch or weak hybridization, with the
+<code>uk</code> prefix. SeSAMe masks them by default.</td><td class="fmt">UK;reason</td></tr>
+</tbody></table></div>
+
+<h2 id="issues">Known issues</h2>
+<div class="note warn" id="mm285-placenta"><b>PlacentaMeth and PlacentaUnmeth do not replicate (2026-09).</b> These two
+groups carry no placenta-specific methylation signal on the array. Do not use them as placenta markers. This affects
+<code>KYCG.MM285.designGroup.20210210</code> (EH6825) and the same labels in MM285.design.tsv.gz.
+<br>Both rest on a single placenta methylome (GSM1051161). They do not replicate in MM285 data from 16 placentas and
+682 adult somatic samples (GSE184410). <code>PlacentaMeth</code> probes gain no methylation in placenta: the median
+change is 0.00, the same as random probes with similar somatic methylation. <code>PlacentaUnmeth</code> probes lose
+less methylation than comparable highly methylated CpGs, with a median drop of 0.06 against 0.21. The labels are not
+swapped, since neither direction holds. Exclude both groups from any placenta-specific interpretation.
+<br>The rest of the design-group set is not affected by this finding. A corrected version of the knowledgebase is
+planned. The design-group set is not part of the <a href="https://zhou-lab.github.io/kycg/">KnowYourCG</a> v2
+(<code>kycg</code>) catalogue, so v2 is unaffected. Reported by a user.</div>
+<div class="note" id="paper-vs-code"><b>Where the selection code differs from the paper.</b>
+<br>• <b>Placenta source.</b> The paper cites Popp <em>et al.</em> 2010 [25] for the placenta groups. The code used
+Hon 2013 sample GSM1051161. The Popp placenta methylomes fell below the coverage filter.
+<br>• <b>Adenoma samples.</b> The paper describes two tumor and two normal colon samples with at least six reads. The
+code compared one DSS-plus-azoxymethane tumor with one normal colon, with the second pair commented out.</div>
+
+<h2 id="refs">References</h2>
+<ol class="refs">
+<li>Zhou W <em>et al.</em> DNA methylation dynamics and dysregulation delineated by high-throughput profiling in the mouse. <a href="https://www.sciencedirect.com/science/article/pii/S2666979X22000775">Cell Genomics 2022</a>.</li>
+<li>Keane TM <em>et al.</em> Mouse genomic variation and its effect on phenotypes and gene regulation. Nature 2011.</li>
+<li>Ensembl release 96 (2019).</li>
+<li>NCBI RefSeq.</li>
+<li>Pintacuda G <em>et al.</em> hnRNPK recruits PCGF3/5-PRC1 to the Xist RNA B-repeat. Mol Cell 2017.</li>
+<li>Shen Y <em>et al.</em> A map of the cis-regulatory sequences in the mouse genome. Nature 2012.</li>
+<li>Visel A <em>et al.</em> VISTA Enhancer Browser. Nucleic Acids Res 2007.</li>
+<li>Yue F <em>et al.</em> A comparative encyclopedia of DNA elements in the mouse genome. Nature 2014.</li>
+<li>Pidsley R <em>et al.</em> Critical evaluation of the Illumina MethylationEPIC BeadChip. Genome Biol 2016.</li>
+<li>Hon GC <em>et al.</em> Epigenetic memory at embryonic enhancers identified in DNA methylation maps from adult mouse tissues. Nat Genet 2013.</li>
+<li>Kazachenka A <em>et al.</em> Identification, characterization, and heritability of murine metastable epialleles. Cell 2018.</li>
+<li>Zhou W <em>et al.</em> DNA methylation loss in late-replicating domains is linked to mitotic cell division. Nat Genet 2018.</li>
+<li>Peric-Hupkes D <em>et al.</em> Molecular maps of the reorganization of genome–nuclear lamina interactions. Mol Cell 2010.</li>
+<li>Abu-Remaileh M <em>et al.</em> Chronic inflammation induces a novel epigenetic program that is conserved in intestinal adenomas and in colorectal cancer. Cancer Res 2015.</li>
+<li>Meer MV <em>et al.</em> A whole lifespan mouse multi-tissue DNA methylation clock. eLife 2018.</li>
+<li>Thompson MJ <em>et al.</em> A multi-tissue full lifespan epigenetic clock for mice. Aging 2018.</li>
+<li>Petkovich DA <em>et al.</em> Using DNA methylation profiling to evaluate biological age and longevity interventions. Cell Metab 2017.</li>
+<li>Wang T <em>et al.</em> Epigenetic aging signatures in mice livers are slowed by dwarfism, calorie restriction and rapamycin treatment. Genome Biol 2017.</li>
+<li>Stubbs TM <em>et al.</em> Multi-tissue DNA methylation age predictor in mouse. Genome Biol 2017.</li>
+<li>Bao W <em>et al.</em> Repbase Update. Mobile DNA 2015.</li>
+<li>Wang L <em>et al.</em> Programming and inheritance of parental DNA methylomes in mammals. Cell 2014.</li>
+<li>Hammoud SS <em>et al.</em> Chromatin and transcription transitions of mammalian adult germline stem cells and spermatogenesis. Cell Stem Cell 2014.</li>
+<li>Peat JR <em>et al.</em> Genome-wide bisulfite sequencing in zygotes identifies demethylation targets and maps the contribution of TET3 oxidation. Cell Rep 2014.</li>
+<li>Guo JU <em>et al.</em> Distribution, recognition and regulation of non-CpG methylation in the adult mammalian brain. Nat Neurosci 2014.</li>
+<li>Popp C <em>et al.</em> Genome-wide erasure of DNA methylation in mouse primordial germ cells is affected by AID deficiency. Nature 2010.</li>
+</ol>
+
+<div class="foot">Questions: <a href="mailto:wanding.zhou@pennmedicine.upenn.edu">wanding.zhou@pennmedicine.upenn.edu</a></div>
+</div>
+</body>
+</html>
