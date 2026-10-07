@@ -1,141 +1,132 @@
 <!DOCTYPE html>
-
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <!-- <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script> -->
-    <script defer src="js/fontawesome-all.min.js"></script>
-    <style>
-      html {
-      position: relative;
-      min-height: 100%;
-      }
-      
-      p { font-family: 'Roboto', sans-serif; }
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PMD and Solo-WCGW CpGs</title>
+<script defer src="js/fontawesome-all.min.js"></script>
+<style>
+:root{--ink:#12161c;--muted:#5b6672;--line:#e6e9ee;--bg:#fff;--accent:#0b6e99;--accent2:#0a7d5a;--chip:#f2f5f8;--card:#fafbfc;--rel:#eef8f3;--mono:"SF Mono",ui-monospace,Menlo,Consolas,monospace;}
+@media(prefers-color-scheme:dark){:root{--ink:#e6e9ee;--muted:#95a0ad;--line:#252b33;--bg:#0f1216;--chip:#1a1f25;--card:#141920;--rel:#12241d;--accent:#4cc3f0;--accent2:#4fd9a5;}}
+*{box-sizing:border-box}
+body{margin:0;font:14px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg)}
+a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
+.wrap{max-width:960px;margin:0 auto;padding:0 18px 60px}
+header.top{padding:26px 0 14px;border-bottom:1px solid var(--line)}
+header.top h1{font-size:22px;margin:0;letter-spacing:-.01em}
+header.top .sub{color:var(--muted);font-size:13px;margin-top:4px}
+h2{font-size:15px;margin:30px 0 10px;padding-bottom:5px;border-bottom:2px solid var(--line)}
+h3{font-size:12px;margin:0 0 6px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;font-weight:700}
+.grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+.grid.two{grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}
+.box{border:1px solid var(--line);border-radius:10px;padding:12px 14px;background:var(--card)}
+ul.dl{list-style:none;margin:0;padding:0;font-size:13px}
+ul.dl li{margin:5px 0;padding-left:20px;position:relative}
+ul.dl li>a:first-child{position:absolute;left:0;top:0}
+.badge{display:inline-block;font-size:10.5px;font-weight:700;border-radius:6px;padding:1px 6px;background:var(--chip);color:var(--ink);text-transform:none;letter-spacing:0;vertical-align:1px}
+code,pre{font-family:var(--mono);font-size:12px;background:var(--chip);border-radius:5px}
+code{padding:1px 5px}
+pre{padding:8px 11px;margin:6px 0;overflow-x:auto;white-space:pre}
+.note{font-size:12.5px;color:var(--muted);background:var(--chip);border-left:3px solid var(--accent);padding:7px 11px;border-radius:0 7px 7px 0;margin:10px 0 0}
+.feat{margin-top:12px;border:1px solid color-mix(in srgb,var(--accent2) 35%,var(--line));background:var(--rel);border-radius:10px;padding:12px 14px;font-size:13px}
+.feat .t{font-weight:700;margin-bottom:4px}
+.feat .doi{display:inline-block;font-size:11px;font-weight:700;border-radius:6px;padding:1px 7px;color:#fff;background:var(--accent2);margin-left:4px}
+.foot{margin-top:36px;padding-top:14px;border-top:1px solid var(--line);color:var(--muted);font-size:12px}
+</style>
+</head>
+<body>
+<div class="wrap">
 
-      .container {
-      width: auto;
-      max-width: 900px;
-      padding: 0 15px;
-      }
-    </style>
-    <title>PMD and Solo-WCGW CpGs</title>
-  </head>
+<header class="top">
+  <h1>TCGA WGBS, PMD and Solo-WCGW CpGs</h1>
+  <div class="sub">Annotation data from Zhou, Dinh et al. Nature Genetics 2018</div>
+</header>
 
-  <body>
-    <div class="jumbotron text-center">
-      <h1>TCGA WGBS, PMD and Solo-WCGW CpGs</h1>
-      <p font-family="Acme, sans-serif">Annotation data from Zhou, Dinh et al. Nature Genetics 2018</p>
-    </div>
+<h2>Solo-WCGW CpGs and PMD Definitions</h2>
+<div class="grid">
+  <div class="box">
+    <h3>Human <span class="badge">hg19</span></h3>
+    <ul class="dl">
+      <li><a href="https://zhouserver.research.chop.edu/GenomeAnnotation/hg19/solo_WCGW_hg19.bed.gz"><i class="fas fa-download"></i></a> Coordinates of Solo-WCGW CpGs Genomewide</li>
+      <li><a href="https://zhouserver.research.chop.edu/GenomeAnnotation/hg19/solo_WCGW_inCommonPMDs_hg19.bed.gz"><i class="fas fa-download"></i></a> Coordinates of Solo-WCGW CpGs in common PMDs</li>
+      <li><a href="https://zhouserver.research.chop.edu/GenomeAnnotation/hg19/PMD_coordinates_hg19.bed.gz"><i class="fas fa-download"></i></a> Coordinates of PMDs/HMDs and common PMDs/HMDs</li>
+      <li><a href="http://genome.ucsc.edu/cgi-bin/hgTracks?db=hg19&hubUrl=https://raw.githubusercontent.com/zwdzwd/trackHub/master/GenomeAnnotation/hub.txt"><i class="fas fa-link"></i></a> View Annotation in UCSC Genome Browser.</li>
+    </ul>
+  </div>
+  <div class="box">
+    <h3>Human <span class="badge">hg38</span></h3>
+    <ul class="dl">
+      <li><a href="https://zhouserver.research.chop.edu/GenomeAnnotation/hg38/solo_WCGW_hg38.bed.gz"><i class="fas fa-download"></i></a> Coordinates of Solo-WCGW CpGs Genomewide</li>
+      <li><a href="https://zhouserver.research.chop.edu/GenomeAnnotation/hg38/solo_WCGW_inCommonPMDs_hg38.bed.gz"><i class="fas fa-download"></i></a> Coordinates of Solo-WCGW CpGs in common PMDs</li>
+      <li><a href="https://zhouserver.research.chop.edu/GenomeAnnotation/hg38/PMD_coordinates_hg38.bed.gz"><i class="fas fa-download"></i></a> Coordinates of PMDs/HMDs and common PMDs/HMDs</li>
+      <li><a href="http://genome.ucsc.edu/cgi-bin/hgTracks?db=hg38&hubUrl=https://raw.githubusercontent.com/zwdzwd/trackHub/master/GenomeAnnotation/hub.txt"><i class="fas fa-link"></i></a> View Annotation in UCSC Genome Browser.</li>
+    </ul>
+  </div>
+  <div class="box">
+    <h3>Mouse <span class="badge">mm10</span></h3>
+    <ul class="dl">
+      <li><a href="https://zhouserver.research.chop.edu/GenomeAnnotation/mm10/solo_WCGW_mm10.bed.gz"><i class="fas fa-download"></i></a> Coordinates of Solo-WCGW CpGs Genomewide</li>
+      <li><a href="https://zhouserver.research.chop.edu/GenomeAnnotation/mm10/solo_WCGW_inCommonPMDs_mm10.bed.gz"><i class="fas fa-download"></i></a> Coordinates of Solo-WCGW in common PMDs</li>
+      <li><a href="https://zhouserver.research.chop.edu/GenomeAnnotation/mm10/PMD_coordinates_mm10.bed.gz"><i class="fas fa-download"></i></a> Coordinates of PMDs/HMDs and common PMDs/HMDs</li>
+      <li><a href="http://genome.ucsc.edu/cgi-bin/hgTracks?db=mm10&hubUrl=https://raw.githubusercontent.com/zwdzwd/trackHub/master/GenomeAnnotation/hub.txt"><i class="fas fa-link"></i></a> View Annotation in UCSC Genome Browser.</li>
+    </ul>
+  </div>
+  <div class="box">
+    <h3>Mouse <span class="badge">mm39</span></h3>
+    <ul class="dl">
+      <li><a href="https://zhouserver.research.chop.edu/GenomeAnnotation/mm39/solo_WCGW_mm39.bed.gz"><i class="fas fa-download"></i></a> Coordinates of Solo-WCGW CpGs Genomewide</li>
+    </ul>
+  </div>
+</div>
 
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-12">
-          <h3 align="center">Solo-WCGW CpGs and PMD Definitions</h3>
-        </div>
-        
-        <div class="col-sm-3">
-          <p><h3>Human <i>hg19</i></h3></p>
-          <p><a href="https://zhouserver.research.chop.edu/GenomeAnnotation/hg19/solo_WCGW_hg19.bed.gz">
-              <i class="fas fa-download"></i></a> Coordinates of Solo-WCGW CpGs Genomewide</p>
-          <p><a href="https://zhouserver.research.chop.edu/GenomeAnnotation/hg19/solo_WCGW_inCommonPMDs_hg19.bed.gz">
-              <i class="fas fa-download"></i></a> Coordinates of Solo-WCGW CpGs in common PMDs</p>
-          <p><a href="https://zhouserver.research.chop.edu/GenomeAnnotation/hg19/PMD_coordinates_hg19.bed.gz">
-              <i class="fas fa-download"></i></a> Coordinates of PMDs/HMDs and common PMDs/HMDs</p>
-          <p><a href="http://genome.ucsc.edu/cgi-bin/hgTracks?db=hg19&hubUrl=https://raw.githubusercontent.com/zwdzwd/trackHub/master/GenomeAnnotation/hub.txt"><i class="fas fa-link"></i></a> View Annotation in UCSC Genome Browser.</p>
-        </div>
-        <div class="col-sm-3">
-          <p><h3>Human <i>hg38</i></h3></p>
-          <p><a href="https://zhouserver.research.chop.edu/GenomeAnnotation/hg38/solo_WCGW_hg38.bed.gz">
-              <i class="fas fa-download"></i></a> Coordinates of Solo-WCGW CpGs Genomewide</p>
-          <p><a href="https://zhouserver.research.chop.edu/GenomeAnnotation/hg38/solo_WCGW_inCommonPMDs_hg38.bed.gz">
-              <i class="fas fa-download"></i></a> Coordinates of Solo-WCGW CpGs in common PMDs</p>
-          <p><a href="https://zhouserver.research.chop.edu/GenomeAnnotation/hg38/PMD_coordinates_hg38.bed.gz">
-              <i class="fas fa-download"></i></a> Coordinates of PMDs/HMDs and common PMDs/HMDs</p>
-          <p><a href="http://genome.ucsc.edu/cgi-bin/hgTracks?db=hg38&hubUrl=https://raw.githubusercontent.com/zwdzwd/trackHub/master/GenomeAnnotation/hub.txt"><i class="fas fa-link"></i></a> View Annotation in UCSC Genome Browser.</p>
-        </div>
-        <div class="col-sm-3">
-          <p><h3>Mouse <i>mm10</i></h3></p>
-          <p><a href="https://zhouserver.research.chop.edu/GenomeAnnotation/mm10/solo_WCGW_mm10.bed.gz">
-              <i class="fas fa-download"></i></a> Coordinates of Solo-WCGW CpGs Genomewide</p>
-          <p><a href="https://zhouserver.research.chop.edu/GenomeAnnotation/mm10/solo_WCGW_inCommonPMDs_mm10.bed.gz">
-              <i class="fas fa-download"></i></a> Coordinates of Solo-WCGW in common PMDs</p>
-          <p><a href="https://zhouserver.research.chop.edu/GenomeAnnotation/mm10/PMD_coordinates_mm10.bed.gz">
-              <i class="fas fa-download"></i></a> Coordinates of PMDs/HMDs and common PMDs/HMDs</p>
-          <p><a href="http://genome.ucsc.edu/cgi-bin/hgTracks?db=mm10&hubUrl=https://raw.githubusercontent.com/zwdzwd/trackHub/master/GenomeAnnotation/hub.txt"><i class="fas fa-link"></i></a> View Annotation in UCSC Genome Browser.</p>
-        </div>
-        <div class="col-sm-3">
-          <p><h3>Mouse <i>mm39</i></h3></p>
-          <p><a href="https://zhouserver.research.chop.edu/GenomeAnnotation/mm39/solo_WCGW_mm39.bed.gz">
-              <i class="fas fa-download"></i></a> Coordinates of Solo-WCGW CpGs Genomewide</p>
-        </div>
-      </div>
-      
-      <hr>
-      
-      <div class="row">
-        <div class="col-sm-12" style="margin-bottom:15px">
-          <h3 align="center">Infinium HumanMethylation BeadChip</h3>
-        </div>
-        <div class="col-sm-12">
-          <p><a href="https://zhouserver.research.chop.edu/InfiniumAnnotation/HM450/hm450.comPMD.probes.tsv.gz">
-              <i class="fas fa-download"></i></a> HM450 probes for Solo-WCGW CpGs in common PMDs</p>
-          <p><a href="https://zhouserver.research.chop.edu/InfiniumAnnotation/HM450/hm450.comHMD.probes.tsv.gz">
-              <i class="fas fa-download"></i></a> HM450 probes for Solo-WCGW CpGs in common HMDs</p>
-          <p><a href="https://zhouserver.research.chop.edu/InfiniumAnnotation/EPIC/EPIC.comPMD.probes.tsv.gz">
-              <i class="fas fa-download"></i></a> EPIC probes for Solo-WCGW CpGs in common PMDs</p>
-          <p><a href="https://zhouserver.research.chop.edu/InfiniumAnnotation/EPIC/EPIC.comHMD.probes.tsv.gz">
-              <i class="fas fa-download"></i></a> EPIC probes for Solo-WCGW CpGs in common HMDs</p>
-          <p><a href="https://zhouserver.research.chop.edu/InfiniumAnnotation/EPICv2/EPICv2.comPMD.probes.tsv.gz">
-              <i class="fas fa-download"></i></a> EPICv2 probes for Solo-WCGW CpGs in common PMDs</p>
-          <p><a href="https://zhouserver.research.chop.edu/InfiniumAnnotation/EPICv2/EPICv2.comHMD.probes.tsv.gz">
-              <i class="fas fa-download"></i></a> EPICv2 probes for Solo-WCGW CpGs in common HMDs</p>
-          <p><a href="https://zhouserver.research.chop.edu/papers/2018Zhou/TCGA_HM450_PMD_HMD_depths.tsv.gz">
-              <i class="fas fa-download"></i></a> All TCGA HM450 common PMD and HMD depth based on Solo-WCGW Methylation Mean</p>
-        </div>
-      </div>
-      <hr>
+<h2>Infinium HumanMethylation BeadChip</h2>
+<div class="box">
+  <ul class="dl">
+    <li><a href="https://zhouserver.research.chop.edu/InfiniumAnnotation/HM450/hm450.comPMD.probes.tsv.gz"><i class="fas fa-download"></i></a> <span class="badge">HM450</span> probes for Solo-WCGW CpGs in common PMDs</li>
+    <li><a href="https://zhouserver.research.chop.edu/InfiniumAnnotation/HM450/hm450.comHMD.probes.tsv.gz"><i class="fas fa-download"></i></a> <span class="badge">HM450</span> probes for Solo-WCGW CpGs in common HMDs</li>
+    <li><a href="https://zhouserver.research.chop.edu/InfiniumAnnotation/EPIC/EPIC.comPMD.probes.tsv.gz"><i class="fas fa-download"></i></a> <span class="badge">EPIC</span> probes for Solo-WCGW CpGs in common PMDs</li>
+    <li><a href="https://zhouserver.research.chop.edu/InfiniumAnnotation/EPIC/EPIC.comHMD.probes.tsv.gz"><i class="fas fa-download"></i></a> <span class="badge">EPIC</span> probes for Solo-WCGW CpGs in common HMDs</li>
+    <li><a href="https://zhouserver.research.chop.edu/InfiniumAnnotation/EPICv2/EPICv2.comPMD.probes.tsv.gz"><i class="fas fa-download"></i></a> <span class="badge">EPICv2</span> probes for Solo-WCGW CpGs in common PMDs</li>
+    <li><a href="https://zhouserver.research.chop.edu/InfiniumAnnotation/EPICv2/EPICv2.comHMD.probes.tsv.gz"><i class="fas fa-download"></i></a> <span class="badge">EPICv2</span> probes for Solo-WCGW CpGs in common HMDs</li>
+    <li><a href="https://zhouserver.research.chop.edu/papers/2018Zhou/TCGA_HM450_PMD_HMD_depths.tsv.gz"><i class="fas fa-download"></i></a> All TCGA HM450 common PMD and HMD depth based on Solo-WCGW Methylation Mean</li>
+  </ul>
+</div>
 
-      <div class="row">
-        <div class="col-sm-12">
-          <h3 align="center">TCGA Cancer Methylomes</h3>
-        </div>
-        
-        <div class="col-sm-6">
-          <p><h3>Human <i>hg19</i></h3></p>
-          <p>
-            <a href="http://genome.ucsc.edu/cgi-bin/hgTracks?db=hg19&hubUrl=https://raw.githubusercontent.com/zwdzwd/trackHub/master/TCGA_WGBS/hub.txt"><i class="fas fa-link"></i></a> Methylomes in UCSC Genome Browser
-          </p>
-          <p>
-            <a href="https://zwdzwd.s3.amazonaws.com/directory_listing/trackHubs_TCGA_WGBS_hg19.html"><i class="fas fa-download"></i></a> Methylation Bed Files (4th column: methylation level; 5th column: sequencing depth; 6th column: C and G before merging)</p>
-          <p>
-          <u>Note: a known naming typo/mismatch: COAD_3158/COAD_N3158 should be COAD_3518/COAD_N3518</u>
-        </div>
+<h2>TCGA Cancer Methylomes</h2>
+<div class="grid two">
+  <div class="box">
+    <h3>Human <span class="badge">hg19</span></h3>
+    <ul class="dl">
+      <li><a href="http://genome.ucsc.edu/cgi-bin/hgTracks?db=hg19&hubUrl=https://raw.githubusercontent.com/zwdzwd/trackHub/master/TCGA_WGBS/hub.txt"><i class="fas fa-link"></i></a> Methylomes in UCSC Genome Browser</li>
+      <li><a href="https://zwdzwd.s3.amazonaws.com/directory_listing/trackHubs_TCGA_WGBS_hg19.html"><i class="fas fa-download"></i></a> Methylation Bed Files (4th column: methylation level; 5th column: sequencing depth; 6th column: C and G before merging)</li>
+    </ul>
+    <div class="note">Note: a known naming typo/mismatch: COAD_3158/COAD_N3158 should be COAD_3518/COAD_N3518</div>
+  </div>
+  <div class="box">
+    <h3>Human <span class="badge">hg38</span></h3>
+    <ul class="dl">
+      <li><a href="http://genome.ucsc.edu/cgi-bin/hgTracks?db=hg38&hubUrl=https://raw.githubusercontent.com/zwdzwd/trackHub/master/TCGA_WGBS/hub.txt"><i class="fas fa-link"></i></a> Methylomes in UCSC Genome Browser</li>
+      <li><a href="https://zwdzwd.s3.amazonaws.com/directory_listing/trackHubs_TCGA_WGBS_hg38.html"><i class="fas fa-download"></i></a> Methylation Bed Files (4th column: methylation level; 5th column: sequencing depth)</li>
+      <li><a href="https://zhouserver.research.chop.edu/papers/2018Zhou/multiqc_report.html"><i class="fas fa-link"></i></a> MultiQC Reports (BISCUIT, FastQC etc).</li>
+    </ul>
+  </div>
+</div>
 
-        <div class="col-sm-6">
-          <p><h3>Human <i>hg38</i></h3></p>
-          <p>
-            <a href="http://genome.ucsc.edu/cgi-bin/hgTracks?db=hg38&hubUrl=https://raw.githubusercontent.com/zwdzwd/trackHub/master/TCGA_WGBS/hub.txt"><i class="fas fa-link"></i></a> Methylomes in UCSC Genome Browser
-          </p>
-          <p>
-            <a href="https://zwdzwd.s3.amazonaws.com/directory_listing/trackHubs_TCGA_WGBS_hg38.html"><i class="fas fa-download"></i></a> Methylation Bed Files (4th column: methylation level; 5th column: sequencing depth)</p>
-          <p>
-            <a href="https://zhouserver.research.chop.edu/papers/2018Zhou/multiqc_report.html"><i class="fas fa-link"></i></a> MultiQC Reports (BISCUIT, FastQC etc).
-          </p>
-        </div>
-        
-      </div>
-      <hr>
+<div class="feat">
+  <div class="t">Methylation in YAME MU format <span class="badge">hg38</span> &mdash; 47 samples, all CpGs with depth &ge; 1
+    <a class="doi" href="https://doi.org/10.5281/zenodo.23217816">doi:10.5281/zenodo.23217816</a></div>
+  <ul class="dl">
+    <li><a href="https://zenodo.org/records/23217816/files/20260708_TCGA_WGBS.cg?download=1"><i class="fas fa-download"></i></a> 20260708_TCGA_WGBS.cg (1.3 GB)</li>
+    <li><a href="https://zenodo.org/records/23217816/files/20260708_TCGA_WGBS.cg.idx?download=1"><i class="fas fa-download"></i></a> 20260708_TCGA_WGBS.cg.idx</li>
+    <li><a href="https://zenodo.org/records/23217816/files/20260708_TCGA_WGBS.tsv?download=1"><i class="fas fa-download"></i></a> 20260708_TCGA_WGBS.tsv (sample manifest)</li>
+  </ul>
+  <div style="margin-top:8px">Coordinates: <code>yame fetch hg38/cpg_nocontig.cr</code>. Example (M and U per CpG):</div>
+  <pre>yame subset 20260708_TCGA_WGBS.cg TCGA_BLCA_A1AG | yame unpack -f -1 -</pre>
+  <div>See <a href="https://github.com/zhou-lab/YAME">YAME</a>. COAD samples are named COAD_3518/COAD_N3518 here.</div>
+</div>
 
-      <span class="text-muted" background-color="#f5f5f5">Contact <a href="mailto:wanding.zhou@pennmedicine.upenn.edu">us</a> for questions.</span>
+<div class="foot">Contact <a href="mailto:wanding.zhou@pennmedicine.upenn.edu">us</a> for questions.</div>
 
-    </div>
-
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  </body>
+</div>
+</body>
 </html>
